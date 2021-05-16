@@ -1,0 +1,78 @@
+// Body
+// $body-bg: #f8fafc;
+
+// Typography
+// $font-family-sans-serif: 'Nunito', sans-serif;
+// $font-size-base: 0.9rem;
+// $line-height-base: 1.6;
+
+// Colors
+$white: #ffffff;
+$white2: #e1e1e1;
+$white3: #F1F1F2;
+$blue: #1F2259;
+$purple: #4245a0;
+$mustard: #A97C50;
+$mustard2: #8B5E3C;
+$mustard3: #ce8a2d;
+$lightGray: #808285;
+$gray: #7d7d7d;
+$darkGray: #414042;
+
+
+// Fonts
+@font-face {
+    font-family: "montserratbold";
+    src: url("../font/montserrat-bold_0-webfont.woff2") format("woff2"),
+        url("../font/montserrat-bold_0-webfont.woff?") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "montserratsemibold";
+    src: url("../font/montserrat-semibold-webfont.woff2") format("woff2"),
+        url("../font/montserrat-semibold-webfont.woff?") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Monserrat Regular";
+    font-style: normal;
+    font-weight: normal;
+    src: local("Monserrat regular"),
+        url("../font/Montserrat-Regular.ttf") format("ttf");
+}
+
+@font-face {
+    font-family: "Montserrat medium 2 italic";
+    src: url("../font/montserrat-mediumitalic-webfont.woff2") format("woff2"),
+        url("../font/montserrat-mediumitalic-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "montserratmedium";
+    src: url("../font/montserrat-medium-webfont.woff") format("woff2"),
+        url("../font/montserrat-medium-webfont.woff2") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Montserrat Light";
+    src: url("../font/montserrat-light-webfont.woff") format("woff2"),
+        url("../font/montserrat-light-webfont.woff2") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "montserratextralight";
+    src: url("../font/montserrat-extralight-webfont.woff") format("woff2"),
+        url("../font/montserrat-extralight-webfont.woff2") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
