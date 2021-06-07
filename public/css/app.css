@@ -278,12 +278,6 @@ header .main-navbar .nav-item .sub-nav-menu a {
   background-position: 50% 50%;
 }
 
-.home-links__inner-title span {
-  color: #A97C50;
-  font-size: 0.7em;
-  letter-spacing: 5px;
-}
-
 .home-links__inner-title h4 {
   position: absolute;
   bottom: 0;
@@ -476,26 +470,33 @@ header .main-navbar .nav-item .sub-nav-menu a {
 }
 
 .consultant__list-block:hover .consultant__list-profile {
-  top: 15rem;
+  top: 17rem;
   height: auto;
   overflow: visible;
 }
 
+.consultant__list-block:hover .consultant__list-profile h4 {
+  line-height: 0.7em;
+}
+
 .consultant__list-block:hover .consultant__list-profile span:first-child {
-  font: 1.8em "Montserrat Light";
+  font: 1em "Montserrat Light";
 }
 
 .consultant__list-block:hover .consultant__list-profile p {
   color: #555;
   text-align: justify;
-  font-size: 0.9em;
+  font-size: 0.84em;
+  line-height: 1.45em;
 }
 
 .consultant__list-img {
-  height: 250px;
+  height: 280px;
   width: 100%;
-  background-size: cover;
+  background-color: #333;
+  background-size: contain;
   background-position: center top;
+  background-repeat: no-repeat;
   border: 1px solid #e1e1e1;
   z-index: 4;
   position: relative;
@@ -504,7 +505,7 @@ header .main-navbar .nav-item .sub-nav-menu a {
 .consultant__list-profile {
   background-color: #e1e1e1;
   position: absolute;
-  top: 0rem;
+  top: 1rem;
   z-index: 6;
   width: 100%;
   height: 248px;
@@ -515,18 +516,135 @@ header .main-navbar .nav-item .sub-nav-menu a {
   overflow: hidden;
 }
 
-.projetcs .container {
+.projects {
+  position: relative;
+}
+
+.projects-bg {
+  background: linear-gradient(-63deg, #F1F1F2 0%, #F1F1F2 66.2%, transparent 0);
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: -1;
+  bottom: 0;
+  right: 0;
+}
+
+.projects .container-xl {
   margin-top: 4.8em;
 }
 
-.projetcs .container .first-lead {
+.projects .container-xl .first-lead {
   text-align: justify;
   font-size: 15px;
   color: #414042;
+  margin-bottom: 6em;
+}
+
+.projects .container-xl .nuevo-headers {
+  font-size: 9px;
+}
+
+.projects .container-xl .nuevo-headers h5 {
+  margin-bottom: 5px;
+}
+
+.projects .container-xl .nuevo-headers p {
+  margin-bottom: 0.75rem;
+}
+
+.projects .container-xl .nuevo .col {
+  font-family: "montserratmedium";
+}
+
+.projects .container-xl .nuevo .col h5 small {
+  font-size: 0.65rem;
+}
+
+.projects .container-xl .nuevo .col p {
+  color: #414042;
+}
+
+.projects .container-xl .nuevo-location {
+  text-transform: uppercase;
+  font-size: 9px;
+  letter-spacing: 0.03em;
+}
+
+.projects .container-xl .nuevo-price {
+  font-size: 13px;
+  letter-spacing: 0.05em;
+}
+
+.projects .home-links {
+  background-image: url(/images/bg_Alferza_alt.png?262298eeaa5c1f1e3f1ce57fc3a7c9cb);
+}
+
+.projects .home-links__box {
+  width: 128px;
+}
+
+.projects .home-links__box:hover {
+  width: 152px;
+}
+
+.projects .testimonios h2 {
+  font-family: montserratbold;
+  font-size: 1.45em;
+}
+
+.projects .testimonios h2:first-child {
+  letter-spacing: 7px;
+}
+
+.projects .testimonios h2:last-child {
+  color: #6D6E71;
+}
+
+.projects .testimonios h2:last-child strong {
+  color: #1F2259;
+}
+
+.projects .testimonios hr {
+  background-color: #ffffff;
+  height: 3px;
+  opacity: 1;
+}
+
+.projects .testimonios-list {
+  padding-bottom: 5em;
+}
+
+.projects .testimonios-item {
+  padding: 15px 25px;
+  background-color: #ffffff;
+}
+
+.projects .testimonios-item h5 {
+  font: 15px montserratsemibold;
+  margin-bottom: 2px;
+}
+
+.projects .testimonios-item span {
+  font: 15px montserratmedium;
+}
+
+.projects .testimonios-item p {
+  color: #414042;
+  font: 15px/24px montserratmedium;
+}
+
+.projects .testimonios-item__separator {
+  position: absolute;
+  width: 100px;
+  height: 4px;
+  background-color: #1B1C45;
+  transform: rotate3d(1, 3, 8, 117deg);
+  top: 23px;
+  right: -15px;
 }
 
 .detail-project__description h5 {
-  background-color: #3d453b;
   color: #ffffff;
   font: 18px/20px montserratbold;
 }
@@ -535,6 +653,7 @@ header .main-navbar .nav-item .sub-nav-menu a {
   font-size: 15px;
   color: #414042;
   line-height: 24px;
+  margin-top: 1.5rem;
 }
 
 .detail-project__description .table-description {
@@ -567,12 +686,17 @@ header .main-navbar .nav-item .sub-nav-menu a {
 }
 
 .detail-project__description .table-description .bg-left {
-  background: url(/images/imagen_izquierda.png?1f49482b810ae1eadcd4d35585690efa) no-repeat left 0px;
+  background-repeat: no-repeat;
+  background-position: left 0px;
   top: 0;
   height: 100%;
   width: 134px;
   left: 0;
   background-size: contain;
+}
+
+.detail-project__gallery {
+  border-bottom: 1px solid #e6e7e8;
 }
 
 .detail-project__gallery .images {
@@ -600,10 +724,6 @@ header .main-navbar .nav-item .sub-nav-menu a {
   height: 34px;
 }
 
-.detail-project__gallery .benefits {
-  color: #ce8a2d;
-}
-
 .detail-project__gallery .benefits-block {
   display: flex;
   flex-direction: column;
@@ -611,8 +731,8 @@ header .main-navbar .nav-item .sub-nav-menu a {
   align-items: center;
 }
 
-.detail-project__gallery .benefits-block span {
-  font: 14px montserratmedium;
+.detail-project__gallery .benefits-title {
+  font: 12px montserratmedium;
   color: #414042;
   text-transform: uppercase;
   text-align: center;
@@ -620,7 +740,6 @@ header .main-navbar .nav-item .sub-nav-menu a {
 
 .detail-project__apartment-plans {
   border-bottom: 1px solid #e6e7e8;
-  border-top: 1px solid #e6e7e8;
 }
 
 .detail-project__apartment-plans .carousel-indicators {
@@ -692,10 +811,50 @@ header .main-navbar .nav-item .sub-nav-menu a {
   color: #414042;
 }
 
+.detail-project.preventa .detail-project__description h5 {
+  background-color: #003846;
+}
+
+.detail-project.preventa .detail-project__description .table-description .bg-left {
+  background-image: url(/images/imagen_izquierda_preventa.png?8d1b022a5ec9696f69a1bc0ca06acc0b);
+}
+
+.detail-project.preventa .detail-project__gallery .benefits {
+  color: #C5B696;
+}
+
+.detail-project.entregado .detail-project__description h5 {
+  background-color: #809E47;
+}
+
+.detail-project.entregado .detail-project__description .table-description .bg-left {
+  background-image: url(/images/imagen_izquierda_entregado.png?1dcf314bf9c56c57d7fd7ec3ddf4b990);
+}
+
+.detail-project.entregado .detail-project__gallery .benefits {
+  color: #809E47;
+}
+
+.detail-project.entregado .detail-project__sponsor .alferza-btn {
+  background-color: #809E47;
+}
+
+.detail-project.construccion .detail-project__description h5 {
+  background-color: #3d453b;
+}
+
+.detail-project.construccion .detail-project__description .table-description .bg-left {
+  background-image: url(/images/imagen_izquierda.png?1f49482b810ae1eadcd4d35585690efa);
+}
+
+.detail-project.construccion .detail-project__gallery .benefits {
+  color: #ce8a2d;
+}
+
 .alferza-btn {
   padding-left: 2rem;
   padding-right: 2rem;
-  background-color: #1F2259;
+  background-color: #003846;
   color: #ffffff;
   border-color: transparent;
   font: 1.1em montserratmedium;
@@ -717,19 +876,86 @@ header .main-navbar .nav-item .sub-nav-menu a {
   letter-spacing: 4px;
 }
 
-footer {
-  padding-top: 1.3em;
-  padding-bottom: 2.3em;
-  color: #1F2259;
+#footer-widgets {
+  background: url(/images/footer-bg.jpeg?5096605a1b06d50e50df40aca726e732) no-repeat center center/cover;
+  color: #999;
+  font: 14px "Montserrat Light";
 }
 
-footer address {
-  font: 0.71em montserratbold;
-}
-
-footer .brands-socials .brand-icon {
-  padding: 0 6px;
+#footer-widgets i {
   color: #ffffff;
+}
+
+#footer-widgets a {
+  color: #aaa;
+}
+
+#footer-widgets a:hover {
+  opacity: 0.8;
+}
+
+#footer-widgets .overlay {
+  background-color: rgba(41, 51, 61, 0.95);
+}
+
+#footer-widgets .menu-footer li {
+  display: inline-block;
+  border-bottom: #777 1px solid;
+  padding: 9px 15px;
+}
+
+#footer-widgets .menu-footer li a {
+  text-decoration: none;
+}
+
+#footer-widgets .menu-footer li:last-child {
+  border-bottom: none;
+}
+
+#footer-widgets .brands-socials h5 {
+  color: #ffffff;
+  font-size: 1.1rem;
+}
+
+#footer-widgets .brands-socials li {
+  border-radius: 3px;
+}
+
+#footer-widgets .brands-socials li a {
+  display: inline-block;
+  min-width: 40px;
+  line-height: 28px;
+  padding: 5px 10px;
+  color: #ffffff;
+}
+
+#footer-widgets .brands-socials li a:hover {
+  opacity: 0.7;
+}
+
+#footer-widgets .brands-socials .facebook {
+  background-color: #3b5998;
+}
+
+#footer-widgets .brands-socials .instagram {
+  background-color: #517fa4;
+}
+
+footer {
+  padding-top: 15px;
+  padding-bottom: 25px;
+  color: #878c92;
+  background-color: #1a2229;
+  font: 13px montserratmedium;
+}
+
+footer a {
+  color: #878c92;
+}
+
+footer a:hover {
+  color: #3b4d5d;
+  opacity: 0.8;
 }
 
 footer .footer-alferza {
@@ -739,15 +965,25 @@ footer .footer-alferza {
   padding-top: 7px;
 }
 
+a {
+  transition: all 0.3s ease;
+}
+
 .custom-icon {
   background-color: #1F2259;
-  width: 25px;
-  height: 25px;
+  width: 1.55rem;
+  height: 1.55rem;
   display: inline-block;
   text-align: center;
   line-height: 1.5em;
   font-size: 1rem;
   color: #ffffff;
+}
+
+.custom-icon-sm {
+  width: 1.1rem;
+  height: 1.1rem;
+  font-size: 0.7rem;
 }
 
 @media screen and (max-width: 1199px) {
@@ -793,9 +1029,17 @@ footer .footer-alferza {
     font-size: 1em;
     margin-top: 1rem;
   }
+
+  .logo-footer {
+    height: 80px;
+  }
 }
 
 @media screen and (max-width: 767px) {
+  .navbar-toggler {
+    margin-left: auto;
+  }
+
   .bot-xs {
     border-top: 4px solid #ffffff;
   }
@@ -812,7 +1056,7 @@ footer .footer-alferza {
 
 @media screen and (max-width: 575px) {
   header .main-logo {
-    height: 54px;
+    height: 58px;
   }
 
   header .img-portada-2 {
@@ -860,8 +1104,8 @@ footer .footer-alferza {
     font-size: 4rem;
   }
 
-  footer address {
-    margin-left: 0;
+  .projects .testimonios h2 {
+    font-size: 1.15em;
   }
 }
 

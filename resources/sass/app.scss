@@ -233,19 +233,12 @@ header {
                 color: $blue;
 
                 h3 {
-                    // font-size: 1.5em;
-                    // line-height: 1em;
                     width: 155px;
                     height: 35px;
                     margin-right: 11px;
                     background-size: contain;
                     background-repeat: no-repeat;
                     background-position: 50% 50%;
-                }
-                span {
-                    color: $mustard;
-                    font-size: 0.7em;
-                    letter-spacing: 5px;
                 }
                 h4 {
                     position: absolute;
@@ -429,36 +422,44 @@ header {
                 z-index: 3;
 
                 .consultant__list-profile {
-                    top: 15rem;
+                    top: 17rem;
                     height: auto;
                     overflow: visible;
 
+                    h4 {
+                        line-height: .7em;
+                    }
+
                     span:first-child {
-                        font: 1.8em "Montserrat Light";
+                        font: 1em "Montserrat Light";
                     }
 
                     p {
                         color: #555;
                         text-align: justify;
-                        font-size: 0.9em;
+                        font-size: 0.84em;
+                        line-height: 1.45em;
                     }
                 }
             }
         }
 
         &-img {
-            height: 250px;
+            height: 280px;
             width: 100%;
-            background-size: cover;
+            background-color: #333;
+            background-size: contain;
             background-position: center top;
+            background-repeat: no-repeat;
             border: 1px solid $white2;
             z-index: 4;
             position: relative;
         }
+
         &-profile {
             background-color: $white2;
             position: absolute;
-            top: 0rem;
+            top: 1rem;
             z-index: 6;
             width: 100%;
             height: 248px;
@@ -471,14 +472,126 @@ header {
     }
 }
 
-.projetcs {
-    .container {
+.projects {
+    position: relative;
+
+    &-bg {
+        background: linear-gradient(-63deg, $white3 0%, $white3 66.2%, transparent 0);
+        top: 0;
+        left: 0;
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        right: 0;
+    }
+
+    .container-xl {
         margin-top: 4.8em;
 
         .first-lead {
             text-align: justify;
             font-size: 15px;
             color: $darkGray;
+            margin-bottom: 6em;
+        }
+
+        .nuevo {
+            &-headers {
+                font-size: 9px;
+
+                h5 {
+                    margin-bottom: 5px;
+                }
+                p {
+                    margin-bottom: .75rem;
+                }
+            }
+            .col {
+                font-family: 'montserratmedium';
+
+                h5 {
+                    small {
+                        font-size: .65rem;
+                    }
+                }
+                p {
+                    color: $darkGray;
+                }
+            }
+            &-location {
+                text-transform: uppercase;
+                font-size: 9px;
+                letter-spacing: .03em;
+            }
+            &-price {
+                font-size: 13px;
+                letter-spacing: .05em;
+            }
+        }
+
+    }
+
+    .home-links {
+        background-image: url(../img/bg_Alferza_alt.png);
+    }
+    .home-links__box {
+        width: 128px;
+        &:hover {
+            width: 152px;
+        }
+    }
+
+    .testimonios {
+        h2 {
+            font-family: montserratbold;
+            font-size: 1.45em;
+
+            &:first-child {
+                letter-spacing: 7px;
+            }
+            &:last-child {
+                color: #6D6E71;
+
+                strong {
+                    color: $blue;
+                }
+            }
+        }
+        hr {
+            background-color: $white;
+            height: 3px;
+            opacity: 1;
+        }
+
+        &-list {
+            padding-bottom: 5em;
+        }
+
+        &-item {
+            padding: 15px 25px;
+            background-color: $white;
+
+            h5 {
+                font: 15px montserratsemibold;
+                margin-bottom: 2px;
+            }
+            span {
+                font: 15px montserratmedium;
+            }
+            p {
+                color: $darkGray;
+                font: 15px/24px montserratmedium;
+            }
+
+            &__separator {
+                position: absolute;
+                width: 100px;
+                height: 4px;
+                background-color: #1B1C45;
+                transform: rotate3d(1, 3, 8, 117deg);
+                top: 23px;
+                right: -15px;
+            }
         }
     }
 }
@@ -486,7 +599,6 @@ header {
 .detail-project {
     &__description {
         h5 {
-            background-color: #3d453b;
             color: $white;
             font: 18px/20px montserratbold;
         }
@@ -495,6 +607,7 @@ header {
             font-size: 15px;
             color: $darkGray;
             line-height: 24px;
+            margin-top: 1.5rem;
         }
 
         .table-description {
@@ -522,7 +635,8 @@ header {
                 background-size: contain;
             }
             .bg-left {
-                background: url("../img/imagen_izquierda.png") no-repeat left 0px;
+                background-repeat: no-repeat;
+                background-position: left 0px;
                 top: 0;
                 height: 100%;
                 width: 134px;
@@ -533,6 +647,8 @@ header {
     }
 
     &__gallery {
+        border-bottom: 1px solid #e6e7e8;
+
         .images {
             height: 700px;
         }
@@ -557,27 +673,25 @@ header {
         }
 
         .benefits {
-            color: $mustard3;
-
             &-block {
                 display: flex;
                 flex-direction: column;
                 height: 68px;
                 align-items: center;
 
-                span {
-                    font: 14px montserratmedium;
-                    color: $darkGray;
-                    text-transform: uppercase;
-                    text-align: center;
-                }
+            }
+
+            &-title {
+                font: 12px montserratmedium;
+                color: $darkGray;
+                text-transform: uppercase;
+                text-align: center;
             }
         }
     }
 
     &__apartment-plans {
         border-bottom: 1px solid #e6e7e8;
-        border-top: 1px solid #e6e7e8;
 
         .carousel-indicators {
             margin-bottom: 0;
@@ -645,12 +759,69 @@ header {
             color: $darkGray;
         }
     }
+
+    &.preventa {
+        .detail-project__description {
+            h5 {
+                background-color: $blue2;
+            }
+            .table-description {
+                .bg-left {
+                    background-image: url("../img/imagen_izquierda_preventa.png");
+                }
+            }
+        }
+        .detail-project__gallery {
+            .benefits {
+                color: #C5B696;
+            }
+        }
+    }
+    &.entregado {
+        .detail-project__description {
+            h5 {
+                background-color: $green;
+            }
+            .table-description {
+                .bg-left {
+                    background-image: url("../img/imagen_izquierda_entregado.png");
+                }
+            }
+        }
+        .detail-project__gallery {
+            .benefits {
+                color: $green;
+            }
+        }
+        .detail-project__sponsor {
+            .alferza-btn {
+                background-color: $green;
+            }
+        }
+    }
+    &.construccion {
+        .detail-project__description {
+            h5 {
+                background-color: #3d453b;
+            }
+            .table-description {
+                .bg-left {
+                    background-image: url("../img/imagen_izquierda.png");
+                }
+            }
+        }
+        .detail-project__gallery {
+            .benefits {
+                color: $mustard3;
+            }
+        }
+    }
 }
 
 .alferza-btn {
     padding-left: 2rem;
     padding-right: 2rem;
-    background-color: $blue;
+    background-color: $blue2;
     color: $white;
     border-color: transparent;
     font: 1.1em montserratmedium;
@@ -671,18 +842,84 @@ header {
     letter-spacing: 4px;
 }
 
-footer {
-    padding-top: 1.3em;
-    padding-bottom: 2.3em;
-    color: $blue;
+#footer-widgets {
+    background: url(../img/footer-bg.jpeg) no-repeat center center / cover;
+    color: #999;
+    font: 14px 'Montserrat Light';
 
-    address {
-        font: 0.71em montserratbold;
+    i {
+        color: $white;
     }
+
+    a {
+        color: #aaa;
+        &:hover {
+            opacity: .8;
+        }
+    }
+
+    .overlay {
+        background-color: rgba(41,51,61,.95);
+    }
+
+    .menu-footer {
+        li {
+            display: inline-block;
+            border-bottom: #777 1px solid;
+            padding: 9px 15px;
+
+            a {
+                text-decoration: none;
+            }
+
+            &:last-child {
+                border-bottom: none;
+            }
+        }
+    }
+
     .brands-socials {
-        .brand-icon {
-            padding: 0 6px;
+        h5 {
             color: $white;
+            font-size: 1.1rem;
+        }
+        li {
+            border-radius: 3px;
+
+            a {
+                display: inline-block;
+                min-width: 40px;
+                line-height: 28px;
+                padding: 5px 10px;
+                color: $white;
+
+                &:hover {
+                    opacity: .7;
+                }
+            }
+        }
+        .facebook {
+            background-color: #3b5998;
+        }
+        .instagram {
+            background-color: #517fa4;
+        }
+    }
+}
+
+footer {
+    padding-top: 15px;
+    padding-bottom: 25px;
+    color: #878c92;
+    background-color: #1a2229;
+    font: 13px montserratmedium;
+
+    a {
+        color: #878c92;
+
+        &:hover {
+            color: #3b4d5d;
+            opacity: .8;
         }
     }
 
@@ -693,15 +930,26 @@ footer {
         padding-top: 7px;
     }
 }
+a {
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
 .custom-icon {
     background-color: $blue;
-    width: 25px;
-    height: 25px;
+    width: 1.55rem;
+    height: 1.55rem;
     display: inline-block;
     text-align: center;
     line-height: 1.5em;
     font-size: 1rem;
     color: $white;
+
+    &-sm {
+        width: 1.1rem;
+        height: 1.1rem;
+        font-size: .7rem;
+    }
 }
 
 @media screen and (max-width: 1199px) {
@@ -747,9 +995,17 @@ footer {
         font-size: 1em;
         margin-top: 1rem;
     }
+
+    .logo-footer {
+        height: 80px;
+    }
 }
 
 @media screen and (max-width: 767px) {
+    .navbar-toggler {
+        margin-left: auto;
+    }
+
     .bot-xs {
         border-top: 4px solid $white;
     }
@@ -767,7 +1023,7 @@ footer {
 @media screen and (max-width: 575px) {
     header {
         .main-logo {
-            height: 54px;
+            height: 58px;
         }
         .img-portada-2 {
             width: auto;
@@ -814,7 +1070,7 @@ footer {
         }
     }
 
-    footer address {
-        margin-left: 0;
+    .projects .testimonios h2 {
+        font-size: 1.15em;
     }
 }

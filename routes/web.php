@@ -16,10 +16,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/proyecto/{project:url_slug}', 'WelcomeController@detailProject')->name('detail-project');
 
-Route::view('trabaja-con-nosotros', 'work_with_us')->name('workWithUs');
-Route::view('nosotros', 'about_us')->name('about');
-Route::view('nuestros-asesores', 'consultants')->name('consultants');
-Route::view('proyectos', 'projects')->name('projects');
+Route::get('trabaja-con-nosotros', 'WelcomeController@workUs')->name('workWithUs');
+Route::get('nosotros', 'WelcomeController@aboutUs')->name('about');
+Route::get('nuestros-asesores', 'WelcomeController@consultants')->name('consultants');
+Route::get('proyectos', 'WelcomeController@projects')->name('projects');
 
 Auth::routes();
 

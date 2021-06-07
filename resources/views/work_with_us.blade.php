@@ -1,5 +1,7 @@
 @extends('layouts.masterpage')
 
+@section('title', 'Trabaja con nosotros')
+
 @section('body')
 <div class="work-us">
     <img src="images/banner_trabaja_con_nosotros.jpg" alt="Imagen Trabaja con nosotros" class="d-block w-100">
@@ -50,12 +52,12 @@
                 </div>
                 <div class="accordion-item">
                   <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button collapsed text-center flex-column marketing" type="button" data-bs-toggle="collapse" data-bs-target="#marketing" aria-expanded="false" aria-controls="marketing">
+                    <button class="accordion-button text-center flex-column marketing" type="button" data-bs-toggle="collapse" data-bs-target="#marketing" aria-expanded="false" aria-controls="marketing">
                         <span>Gestión</span>
                         <span>COMERCIAL Y MARKETING</span>
                     </button>
                   </h2>
-                  <div id="marketing" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionWorkUs">
+                  <div id="marketing" class="accordion-collapse collapse show" aria-labelledby="flush-headingThree" data-bs-parent="#accordionWorkUs">
                     <div class="accordion-body marketing">
                         <div class="container">
                             <div class="col col-lg-9 mx-auto pb-5">
@@ -143,12 +145,24 @@
                                         <input type="text" class="form-control form-control-sm" id="nombre" name="nombre" minlength="2">
                                     </div>
                                     <div class="mb-3">
-                                        <label class="fw-bold label" for="telefono">Teléfono:</label>
-                                        <input type="tel" class="form-control form-control-sm" id="telefono" name="telefono" minlength="7" maxlength="15">
+                                        <div class="row">
+                                            <div class="col">
+                                                <label class="fw-bold label" for="telefono">Teléfono:</label>
+                                                <input type="tel" class="form-control form-control-sm" id="telefono" name="telefono" minlength="7" maxlength="15">
+                                            </div>
+                                            <div class="col">
+                                                <label class="fw-bold label" for="correo">Correo electrónico:</label>
+                                                <input type="mail" class="form-control form-control-sm" id="correo" name="correo" minlength="4">
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="fw-bold label" for="correo">Correo electrónico:</label>
-                                        <input type="mail" class="form-control form-control-sm" id="correo" name="correo" minlength="4">
+                                        <label for="area-interes" class="fw-bold label">Área de Interés</label>
+                                        <input type="text" class="form-control form-control-sm" id="area-interes" name="area-interes" minlength="2">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="rubro" class="fw-bold label">¿Porqué te apasiona el rubro?</label>
+                                        <input type="text" class="form-control form-control-sm" id="rubro" name="rubro" minlength="2">
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-check">
@@ -162,10 +176,8 @@
                                         <button class="btn btn-primary alferza-btn">Enviar</button>
                                     </div>
                                 </div>
-                                <div class="col-md-5 ps-md-5 text-center text-sm-start">
-                                    <a href="#" class="btn btn-warning m-2 mt-4 alferza-btn type-2">Descargar Brochure</a>
-                                    <a href="#" class="btn btn-warning m-2 mt-3 alferza-btn type-2">Contactar un asesor</a>
-                                    <img src="images/logo-alferza.png" alt="Logo Alferza" class="img-fluid mt-5 d-none d-sm-block" style="height: 65px">
+                                <div class="col-md-5 ps-md-5 text-center text-sm-start d-flex align-items-center">
+                                    <img src="images/logo-alferza.png" alt="Logo Alferza" class="img-fluid d-none d-sm-block" style="height: 65px">
                                 </div>
                             </div>
                         </form>

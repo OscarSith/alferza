@@ -14,7 +14,7 @@ class AddBenefitsToProject extends Migration
     public function up()
     {
         Schema::table('benefits', function (Blueprint $table) {
-            $table->foreign('project_id')->references('id')->on('benefits');
+            $table->foreign('project_id')->references('id')->on('projects');
         });
     }
 

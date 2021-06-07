@@ -159,7 +159,7 @@ class ProjectSeeder extends Seeder
                                         3 pisos
                                     </p>',
                 'build_status' => 'ENTREGADO',
-                'main_picture' => 'banner_proyecto_1.jpg',
+                'main_picture' => 'banner_proyecto_aurora.jpg',
                 'brochure' => '',
                 'google_map' => 'maps.jpg',
                 'financing' => null,
@@ -202,7 +202,7 @@ class ProjectSeeder extends Seeder
             [
                 'name' => 'La Recoleta',
                 'url_slug' => Str::slug('La Recoleta'),
-                'logo_picture' => 'logo_emmel_II.png',
+                'logo_picture' => 'logo_recoleta.png',
                 'mini_logo_picture' => 'img_la_recoleta.png',
                 'mini_picture' => 'proyecto_7.jpg',
                 'description' => '<p>Vive rodeado de sus calles tradicionales en un distrito que ofrece multitud de servicios como: tiendas, restaurantes, bancos, universidades, supermercados, clínicas, hospitales y más. A tan solo 4 cuadras de la Plaza de Armas y de una red de transporte las 24H. <br>
@@ -223,7 +223,7 @@ class ProjectSeeder extends Seeder
                                         B·C x pisos
                                     </p>',
                 'build_status' => 'PREVENTA',
-                'main_picture' => 'banner_proyecto_1.jpg',
+                'main_picture' => 'banner_proyecto_recoleta.jpg',
                 'brochure' => '',
                 'google_map' => 'maps.jpg',
                 'financing' => 'interbank_sponsor.jpg',

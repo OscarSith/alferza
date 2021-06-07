@@ -1,5 +1,7 @@
 @extends('layouts.masterpage')
 
+@section('title', 'Nosotros')
+
 @section('body')
 <div class="about-us">
     <img src="images/banner_nosotros.jpg" class="d-block w-100" alt="Nosotros alferza">

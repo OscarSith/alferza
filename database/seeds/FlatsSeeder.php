@@ -144,6 +144,16 @@ class FlatsSeeder extends Seeder
                 'bath' => '3',
                 'size_meters' => '153.80',
             ],
+
+            [
+                'project_id' => 7,
+                'name' => 'Tipo 1',
+                'picture' => 'plano_recoleta_1.jpg',
+                'typology' => '1',
+                'room' => '1',
+                'bath' => '1',
+                'size_meters' => '32.59',
+            ]
         ];
 
         foreach ($flats as $flat) {
