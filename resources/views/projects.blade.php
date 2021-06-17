@@ -3,10 +3,10 @@
 @section('title', 'Proyectos')
 
 @section('body')
-<link rel="stylesheet" href="css/splide-core.min.css">
+<link rel="stylesheet" href="{{ asset('css/splide-core.min.css') }}">
 <div class="projects">
     <div class="projects-bg"></div>
-    <img src="images/banner_proyectos.jpg" alt="Imagen Proyectos Alferza" class="d-block w-100">
+    <img src="{{ asset('images/banner_proyectos.jpg') }}" alt="Imagen Proyectos Alferza" class="d-block w-100">
     <div class="container-xl">
         <h1 class="text-center main-title">PROYECTOS</h1>
         <div class="col-11 col-lg-8 mx-auto">
@@ -22,9 +22,9 @@
                 <div class="home-links__box">
                     <a href="{{ route('detail-project', $project->url_slug) }}" id="project_{{ $project->id }}">
                         <div class="home-links__inner">
-                            <img src="images/proyectos/{{ $project->mini_picture }}" class="img-fluid" alt="{{ $project->name }}">
+                            <img src="{{ asset('images/proyectos/' . $project->mini_picture) }}" class="img-fluid" alt="{{ $project->name }}">
                             <div class="text-center home-links__inner-title">
-                                <h3 class="mb-0" style="background-image: url('images/proyectos/{{ $project->mini_logo_picture }}')"></h3>
+                                <h3 class="mb-0" style="background-image: url({{ asset('images/proyectos/' . $project->mini_logo_picture) }})"></h3>
                                 <h4 class="mb-0 first-item">
                                     {{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}
                                 </h4>
@@ -40,9 +40,17 @@
                         <span class="fs-2">&nbsp;</span>
                     </h5>
                     <p class="ms-2">UBICACIÓN</p>
-                    <p class="ms-3">AREA CONSTRUIDA</p>
-                    <p class="ms-4">COSTO DEL PROYECTO</p>
+                    {{-- <p class="ms-3">AREA CONSTRUIDA</p>
+                    <p class="ms-4">COSTO DEL PROYECTO</p> --}}
                 </div>
+                @php
+                    $total = $projects->count();
+                @endphp
+                @if ($total < 7)
+                    @for ($i = 0; $i < (6 - $total); $i++)
+                        <div class="col"></div>
+                    @endfor
+                @endif
                 @foreach ($projects as $project)
                     <div class="col">
                         <h5 class="mb-1">
@@ -50,8 +58,8 @@
                             <small>{{ $project->build_type }}</small>
                         </h5>
                         <p class="mb-1 ms-2 nuevo-location">{{ $project->location }}</p>
-                        <p class="mb-1 ms-3">{{ number_format($project->build_area, 0) }} m<sup>2</sup></p>
-                        <p class="ms-4 nuevo-price">US${{ number_format($project->build_price, 2) }}</p>
+                        {{-- <p class="mb-1 ms-3">{{ number_format($project->build_area, 0) }} m<sup>2</sup></p>
+                        <p class="ms-4 nuevo-price">US${{ number_format($project->build_price, 2) }}</p> --}}
                     </div>
                 @endforeach
                 <div style="width: 96px" class="d-none d-xl-block"></div>
@@ -61,9 +69,9 @@
                     <ul class="splide__list">
                         @foreach ($projects as $project)
                             <li class="splide__slide">
-                                <img src="images/proyectos/{{ $project->mini_picture }}" class="img-fluid" alt="{{ $project->name }}">
+                                <img src="{{ asset('images/proyectos/' . $project->mini_picture) }}" class="img-fluid" alt="{{ $project->name }}">
                                 <div class="text-center home-links__inner-title d-block">
-                                    <h3 class="mb-0 w-75 mx-auto pt-3" style="background-image: url('images/proyectos/{{ $project->mini_logo_picture }}')"></h3>
+                                    <h3 class="mb-0 w-75 mx-auto pt-3" style="background-image: url({{ asset('images/proyectos/' . $project->mini_logo_picture) }}')"></h3>
                                     <h4 class="mb-0 position-static">{{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}</h4>
                                 </div>
                             </li>
@@ -108,22 +116,12 @@
                             <p class="mb-0">"El departamento es muy bonito, cuenta con mucha iluminación natural  y una vista espectacular, además de tener una muy buena ubicación"</p>
                         </div>
                     </div>
-                    <div class="row mb-3 testimonios-item">
-                        <div class="col-12 col-md-4 mb-3 mb-md-0 position-relative">
-                            <h5>SR. FRANCO JIMENEZ</h5>
-                            <span>Propietario residencial aurora</span>
-                            <div class="d-none d-lg-block testimonios-item__separator"></div>
-                        </div>
-                        <div class="col-12 col-md-8">
-                            <p class="mb-0">“Me gusta mucho el diseño de la casa, los acabados son de primera y elegantes. ALFERZA tiene un equipo de trabajo muy proactivo y capacitado"</p>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
     </div>
 </div>
-<script src="js/splide.min.js"></script>
+<script src="{{ asset('js/splide.min.js') }}"></script>
 <script>
 document.addEventListener( 'DOMContentLoaded', function () {
 	new Splide( '.splide', {

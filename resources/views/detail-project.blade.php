@@ -41,21 +41,21 @@
                             <div class="col-12 col-md-8 col-lg-7">
                                 <div class="row">
                                     <div class="col-6 col-md-4 bot-xs">
-                                        <div class="pt-3 pb-3 ps-2 ps-md-0 d-flex">
-                                            <i class="fas fa-ruler-combined fa-fw fa-2x me-2"></i>
-                                            <span class="align-self-center">{{ number_format($project->meters, 2) }} m<sup>2</sup></span>
+                                        <div class="pt-3 pb-3 ps-2 ps-md-0 d-flex h-100 align-items-center">
+                                            <strong class="fw-bold d-inline-block me-2">Tipología:</strong>
+                                            <span>{{ $project->typologies }}</span>
                                         </div>
                                     </div>
-                                    <div class="col-6 col-md-3 borl bot-xs">
+                                    <div class="col-6 col-md-4 borl bot-xs">
                                         <div class="pt-3 pb-3 d-flex">
-                                            <i class="far fa-calendar-check fa-fw fa-2x me-2"></i>
-                                            <span class="align-self-center" style="white-space: nowrap">{{ $project->build_time_months }} MESES</span>
+                                            <i class="fas fa-bed fa-fw fa-2x me-2"></i>
+                                            <span class="align-self-center" style="white-space: nowrap">{{ $project->rooms }} Dormitorios</span>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-md-5 bot-xs">
+                                    <div class="col-12 col-md-4 bot-xs">
                                         <div class="pt-3 pb-3 ps-2 ps-md-0 d-flex">
-                                            <i class="fas fa-tag fa-fw fa-2x me-2"></i>
-                                            <span class="align-self-center" style="white-space: nowrap">US$ {{ number_format($project->build_price, 2) }} </span>
+                                            <i class="fas fa-bath fa-fw fa-2x me-2"></i>
+                                            <span class="align-self-center" style="white-space: nowrap">{{ $project->baths }} Baños</span>
                                         </div>
                                     </div>
                                 </div>

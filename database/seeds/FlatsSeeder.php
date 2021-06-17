@@ -153,6 +153,34 @@ class FlatsSeeder extends Seeder
                 'room' => '1',
                 'bath' => '1',
                 'size_meters' => '32.59',
+            ],
+
+            [
+                'project_id' => 8,
+                'name' => 'Dep A - 309',
+                'picture' => 'plano_castilla_01.jpg',
+                'typology' => '1',
+                'room' => '3',
+                'bath' => '2',
+                'size_meters' => '',
+            ],
+            [
+                'project_id' => 8,
+                'name' => 'Dep A - 503',
+                'picture' => 'plano_castilla_02.jpg',
+                'typology' => '1',
+                'room' => '3',
+                'bath' => '2',
+                'size_meters' => '',
+            ],
+            [
+                'project_id' => 8,
+                'name' => 'Dep A - 505',
+                'picture' => 'plano_castilla_03.jpg',
+                'typology' => '1',
+                'room' => '1',
+                'bath' => '1',
+                'size_meters' => '',
             ]
         ];
 

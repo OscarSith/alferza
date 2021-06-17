@@ -19,7 +19,12 @@ Route::get('/proyecto/{project:url_slug}', 'WelcomeController@detailProject')->n
 Route::get('trabaja-con-nosotros', 'WelcomeController@workUs')->name('workWithUs');
 Route::get('nosotros', 'WelcomeController@aboutUs')->name('about');
 Route::get('nuestros-asesores', 'WelcomeController@consultants')->name('consultants');
-Route::get('proyectos', 'WelcomeController@projects')->name('projects');
+Route::get('proyectos/{status?}', 'WelcomeController@projects')->name('projects');
+Route::get('calculadora', 'WelcomeController@calculator')->name('calculator');
+Route::post('calculadora', 'WelcomeController@calculator')->name('calculatorPost');
+Route::get('invierte', 'WelcomeController@invierte')->name('invierte');
+Route::get('blog', 'WelcomeController@blog')->name('blog');
+Route::get('blog/{blog:url_slug}', 'WelcomeController@blogDetail')->name('blogDetail');
 
 Auth::routes();
 

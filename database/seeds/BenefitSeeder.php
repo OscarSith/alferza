@@ -242,6 +242,27 @@ class BenefitSeeder extends Seeder
                 'icon' => 'fas fa-shower',
                 'icon2' => 'fas fa-dog',
             ],
+
+            [
+                'project_id' => 8,
+                'name' => 'HALL DE INGRESO',
+                'icon' => 'fas fa-walking',
+            ],
+            [
+                'project_id' => 8,
+                'name' => 'SEGURIDAD',
+                'icon' => 'fas fa-shield-alt',
+            ],
+            [
+                'project_id' => 8,
+                'name' => 'JUEGOS INFANTILES',
+                'icon' => 'fas fa-child',
+            ],
+            [
+                'project_id' => 8,
+                'name' => 'COCHERA',
+                'icon' => 'fas fa-parking',
+            ],
         ];
 
         foreach ($benefits as $benefit) {

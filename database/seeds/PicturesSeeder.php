@@ -188,6 +188,32 @@ class PicturesSeeder extends Seeder
                 'project_id' => 7,
                 'picture' => 'la_recoleta_03.jpg',
             ],
+
+
+            [
+                'project_id' => 8,
+                'picture' => 'imagen_castilla_01.jpg',
+            ],
+            [
+                'project_id' => 8,
+                'picture' => 'imagen_castilla_02.jpg',
+            ],
+            [
+                'project_id' => 8,
+                'picture' => 'imagen_castilla_03.jpg',
+            ],
+            [
+                'project_id' => 8,
+                'picture' => 'imagen_castilla_04.jpg',
+            ],
+            [
+                'project_id' => 8,
+                'picture' => 'imagen_castilla_05.jpg',
+            ],
+            [
+                'project_id' => 8,
+                'picture' => 'imagen_castilla_06.jpg',
+            ],
         ];
 
         foreach ($pictures as $picture) {

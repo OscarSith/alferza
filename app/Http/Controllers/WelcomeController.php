@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Blog;
 use App\Project;
 use Illuminate\Http\Request;
 
@@ -38,9 +39,16 @@ class WelcomeController extends Controller
         return view('about_us');
     }
 
-    public function projects()
+    public function projects($status = '')
     {
-        $projects = Project::all([
+        $project = null;
+
+        if ($status == 'entregado') {
+            $project = Project::where('build_status', \Str::upper($status));
+        } else {
+            $project = Project::where('build_status', '<>', 'ENTREGADO');
+        }
+        $projects = $project->get([
             'id',
             'name',
             'url_slug',
@@ -61,8 +69,7 @@ class WelcomeController extends Controller
 
     public function detailProject(Project $project) {
         return view('detail-project', [
-            'project' => $project,
-            'projects' => $this->projects
+            'project' => $project
         ]);
     }
 
@@ -74,5 +81,49 @@ class WelcomeController extends Controller
     public function consultants()
     {
         return view('consultants');
+    }
+
+    public function calculator(Request $req)
+    {
+        $deuda = 0;
+        $anos = 0;
+        $tcea = 0;
+        $m = 0;
+
+        $valor = 0;
+        $cuotaInicial = 0;
+        $interes = 0;
+
+        if ($req->has('valor')) {
+            $cuotaInicial = $req->input('cuota_inicial');
+            $valor = $req->input('valor');
+
+            $deuda = $valor - $cuotaInicial;
+            $anos = $req->input('plazo');
+            $tcea = $req->input('tcea');
+
+            // Calculos
+            $interes = ($tcea / 100) / 12;
+            $m = ($deuda * $interes * pow(1 + $interes, $anos * 12)) / (pow(1 + $interes, $anos * 12) - 1);
+        }
+
+        return view('calculator', compact('valor', 'cuotaInicial', 'deuda', 'anos', 'interes', 'tcea', 'm'));
+    }
+
+    public function invierte()
+    {
+        return view('invierte');
+    }
+
+    public function blog()
+    {
+        $blogs = Blog::all(['id', 'title', 'picture', 'url_slug']);
+
+        return view('blog', ['blogs' => $blogs]);
+    }
+
+    public function blogDetail(Blog $blog)
+    {
+        return view('blog_detail', ['blog' => $blog]);
     }
 }

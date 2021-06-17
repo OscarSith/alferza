@@ -6,77 +6,11 @@
 <div class="work-us">
     <img src="images/banner_trabaja_con_nosotros.jpg" alt="Imagen Trabaja con nosotros" class="d-block w-100">
     <div>
-        <h1 class="text-center main-title">TRABAJA CON NOSOTROS</h1>
         <div class="container">
-            <div class="col col-lg-10 col-xl-8 mx-auto">
-                <p class="first-lead">
-                    Te invitamos a ser parte de nuestros asociados, ya sea CAPITAL, TERRENOS O INMUEBLES. Con 10 años de experiencia, estamos en la constante búsqueda de inversionistas para desarrollar proyectos inmobiliarios. Te ofrecemos aumentar tu patrimonio con una rentabilidad superior a la del mercado financiero.
-                </p>
-                <p class="text-center second-lead mt-4">¡DÉJANOS TUS DATOS!, TENEMOS VARIAS ALTERNATIVAS DE INVERSIÓN.</p>
-            </div>
-        </div>
-        <div class="col mt-5">
-            <div class="accordion accordion-flush" id="accordionWorkUs">
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingOne">
-                    <button class="accordion-button collapsed show text-center flex-column projects" type="button" data-bs-toggle="collapse" data-bs-target="#projects" aria-expanded="false" aria-controls="projects">
-                      <span>Gestión</span>
-                      <span>PROYECTOS INMOVILIARIOS</span>
-                    </button>
-                  </h2>
-                  <div id="projects" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionWorkUs">
-                    <div class="accordion-body">
-                        <div class="container">
-                            <div class="col col-lg-9 mx-auto pb-5">
-                                <p>Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the first item's accordion body.</p>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingTwo">
-                    <button class="accordion-button collapsed text-center flex-column construction" type="button" data-bs-toggle="collapse" data-bs-target="#construction" aria-expanded="false" aria-controls="construction">
-                        <span>Gestión</span>
-                        <span>CONSTRUCCIÓN</span>
-                    </button>
-                  </h2>
-                  <div id="construction" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionWorkUs">
-                    <div class="accordion-body">
-                        <div class="container">
-                            <div class="col col-lg-9 mx-auto pb-5">
-                                <p>Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div></p>
-                            </div>
-                        </div>
-                  </div>
-                </div>
-                <div class="accordion-item">
-                  <h2 class="accordion-header" id="flush-headingThree">
-                    <button class="accordion-button text-center flex-column marketing" type="button" data-bs-toggle="collapse" data-bs-target="#marketing" aria-expanded="false" aria-controls="marketing">
-                        <span>Gestión</span>
-                        <span>COMERCIAL Y MARKETING</span>
-                    </button>
-                  </h2>
-                  <div id="marketing" class="accordion-collapse collapse show" aria-labelledby="flush-headingThree" data-bs-parent="#accordionWorkUs">
-                    <div class="accordion-body marketing">
-                        <div class="container">
-                            <div class="col col-lg-9 mx-auto pb-5">
-                                <h5 class="mt-3 mt-md-5">Consultoría estratégica comercial</h5>
-                                <p>Desde la identificación y contacto con los clientes, presentación de ofertas, cierre de ventas hasta la postventa. Definimos los objetivos, estrategias, calendarios y las acciones a realizar.</p>
-
-                                <h5 class="mt-4">Marketing digital</h5>
-                                <p>Desarrollo de Facebook ADS, Funnel de ventas, Customer journey, Retargeting, Community Manager, Google Analytics, copywriting, diseño gráfico, gestión y transformación de Leads.</p>
-
-                                <h5 class="mt-4">Plan de Marketing y Estudios de Mercado</h5>
-                                <p>Desarrollamos estructura de precios (PRICING), planes de crecimiento, diseño de estrategias y la integración entre el marketing y ventas. Nos adaptamos a las necesidades de cada propuesta arquitectónica y desarrollamos herramientas necesarias para implementar campañas.</p>
-
-                                <h5 class="mt-4">Tercerización de fuerza de ventas</h5>
-                                <p>Contamos con un equipo preparado y en constante capacitación para la venta de diversos proyectos inmobiliarios.  Las herramientas que utilizamos  son cierres de ventas, técnicas de negociación y de ventas, speech de ventas y protocolos de atención al cliente.</p>
-                            </div>
-                        </div>
-                    </div>
-                  </div>
-                </div>
+            <div class="col-lg-7 mx-auto">
+                <h2 class="text-center main-title">¡Tú pones el talento, <br>nosotros la oportunidad!</h2>
+                <p>Te invitamos a que te registres para formar parte de nuestro equipo, con nosotros tendrás la oportunidad de realizarte como profesional y lo que es aún más importante como persona.</p>
+                <p>¡Gracias por tu interés!</p>
             </div>
         </div>
         <section class="mt-2 work-us__why">
@@ -132,7 +66,7 @@
                 </div>
             </div>
         </section>
-        <section class="mt-2 mb-5 work-us__info">
+        <section class="mt-2 pb-5 work-us__info">
             <h2 class="text-center sub-title">QUIERO RECIBIR MAYOR INFORMACIÓN</h2>
             <div class="container">
                 <div class="row">
@@ -163,6 +97,10 @@
                                     <div class="mb-3">
                                         <label for="rubro" class="fw-bold label">¿Porqué te apasiona el rubro?</label>
                                         <input type="text" class="form-control form-control-sm" id="rubro" name="rubro" minlength="2">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="cv" class="fw-bold label">Adjuntar CV</label>
+                                        <input type="file" class="form-control form-control-sm" id="cv" name="cv">
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-check">

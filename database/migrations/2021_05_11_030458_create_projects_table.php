@@ -32,6 +32,9 @@ class CreateProjectsTable extends Migration
             $table->string('build_type')->default('DPTOS');
             $table->string('location');
             $table->mediumText('aparments_detail');
+            $table->string('rooms');
+            $table->string('baths');
+            $table->string('typologies');
             $table->enum('build_status', ['PREVENTA', 'CONSTRUCCION', 'ENTREGADO'])->default('PREVENTA');
             $table->string('brochure')->nullable();
             $table->string('google_map');

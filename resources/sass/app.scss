@@ -13,6 +13,26 @@ body {
     font-family: "Monserrat Regular", Arial;
 }
 
+.initial-load {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 20;
+    background-color: white;
+}
+.alferza-fade {
+    background: transparent;
+    animation: fadebackground 2s;
+}
+
+@keyframes fadebackground {
+    from {background-color: $white;}
+    to {background-color: transparent;}
+}
+
 header {
     .main-logo {
         height: 70px;
@@ -49,8 +69,8 @@ header {
             .sub-nav-menu {
                 a {
                     color: $blue;
-                    padding: 0.3em 3em 0.3em 0;
-                    font-size: 1em;
+                    padding: 0.9em 3em;
+                    font-size: .8em;
                     font-family: "Montserrat Light";
                     text-decoration: none;
                     display: inline-block;
@@ -75,9 +95,11 @@ header {
     }
 }
 
-.home {
+main {
     background-color: $white3;
+}
 
+.home {
     &-whatsapp {
         display: inline-block;
 
@@ -170,8 +192,6 @@ header {
         margin-top: 3em;
         padding-top: 5px;
         overflow: hidden;
-        background: url("../img/bg_Alferza.png") no-repeat left center;
-        background-size: contain;
 
         &__box {
             width: 120px;
@@ -185,7 +205,7 @@ header {
             transition: all, 0.2s linear;
             background-color: $white3;
 
-            &:hover {
+            &:hover, &.active {
                 width: 150px;
                 box-shadow: 0 0 10px #555;
 
@@ -256,39 +276,165 @@ header {
             }
         }
     }
+
+    .familias {
+        background-color: $white;
+        padding-bottom: 3rem;
+
+        &__info {
+            h3 {
+                color: #004b96;
+            }
+            p {
+                color: $black;
+            }
+        }
+    }
+
+    .testimonial {
+        &__content {
+            box-shadow: 12px -7px 48px -6px #000a3c inset;
+            background-color: #004b96;
+            color: $white;
+            border-radius: 30px;
+            padding: 25px 25px 20px;
+            z-index: 2;
+            position: relative;
+
+            p {
+                font: .89em/1.4rem montserratextralight;
+            }
+        }
+        .position-relative {
+            i {
+                display: block;
+                width: 15px;
+                height: 15px;
+                background-color: #000a3c;
+                position: absolute;
+                left: 50%;
+                bottom: -7px;
+                transform: translateX(-50%) scaleX(.75) rotate(45deg);
+                z-index: 1;
+            }
+        }
+
+        &__footer {
+            &-image {
+                img {
+                    width: 90px;
+                }
+            }
+
+            &-cite {
+                h6 {
+                    color: $black;
+                }
+                p {
+                    color: $gray;
+                }
+                i {
+                    color: $yellow;
+                }
+            }
+        }
+
+    }
+
+    .splide-testimonios {
+        .splide__slide {
+            margin-left: 1rem;
+            margin-right: 1rem;
+        }
+        .splide__pagination {
+            display: none;
+        }
+    }
+
+    .socios {
+        background-color: $black;
+
+        h3 {
+            color: $white;
+            margin-bottom: 4rem;
+        }
+
+        .splide-socios {
+            .splide {
+                &__slide {
+                    margin-left: 30px;
+                    margin-right: 30px;
+
+                    img {
+                        height: 180px;
+                        -webkit-filter: grayscale(100%);
+                        filter: grayscale(100%);
+                    }
+                }
+                &__pagination {
+                    display: none;
+                }
+            }
+        }
+    }
 }
 
-.about-content {
-    padding-top: 4em;
-    padding-bottom: 3em;
+.about-us {
+    background-color: $white;
 
-    &__first-lead {
-        margin-top: 3em;
-        text-align: justify;
+    .about-content {
+        padding-top: 4em;
+        padding-bottom: 3em;
 
-        .first-p {
-            color: $gray;
-            font: 0.92em/1.57 "Montserrat Light";
+        &__first-lead {
+            margin-top: 3em;
+            text-align: justify;
+
+            .first-p {
+                color: $gray;
+                font: 0.92em/1.57 "Montserrat Light";
+            }
+            .second-p {
+                font: 1.1em montserratmedium;
+            }
+            .exp {
+                font: 2.3em montserratextralight;
+            }
+            .new-generation {
+                color: $mustard;
+                font-size: 1.09em;
+            }
+            .proy {
+                font-size: 1.4em;
+            }
+            .new-generation,
+            .proy {
+                font-family: montserratsemibold;
+            }
+            h6 {
+                color: $lightGray;
+            }
         }
-        .second-p {
-            font: 1.1em montserratmedium;
-        }
-        .exp {
-            font: 2.3em montserratextralight;
-        }
-        .new-generation {
-            color: $mustard;
-            font-size: 1.09em;
-        }
-        .proy {
-            font-size: 1.4em;
-        }
-        .new-generation,
-        .proy {
-            font-family: montserratsemibold;
-        }
-        h6 {
-            color: $lightGray;
+        .staff {
+            h4 {
+                line-height: .7em;
+
+                span {
+                    font-family: montserratextralight;
+                }
+
+                strong {
+                    font-size: .8em;
+                }
+            }
+            p {
+                color: $gray;
+                font-size: .95em;
+            }
+            .badge {
+                background-color: $extralightGray;
+                color: $blue;
+            }
         }
     }
 }
@@ -306,67 +452,6 @@ header {
     &__container {
         background: url("../img/fondo_numeros.jpg") no-repeat center center;
         background-size: cover;
-    }
-    .first-lead {
-        text-align: justify;
-        color: $darkGray;
-        font-size: 0.94em;
-        line-height: 1.7em;
-    }
-    .second-lead {
-        font: 0.95em montserratmedium;
-    }
-    .accordion {
-        .accordion-item {
-            border: none;
-            border-bottom: 1px solid $white2;
-            margin-bottom: 0;
-
-            &:first-child {
-                border-top: 1px solid $white2;
-            }
-
-            h5 {
-                font: 1.2em montserratbold;
-                color: $mustard;
-            }
-
-            p {
-                color: $darkGray;
-                font-size: 15px;
-            }
-        }
-
-        .accordion-button {
-            &:focus {
-                box-shadow: none;
-            }
-            &:not(.collapsed) {
-                background-color: $white2;
-                color: inherit;
-                box-shadow: none;
-            }
-            &::after {
-                content: none;
-            }
-            &.projects {
-                color: $lightGray;
-            }
-            &.construction {
-                color: $blue;
-            }
-            &.marketing {
-                color: $mustard;
-            }
-            span {
-                &:first-child {
-                    font: 100 1.5em montserratextralight;
-                }
-                &:last-child {
-                    font: 1.38em montserratbold;
-                }
-            }
-        }
     }
     &__why {
         border-bottom: 1px solid $white2;
@@ -411,7 +496,7 @@ header {
         text-align: justify;
     }
     &__list {
-        margin-bottom: 7em;
+        margin-bottom: 18.5em;
 
         &-block {
             position: relative;
@@ -427,18 +512,18 @@ header {
                     overflow: visible;
 
                     h4 {
-                        line-height: .7em;
+                        line-height: .4em;
                     }
 
                     span:first-child {
-                        font: 1em "Montserrat Light";
+                        font: .9em "Montserrat Light";
                     }
 
                     p {
                         color: #555;
                         text-align: justify;
-                        font-size: 0.84em;
-                        line-height: 1.45em;
+                        font-size: 0.8em;
+                        line-height: 1.4em;
                     }
                 }
             }
@@ -597,6 +682,8 @@ header {
 }
 
 .detail-project {
+    background-color: $white;
+
     &__description {
         h5 {
             color: $white;
@@ -818,6 +905,71 @@ header {
     }
 }
 
+.calculator {
+    &-caption {
+        .col {
+            border-right: 1px solid #ccc;
+            &:last-child {
+                border-right: none
+            }
+        }
+        h5 {
+            font-size: .8em;
+        }
+        strong {
+            color: $blue;
+        }
+    }
+}
+
+.invierte {
+    &-caption {
+        bottom: 10%;
+        background-color: $white;
+        left: 8%;
+        right: 8%;
+
+        p {
+            font-family: montserratsemibold;
+        }
+    }
+
+    &-ganancias {
+        p {
+            text-align: justify
+        }
+    }
+}
+
+.calculator, .invierte {
+    h2 {
+        span {
+            font-family: "Montserrat Light";
+            font-weight: 100;
+        }
+    }
+}
+
+.blog {
+    .card-body {
+        a {
+            text-decoration: none;
+            color: $blue;
+        }
+    }
+}
+.blog-detail {
+    color: $black;
+
+    h1 {
+        color: $blue;
+    }
+
+    .author {
+        color: $gray;
+    }
+}
+
 .alferza-btn {
     padding-left: 2rem;
     padding-right: 2rem;
@@ -826,6 +978,7 @@ header {
     border-color: transparent;
     font: 1.1em montserratmedium;
     border-radius: 0;
+    white-space: nowrap;
 
     &.type-1:hover {
         color: $white;
@@ -855,6 +1008,12 @@ header {
         color: #aaa;
         &:hover {
             opacity: .8;
+        }
+    }
+
+    .libro-reclamaciones {
+        a {
+            text-decoration: none;
         }
     }
 
@@ -888,9 +1047,8 @@ header {
 
             a {
                 display: inline-block;
-                min-width: 40px;
-                line-height: 28px;
-                padding: 5px 10px;
+                min-width: 48px;
+                padding: 6px 12px;
                 color: $white;
 
                 &:hover {
@@ -902,6 +1060,9 @@ header {
             background-color: #3b5998;
         }
         .instagram {
+            background-color: #CE479D;
+        }
+        .linkedin {
             background-color: #517fa4;
         }
     }
@@ -1043,6 +1204,12 @@ a {
         }
     }
 
+    .initial-load {
+        img {
+            height: 140px;
+        }
+    }
+
     .home-trayectoria .splide__slide {
         margin-left: 10px;
         margin-left: 10px;
@@ -1072,5 +1239,22 @@ a {
 
     .projects .testimonios h2 {
         font-size: 1.15em;
+    }
+
+    .calculator {
+        table {
+            font-size: .87rem;
+
+            td {
+                white-space: nowrap;
+            }
+        }
+    }
+    .invierte {
+        &-ganancias {
+            p {
+                font-size: .93em;
+            }
+        }
     }
 }
