@@ -8,12 +8,11 @@
     <div class="projects-bg"></div>
     <img src="{{ asset('images/banner_proyectos.jpg') }}" alt="Imagen Proyectos Alferza" class="d-block w-100">
     <div class="container-xl">
-        <h1 class="text-center main-title">PROYECTOS</h1>
-        <div class="col-11 col-lg-8 mx-auto">
+        <h1 class="text-center main-title">PROYECTOS {{ $status != 'entregado' ? 'EN VENTA' : 'EJECUTADOS'}}</h1>
+        {{-- <div class="col-11 col-lg-8 mx-auto">
             <p class="first-lead">Estamos posicionados en la ciudad de Arequipa, desarrollando los mercados del sur peruano, innovando en el producto inmobiliario para los diferentes consumidores y, por sobre todo, estamos incursionando en el uso de tecnología como la Domótica, lo que generará valor diferenciado para nuestros clientes y nos permitirá competir frente a las principales empresas del sector. En la actualidad contamos con 6 proyectos ejecutados y 3 proyectos en fase de diseño, una sólida experiencia en el rubro que nos permite enfocarnos en proyectos masivos.</p>
-        </div>
+        </div> --}}
         <section class="home-trayectoria">
-            <h2 class="text-center">TRAYECTORIA INMOBILIARIA</h2>
             <div class="d-flex justify-content-end home-links d-none d-lg-flex">
                 <div class="home-trayectoria__alferza d-none d-xl-block">
                     <strong class="fs-2">ALFERZA</strong>

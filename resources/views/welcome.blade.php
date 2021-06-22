@@ -6,22 +6,26 @@
 <link rel="stylesheet" href="css/splide-core.min.css">
 <div id="carousel-home" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators justify-content-start flex-column">
-        <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="0" class="active rounded-circle" aria-current="true" aria-label="Banner 1"></button>
-        <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="1" class="rounded-circle" aria-label="Banner 2"></button>
+        <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="0" class="active rounded-circle" aria-current="true" aria-label="Banner 3"></button>
+        <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="1" class="rounded-circle" aria-label="Banner 4"></button>
+        <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="2" class="rounded-circle" aria-label="Banner 5"></button>
     </div>
     <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="3000">
-        <img src="images/home_banner-01.jpg" class="d-block w-100" alt="Banner alferza 1">
-      </div>
-      <div class="carousel-item" data-bs-interval="3000">
-          <img src="images/home_banner-02.jpg" class="d-block w-100" alt="banner alferza 2">
-      </div>
+        <div class="carousel-item active" data-bs-interval="3000">
+            <img src="images/home_banner-03.jpg" class="d-block w-100" alt="Banner alferza 3">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+            <img src="images/home_banner-04.jpg" class="d-block w-100" alt="banner alferza 4">
+        </div>
+        <div class="carousel-item" data-bs-interval="3000">
+            <img src="images/home_banner-05.jpg" class="d-block w-100" alt="banner alferza 5">
+        </div>
     </div>
 </div>
 <div class="home">
     <div class="position-relative home-whatsapp">
         <div class="position-relative home-whatsapp__fill">
-            <a href="#"><i class="fab fa-whatsapp fa-3x"></i></a>
+            <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" target="_blank"><i class="fab fa-whatsapp fa-3x"></i></a>
         </div>
         <div class="position-absolute home-whatsapp__contact">¡Contáctanos aquí!</div>
     </div>
@@ -60,7 +64,7 @@
             </div>
         </div>
     </div>
-    <div class="familias">
+    <div class="familias pt-5 pt-lg-0">
         <div class="container-lg">
             <div class="col-xl-10 mx-auto">
                 <div class="row">
@@ -160,7 +164,7 @@
             </div>
         </div>
     </div>
-    <div class="socios pb-5 pt-5">
+    <div class="container-fluid socios pb-5 pt-5">
         <h3 class="text-center fw-bold">LOS MEJORES SOCIOS PARA LOS MEJORES PROYECTOS</h3>
         <div class="row mt-5 splide splide-socios pb-5">
             <div class="splide__track">

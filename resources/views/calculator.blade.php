@@ -4,13 +4,13 @@
 
 @section('body')
 <div class="container-md calculator pt-5">
-    <h2 class="text-center fw-bold mb-4">Calcula tu crédito <span>hipotecario</span></h2>
+    <h2 class="text-center main-title mb-4">Calcula tu crédito <span>hipotecario</span></h2>
     <div class="col-xl-7 mx-auto">
         <div class="accordion pb-5" id="accordionForm">
             <div class="accordion-item">
                 <div class="accordion-collapse collapse {{ $m == 0 ? 'show' : ''}}" id="collapseForm">
                     <div class="accordion-body">
-                        <form action="{{ route('calculatorPost') }}" method="POST">
+                        <form action="{{ route('calculatorPost') }}" method="POST" id="form-calculator" novalidate>
                             {{ csrf_field() }}
                             @method('post')
                             <div class="row mb-3">
@@ -18,14 +18,20 @@
                                     <label for="valor" class="form-label">Valor inmueble</label>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="moneda">S/.</span>
-                                        <input type="text" id="valor" name="valor" class="form-control" aria-label="valor inmueble" aria-describedby="moneda">
+                                        <input type="text" id="valor" name="valor" class="form-control" aria-label="valor inmueble" aria-describedby="moneda" required>
+                                        <div class="invalid-feedback">
+                                            Este campo es requerido
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-12 col-md-6">
                                     <label for="cuota_inicial" class="form-label">Cuota inicial</label>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="moneda2">S/.</span>
-                                        <input type="text" id="cuota_inicial" name="cuota_inicial" class="form-control" aria-label="valor inmueble" aria-describedby="moneda2">
+                                        <input type="text" id="cuota_inicial" name="cuota_inicial" class="form-control" aria-label="valor inmueble" aria-describedby="moneda2" required>
+                                        <div class="invalid-feedback">
+                                            Este campo es requerido
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -33,19 +39,39 @@
                                 <div class="col">
                                     <label for="tcea" class="form-label">Tasa efectiva anual</label>
                                     <div class="input-group mb-3">
-                                        <input type="text" id="tcea" name="tcea" class="form-control" aria-label="valor inmueble" aria-describedby="moneda">
+                                        <input type="text" id="tcea" name="tcea" class="form-control" aria-label="valor inmueble" aria-describedby="moneda" required>
                                         <span class="input-group-text" id="moneda">%</span>
+                                        <div class="invalid-feedback">
+                                            Este campo es requerido
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <label for="plazo" class="form-label">Plazo (años)</label>
-                                    <select class="form-select" name="plazo" id="plazo">
+                                    <select class="form-select" name="plazo" id="plazo" required>
                                         <option value="" selected>Escoger</option>
                                         <option value="5">5</option>
                                         <option value="10">10</option>
                                         <option value="15">15</option>
                                         <option value="20">20</option>
+                                        <option value="25">25</option>
                                     </select>
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="autorizar" required>
+                                    <label class="form-check-label small" for="autorizar">
+                                        <small>
+                                            Autorizo a Alferza Desarrolladora inmobiliaria para que realice las actividades de prospección comercial y marketing descritas en la Política de Privacidad <strong>(*)</strong>
+                                        </small>
+                                    </label>
+                                    <div class="invalid-feedback">
+                                        <i class="fas fa-ban fa-fw"></i> Tiene que autorizar nuestras policitas de privacidad
+                                    </div>
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -123,4 +149,25 @@
         @endif
     </div>
 </div>
+<script>
+    (function () {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('#form-calculator')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
 @endsection

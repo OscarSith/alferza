@@ -13,7 +13,7 @@
                 <p>¡Gracias por tu interés!</p>
             </div>
         </div>
-        <section class="mt-2 work-us__why">
+        {{-- <section class="mt-2 work-us__why">
             <h2 class="text-center sub-title mb-0">¿POR QUE TRABAJAR CON NOSOTROS?</h2>
             <div class="work-us__container">
                 <div class="container">
@@ -65,50 +65,65 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> --}}
         <section class="mt-2 pb-5 work-us__info">
-            <h2 class="text-center sub-title">QUIERO RECIBIR MAYOR INFORMACIÓN</h2>
+            <h2 class="text-center sub-title">DEJANOS TUS DATOS</h2>
             <div class="container">
                 <div class="row">
                     <div class="col col-lg-11 col-xl-8 mx-auto mt-3">
-                        <form>
+                        <form id="form-work-with-us" novalidate>
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="mb-3">
                                         <label class="fw-bold label" for="nombre">Nombre:</label>
-                                        <input type="text" class="form-control form-control-sm" id="nombre" name="nombre" minlength="2">
+                                        <input type="text" class="form-control form-control-sm" id="nombre" name="nombre" minlength="2" required>
+                                        <div class="invalid-feedback">
+                                            El nombre es requerido
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <div class="row">
                                             <div class="col">
                                                 <label class="fw-bold label" for="telefono">Teléfono:</label>
-                                                <input type="tel" class="form-control form-control-sm" id="telefono" name="telefono" minlength="7" maxlength="15">
+                                                <input type="tel" class="form-control form-control-sm" id="telefono" name="telefono" minlength="7" maxlength="15" required>
+                                                <div class="invalid-feedback">
+                                                    El teléfono es requerido
+                                                </div>
                                             </div>
                                             <div class="col">
-                                                <label class="fw-bold label" for="correo">Correo electrónico:</label>
-                                                <input type="mail" class="form-control form-control-sm" id="correo" name="correo" minlength="4">
+                                                <label for="area-interes" class="fw-bold label">Área de Interés</label>
+                                                <input type="text" class="form-control form-control-sm" id="area-interes" name="area-interes" minlength="2" required>
+                                                <div class="invalid-feedback">
+                                                    Indicanos su área de interes
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="area-interes" class="fw-bold label">Área de Interés</label>
-                                        <input type="text" class="form-control form-control-sm" id="area-interes" name="area-interes" minlength="2">
+                                        <label class="fw-bold label" for="correo">Correo electrónico:</label>
+                                        <input type="email" class="form-control form-control-sm" id="correo" name="correo" minlength="4" required>
+                                        <div class="invalid-feedback">
+                                            Debe ser un correo válido
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="rubro" class="fw-bold label">¿Porqué te apasiona el rubro?</label>
-                                        <input type="text" class="form-control form-control-sm" id="rubro" name="rubro" minlength="2">
+                                        <input type="text" class="form-control form-control-sm" id="rubro" name="rubro" minlength="2" required>
                                     </div>
                                     <div class="mb-3">
                                         <label for="cv" class="fw-bold label">Adjuntar CV</label>
-                                        <input type="file" class="form-control form-control-sm" id="cv" name="cv">
+                                        <input type="file" class="form-control form-control-sm" id="cv" name="cv" required>
+                                        <div class="invalid-feedback">
+                                            Su CV es requerido
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <div class="form-check">
-                                            <input class="form-check-input" type="checkbox" value="" id="autorizar">
+                                            <input class="form-check-input" type="checkbox" value="" id="autorizar" required>
                                             <label class="form-check-label" for="autorizar">
                                               Autorizo a Alferza Desarrolladora inmobiliaria para que realice las actividades de prospección comercial y marketing descritas en la Política de Privacidad <strong>(*)</strong>
                                             </label>
-                                          </div>
+                                        </div>
                                     </div>
                                     <div class="mb-3">
                                         <button class="btn btn-primary alferza-btn">Enviar</button>
@@ -125,4 +140,25 @@
         </section>
     </div>
 </div>
+<script>
+    (function () {
+    'use strict'
+
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('#form-work-with-us')
+
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
 @endsection

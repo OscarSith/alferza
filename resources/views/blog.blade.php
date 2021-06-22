@@ -7,7 +7,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-10 mx-auto mb-5">
-                <h1 class="fw-bold mb-5">ALFERZA BLOG</h1>
+                <h1 class="text-center main-title mb-5">ALFERZA BLOG</h1>
                 <div class="row">
                     @foreach ($blogs as $blog)
                         <div class="col-md-6 mb-4">

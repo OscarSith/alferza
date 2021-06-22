@@ -25,6 +25,8 @@ Route::post('calculadora', 'WelcomeController@calculator')->name('calculatorPost
 Route::get('invierte', 'WelcomeController@invierte')->name('invierte');
 Route::get('blog', 'WelcomeController@blog')->name('blog');
 Route::get('blog/{blog:url_slug}', 'WelcomeController@blogDetail')->name('blogDetail');
+Route::get('politicas-de-privacidad', 'WelcomeController@politicas')->name('politicas');
+Route::get('contacto', 'WelcomeController@contacto')->name('contacto');
 
 Auth::routes();
 

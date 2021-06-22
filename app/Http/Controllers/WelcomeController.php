@@ -63,7 +63,8 @@ class WelcomeController extends Controller
         ]);
 
         return view('projects', [
-            'projects' => $projects
+            'projects' => $projects,
+            'status' => $status
         ]);
     }
 
@@ -125,5 +126,15 @@ class WelcomeController extends Controller
     public function blogDetail(Blog $blog)
     {
         return view('blog_detail', ['blog' => $blog]);
+    }
+
+    public function politicas()
+    {
+        return view('politicas_privacidad');
+    }
+
+    public function contacto()
+    {
+        return view('contacto');
     }
 }

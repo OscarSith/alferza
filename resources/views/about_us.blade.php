@@ -35,7 +35,10 @@
                 </div>
             </div>
             <hr class="mb-5 mt-5">
-            <div class="row justify-content-around mt-5 staff">
+            <section class="row justify-content-around mt-5 staff">
+                <div class="col-12">
+                    <h2 class="text-center fw-bold">STAFF</h2>
+                </div>
                 <div class="col-lg-5">
                     <div class="d-flex mb-3">
                         <img src="{{ asset('images/staff_luis_delgado.jpg') }}" alt="Imagen luis delgado" style="width: 110px">
@@ -78,7 +81,39 @@
                         <span class="fs-4 fw-light">46,618.00</span>
                     </span>
                 </div>
-            </div>
+                <div class="col-12 mt-5 text-center">
+                    <a href="{{ env('URL_BROCHURE') }}" target="_blank" class="btn btn-secondary alferza-btn">
+                        BROCHURE
+                    </a>
+                </div>
+            </section>
+            <section class="row justify-content-around mt-5 politica-integrada">
+                <hr>
+                <div class="col-12">
+                    <h2 class="text-center fw-bold mt-5 mb-5">Política Integrada</h2>
+                </div>
+                <div class="col-12 col-md-6">
+                    <h6>ALFERZA</h6>
+                    <p class="pe-3 pe-xl-5 first-p">
+                        Empresa que desarrolla proyectos inmobiliarios brindando trabajos de diseño de proyectos, construcción de edificaciones en general, gestión inmobiliaria y venta de proyectos, asume la responsabilidad en desarrollar sus actividades de acuerdo a su sistema integrado de gestión, compuesto por los sistemas de gestión de la calidad, medio ambiente, seguridad y salud en el trabajo basados en normas ISO, con el fin de lograr la plena satisfacción de nuestras partes interesadas.
+                    </p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <h6 class="text-md-end">NOS COMPROMETEMOS A:</h6>
+                    <ul class="list-unstyled second-p fs-6">
+                        <li class="mb-2">– Satisfacer las necesidades y expectativas de nuestros clientes cumpliendo sus requisitos y otros no especificados, pero necesarios para su ejecución.</li>
+
+                        <li class="mb-2">– Cumplir con la normativa legal vigente relacionada con los esquemas de calidad, medio ambiente, seguridad y salud en el trabajo, y aquellas que la empresa vea por conveniente.</li>
+
+                        <li class="mb-2">– Mantener y promover la mejora continua de nuestro sistema integrado de gestión.
+                        Proporcionar las condiciones de trabajo seguras y saludables para la prevención de lesiones y deterioro de la salud, así como, eliminar los peligros, reducir los riesgos y aprovechar las oportunidades.</li>
+
+                        <li class="mb-2">– Promover la consulta y participación de los trabajadores con respecto al sistema integrado de gestión, así como, la de sus representantes.</li>
+
+                        <li class="mb-2">– Proteger el medio ambiente y prevenir la contaminación ambiental.</li>
+                    </ul>
+                </div>
+            </section>
         </div>
     </div>
 </div>

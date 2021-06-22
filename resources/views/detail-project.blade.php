@@ -184,10 +184,10 @@
                                 <div class="col-12 col-md-4 d-flex align-items-center justify-content-center mt-5 mb-5 mt-md-0 mb-md-0">
                                     <img src="{{ asset('images/proyectos/vive_centrico.png') }}" alt="Vive centrico" class="img-fluid">
                                 </div>
-                                <div class="col-12 col-md-4 d-flex flex-column justify-content-around justify-content-lg-between pt-4 ps-4">
-                                    <button type="button" class="btn btn-sm alferza-btn type-2">Ver avanze de obra</button>
+                                <div class="col-12 col-md-4 d-flex flex-column justify-content-around justify-content-lg-around pt-4 ps-4">
+                                    {{-- <button type="button" class="btn btn-sm alferza-btn type-2">Ver avanze de obra</button> --}}
                                     <a href="{{ asset('images/proyectos/brochures/' . $project->brochure) }}" target="_blank" class="btn btn-sm alferza-btn type-2 mt-4 mb-4 mt-md-0 mb-md-0">Descargar brochure</a>
-                                    <button type="button" class="btn btn-sm alferza-btn type-2">Pedir cotización</button>
+                                    <a href="{{ route('contacto') }}" class="btn btn-sm alferza-btn type-2">Pedir cotización</a>
                                 </div>
                             </div>
                         </div>
@@ -196,13 +196,15 @@
                         <div class="detail-project__sponsor pt-5 pb-5">
                             <div class="row">
                                 <div class="col-4 d-flex flex-column justify-content-center">
-                                    <button type="button" class="btn btn-sm alferza-btn type-1">Descargar brochure</button>
+                                    @if ($project->brochure)
+                                        <a href="{{ asset('images/proyectos/brochures/' . $project->brochure) }}" target="_blank" class="btn btn-sm alferza-btn type-1">Descargar brochure</a>
+                                    @endif
                                 </div>
                                 <div class="col-4 d-flex align-items-center justify-content-center">
                                     <img src="{{ asset('images/proyectos/ubicacion_que_mereces.png') }}" alt="Vive centrico" class="img-fluid" style="height: 56px">
                                 </div>
                                 <div class="col-4 d-flex flex-column justify-content-center">
-                                    <button type="button" class="btn btn-sm alferza-btn type-1">Pedir cotización</button>
+                                    <a href="{{ route('contacto') }}" class="btn btn-sm alferza-btn type-1">Pedir cotización</a>
                                 </div>
                             </div>
                         </div>
@@ -211,7 +213,7 @@
                         <div class="detail-project__sponsor pt-5 pb-5">
                             <div class="row">
                                 <div class="col-4 d-flex flex-column justify-content-center">
-                                    <button type="button" class="btn btn-sm alferza-btn">Hablar con un consultor</button>
+                                    <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" target="_blank" class="btn btn-sm alferza-btn">Hablar con un consultor</a>
                                 </div>
                                 <div class="col-4 d-flex align-items-center justify-content-center">
                                     <img src="{{ asset('images/proyectos/logo_alferza_02.png') }}" alt="Vive centrico" class="img-fluid">

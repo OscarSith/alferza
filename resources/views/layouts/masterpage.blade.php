@@ -16,9 +16,9 @@
         </div>
     </div>
     <script>
-        // const KEY = 'first-load';
-        // const firstLoad = sessionStorage.getItem(KEY);
-        // if (!firstLoad) {
+        const KEY = 'first-load';
+        const firstLoad = sessionStorage.getItem(KEY);
+        if (!firstLoad) {
             setTimeout(() => {
                 const initial = document.querySelector('.initial-load');
                 initial.classList.add('alferza-fade');
@@ -32,10 +32,10 @@
                     sessionStorage.setItem(KEY, true);
                 }, 400);
             }
-        // } else {
-        //     document.querySelector('body').classList.remove('overflow-hidden');
-        //     document.querySelector('.initial-load').classList.add('d-none');
-        // }
+        } else {
+            document.querySelector('body').classList.remove('overflow-hidden');
+            document.querySelector('.initial-load').classList.add('d-none');
+        }
     </script>
 
     <div>
@@ -138,16 +138,19 @@
                                 <a href="/">Inicio</a>
                             </li>
                             <li class="w-100">
-                                <a href="{{ route('projects') }}">Proyectos</a>
-                            </li>
-                            <li class="w-100">
-                                <a href="{{ route('workWithUs')}}">Trabaja con nosotros</a>
+                                <a href="{{ route('projects') }}">Proyectos en venta</a>
                             </li>
                             <li class="w-100">
                                 <a href="{{ route('about') }}">Nosotros</a>
                             </li>
                             <li class="w-100">
+                                <a href="{{ route('workWithUs')}}">Trabaja con nosotros</a>
+                            </li>
+                            <li class="w-100">
                                 <a href="{{ route('consultants')}}">Nuestros asesores</a>
+                            </li>
+                            <li class="w-100">
+                                <a href="{{ route('politicas') }}">Politicas de privacidad</a>
                             </li>
                         </ul>
                     </div>
