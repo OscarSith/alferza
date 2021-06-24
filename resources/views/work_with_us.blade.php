@@ -71,7 +71,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col col-lg-11 col-xl-8 mx-auto mt-3">
-                        <form id="form-work-with-us" novalidate>
+                        @if ($errors->any())
+                        <div class="alert alert-warning">
+                            <ul>
+                                @foreach ($errors->all() as $message)
+                                <li>{{ $message }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                        @endif
+                        @if (session('send'))
+                            <div class="alert alert-success">
+                                Su mensaje ha sido enviado
+                            </div>
+                        @endif
+                        <form id="form-work-with-us" method="POST" action="{{ route('sendCV') }}" enctype="multipart/form-data" novalidate>
+                            {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-7">
                                     <div class="mb-3">

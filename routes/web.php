@@ -17,10 +17,12 @@ Route::get('/', 'WelcomeController@index')->name('welcome');
 Route::get('/proyecto/{project:url_slug}', 'WelcomeController@detailProject')->name('detail-project');
 
 Route::get('trabaja-con-nosotros', 'WelcomeController@workUs')->name('workWithUs');
+Route::post('enviar-cv', 'WelcomeController@sendCV')->name('sendCV');
 Route::get('nosotros', 'WelcomeController@aboutUs')->name('about');
 Route::get('nuestros-asesores', 'WelcomeController@consultants')->name('consultants');
 Route::get('proyectos/{status?}', 'WelcomeController@projects')->name('projects');
 Route::get('calculadora', 'WelcomeController@calculator')->name('calculator');
+Route::get('calculadora/descargar', 'WelcomeController@exportarExcel')->name('exportarExcel');
 Route::post('calculadora', 'WelcomeController@calculator')->name('calculatorPost');
 Route::get('invierte', 'WelcomeController@invierte')->name('invierte');
 Route::get('blog', 'WelcomeController@blog')->name('blog');

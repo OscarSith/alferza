@@ -31,7 +31,7 @@
     </div>
     <div class="container-xxl home-trayectoria">
         <h2 class="text-center">TRAYECTORIA INMOBILIARIA</h2>
-        <div class="d-flex justify-content-end home-links d-none d-lg-flex">
+        <div class="d-flex justify-content-end home-links d-none d-lg-flex" style="background-image: none">
             @foreach ($projects as $project)
             <div class="home-links__box {{ $loop->last ? 'active' : '' }}">
                 <a href="{{ route('detail-project', $project->url_slug) }}" id="project_{{ $project->id }}">

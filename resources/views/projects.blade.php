@@ -46,8 +46,8 @@
                     $total = $projects->count();
                 @endphp
                 @if ($total < 7)
-                    @for ($i = 0; $i < (6 - $total); $i++)
-                        <div class="col"></div>
+                    @for ($i = 0; $i < (7 - $total); $i++)
+                        <div class="col {{$i == 0 ? 'd-none d-xxl-block' : ''}}"></div>
                     @endfor
                 @endif
                 @foreach ($projects as $project)

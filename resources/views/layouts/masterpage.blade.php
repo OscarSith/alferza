@@ -181,35 +181,8 @@
     <footer>
         <div class="container">
             <div class="row">
-                <div class="col-lg-7">
-                    <nav class="navbar navbar-expand">
-                        <ul class="navbar-nav small flex-wrap justify-content-center">
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('about') }}">Inicio</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('projects') }}">Proyectos</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('about') }}">Nosotros</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('workWithUs')}}">Trabaja con nosotros</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('consultants')}}">Nuestros asesores</a>
-                            </li>
-                            <li class="nav-item d-none">
-                                <a class="nav-link disabled" href="#">BLOG</a>
-                            </li>
-                            <li class="nav-item d-none">
-                                <a class="nav-link disabled" href="#">INVIERTE</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-5 d-flex align-items-center justify-content-center pt-1">
-                    <span>© 2020 Alferza. Todos los derechos reservados.</span>
+                <div class="col-12 d-flex justify-content-center pt-2">
+                    <span>© {{ today()->year }} Alferza. Todos los derechos reservados.</span>
                 </div>
             </div>
         </div>

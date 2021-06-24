@@ -15,6 +15,54 @@
                             @method('post')
                             <div class="row mb-3">
                                 <div class="col-12 col-md-6">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" id="nombre" name="nombre" class="form-control" aria-label="nombre" aria-describedby="nombre" required>
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="apellido" class="form-label">Apellido</label>
+                                    <input type="text" id="apellido" name="apellido" class="form-control" aria-label="apellido" aria-describedby="apellido" required>
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-12 col-md-6">
+                                    <label for="numero" class="form-label">Numero</label>
+                                    <input type="text" id="numero" name="numero" class="form-control" aria-label="numero" aria-describedby="numero" required>
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="correo" class="form-label">Correo</label>
+                                    <input type="email" id="correo" name="correo" class="form-control" aria-label="correo" aria-describedby="correo" required>
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-12 col-md-6">
+                                    <label for="dni" class="form-label">DNI</label>
+                                    <input type="text" id="dni" name="dni" class="form-control" aria-label="dni" aria-describedby="dni" required>
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <label for="fecha_nacimiento" class="form-label">Fecha Nacimiento</label>
+                                    <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" aria-label="fecha_nacimiento" aria-describedby="fecha_nacimiento" required>
+                                    <div class="invalid-feedback">
+                                        Este campo es requerido
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="col-12 col-md-6">
                                     <label for="valor" class="form-label">Valor inmueble</label>
                                     <div class="input-group mb-3">
                                         <span class="input-group-text" id="moneda">S/.</span>
@@ -62,15 +110,17 @@
                                 </div>
                             </div>
                             <div class="row mb-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="" id="autorizar" required>
-                                    <label class="form-check-label small" for="autorizar">
-                                        <small>
-                                            Autorizo a Alferza Desarrolladora inmobiliaria para que realice las actividades de prospección comercial y marketing descritas en la Política de Privacidad <strong>(*)</strong>
-                                        </small>
-                                    </label>
-                                    <div class="invalid-feedback">
-                                        <i class="fas fa-ban fa-fw"></i> Tiene que autorizar nuestras policitas de privacidad
+                                <div class="col">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="autorizar" required>
+                                        <label class="form-check-label small" for="autorizar">
+                                            <small>
+                                                Autorizo a Alferza Desarrolladora inmobiliaria para que realice las actividades de prospección comercial y marketing descritas en la Política de Privacidad <strong>(*)</strong>
+                                            </small>
+                                        </label>
+                                        <div class="invalid-feedback">
+                                            <i class="fas fa-ban fa-fw"></i> Tiene que autorizar nuestras policitas de privacidad
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -90,9 +140,6 @@
     </div>
     <div class="col">
         @if ($m > 0)
-        @php
-            $totalint = 0;
-        @endphp
         <div class="row calculator-caption mt-5 mb-4">
             <div class="col-6 col-xl mb-4 mb-xl-0 text-center">
                 <h5 class="mb-1">VALOR DEL INMUEBLE</h5>
@@ -110,41 +157,21 @@
                 <h5 class="mb-1">PLAZO (AÑOS)</h5>
                 <strong class="h3 fw-bold">{{ $anos }}</strong>
             </div>
-            <div class="col-12 col-xl mb-4 mb-xl-0 d-flex align-items-center justify-content-center order-first order-xl-last">
-                <button class="btn btn-secondary alferza-btn" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm" aria-expanded="true" aria-controls="collapseForm">
-                    Hacer otro calculo
+            <div class="col-12 col-xl mb-4 mb-xl-0 d-flex align-items-center justify-content-center flex-column order-first order-xl-last">
+                <button class="btn btn-secondary btn-sm alferza-btn mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm" aria-expanded="true" aria-controls="collapseForm">
+                    <i class="fas fa-reply"></i> Hacer otro calculo
                 </button>
+                <a href="#" class="btn btn-primary alferza-btn btn-sm"><i class="fas fa-download"></i> Descargar</a>
+                {{-- {{ route('exportarExcel') }}?valor={{$valor}}&cuota_inicial={{$cuotaInicial}}&tcea={{$tcea}}&plazo={{$anos}} --}}
             </div>
         </div>
         <div class="table-responsive">
-            <table class="table table-hover text-center">
-                <thead class="table-dark align-middle">
-                    <tr>
-                        <th class="p-3" scope="col">Nro Cuota</th>
-                        <th class="p-3" scope="col">Saldo</th>
-                        <th class="p-3" scope="col">Amortización</th>
-                        <th class="p-3" scope="col">Interés</th>
-                        <th class="p-3" scope="col">Cuota</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @for ($i = 0; $i < ($anos * 12); $i++)
-                    @php
-                        // $totalint = $totalint + ($deuda * $interes);
-                        $nuevoInteres = $deuda * $interes;
-                        $amortizacion = $m - $nuevoInteres;
-                        $deuda = $deuda - $amortizacion;
-                    @endphp
-                        <tr>
-                            <td class="p-3" scope="row">{{ $i + 1 }}</td>
-                            <td class="p-3">S/ {{ number_format($deuda, 2) }}</td>
-                            <td class="p-3">S/ {{ number_format($amortizacion, 2) }}</td>
-                            <td class="p-3">S/ {{ number_format($nuevoInteres, 2) }}</td>
-                            <td class="p-3">S/ {{ number_format($amortizacion + $nuevoInteres, 2) }}</td>
-                        </tr>
-                    @endfor
-                </tbody>
-            </table>
+            @include('partials.table_calculator', [
+                'anos' => $anos,
+                'm' => $m,
+                'deuda' => $deuda,
+                'interes' => $interes
+            ])
         </div>
         @endif
     </div>

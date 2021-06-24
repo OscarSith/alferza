@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Http\Requests\WorkWithUsPost;
+use App\Mail\SendCV;
 use App\Project;
+use App\SimuladorHipotecario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Maatwebsite\Excel\Facades\Excel;
 
 class WelcomeController extends Controller
 {
@@ -79,6 +84,12 @@ class WelcomeController extends Controller
         return view('work_with_us');
     }
 
+    public function sendCV(WorkWithUsPost $req)
+    {
+        Mail::to('contacto@alferza.pe')->send(new SendCV($req->all()));
+        return redirect()->back()->with('send', true);
+    }
+
     public function consultants()
     {
         return view('consultants');
@@ -136,5 +147,15 @@ class WelcomeController extends Controller
     public function contacto()
     {
         return view('contacto');
+    }
+
+    public function exportarExcel(Request $req)
+    {
+        return Excel::download(new SimuladorHipotecario(
+            $req->input('valor'),
+            $req->input('cuota_inicial'),
+            $req->input('tcea'),
+            $req->input('plazo')),
+        'simulador.xlsx');
     }
 }

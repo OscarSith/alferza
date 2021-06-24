@@ -183,6 +183,7 @@ main {
             }
         }
     }
+
     &-links {
         height: 239px;
         padding-right: 4em;
@@ -192,6 +193,8 @@ main {
         margin-top: 3em;
         padding-top: 5px;
         overflow: hidden;
+        background: url("../img/bg_Alferza.png") no-repeat left center;
+        background-size: contain;
 
         &__box {
             width: 120px;
@@ -621,9 +624,6 @@ main {
 
     }
 
-    .home-links {
-        background-image: url(../img/bg_Alferza_alt.png);
-    }
     .home-links__box {
         width: 128px;
         &:hover {
