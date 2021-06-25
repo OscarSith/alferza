@@ -4,7 +4,7 @@
 
 @section('body')
 <link rel="stylesheet" href="css/splide-core.min.css">
-<div id="carousel-home" class="carousel slide" data-bs-ride="carousel">
+<div id="carousel-home" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <div class="carousel-indicators justify-content-start flex-column">
         <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="0" class="active rounded-circle" aria-current="true" aria-label="Banner 3"></button>
         <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="1" class="rounded-circle" aria-label="Banner 4"></button>
@@ -211,13 +211,13 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
     new Splide('.splide-socios', {
         arrows: false,
-        perPage: 3,
+        perPage: 4,
         perMove: 1,
         autoplay: true,
         type: 'loop',
         interval: 3000,
         pauseOnHover: false,
-        autoWidth: true,
+        // autoWidth: true,
         breakpoints: {
             890: {
                 perPage: 2,

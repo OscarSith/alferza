@@ -6,7 +6,9 @@
 <div class="contacto container pt-5">
     <div class="col-lg-7 mx-auto">
         <h1 class="text-center main-title mb-5">Nuestros asesores se comunicarán contigo de inmediato</h1>
-        <form action="#" id="form-contacto" class="col-lg-8 mx-auto" novalidate>
+        @include('partials.errors_form_messages')
+        <form action="{{ route('sendContact') }}" method="POST" id="form-contacto" class="col-lg-8 mx-auto" novalidate>
+            {{ csrf_field() }}
             <div class="mb-3">
                 <label for="nombre_completo">Nombre Completo</label>
                 <div class="input-group">

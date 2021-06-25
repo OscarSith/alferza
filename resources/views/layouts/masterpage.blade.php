@@ -60,10 +60,10 @@
                                     </a>
                                     <ul class="collapse navbar-collapse list-unstyled pb-3 sub-nav-menu" id="sub-nav-menu" aria-labelledby="navbarDropdown">
                                         <li>
-                                            <a class="nav-link" href="{{ route('projects', 'entregado') }}">PROYECTOS EJECUTADOS</a>
+                                            <a class="nav-link" href="{{ route('projects', 'entregado') }}">PROYECTOS EJECUTADOS -</a>
                                         </li>
                                         <li>
-                                            <a class="nav-link" href="{{ route('projects') }}">PROYECTOS EN VENTA</a>
+                                            <a class="nav-link" href="{{ route('projects') }}">PROYECTOS EN VENTA -</a>
                                         </li>
                                     </ul>
                                 </li>
@@ -78,6 +78,9 @@
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('blog') }}">BLOG</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('contacto') }}">CONTACTO</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('calculator')}}">CALCULADORA HIPOTECARIA</a>

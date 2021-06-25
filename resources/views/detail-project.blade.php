@@ -4,7 +4,7 @@
 
 @section('body')
 <link rel="stylesheet" href="{{ asset('css/iSlider.min.css') }}">
-<div class="detail-project pb-3 {{ Str::lower($project->build_status) }}">
+<div class="detail-project {{ Str::lower($project->build_status) }}">
     <img src="{{ asset('images/proyectos/' . $project->main_picture) }}" alt="Banner {{ $project->name }}" class="d-block w-100">
     <div class="container">
         <div class="col-12 col-xl-10 col-xxl-9 mx-auto">
@@ -228,8 +228,8 @@
             </div>
         </div>
     </div>
-    <div class="maps">
-        <img src="{{ asset('images/proyectos/maps.jpg') }}" alt="Google maps" class="d-block w-100">
+    <div class="maps ratio">
+        {!! $project->google_map !!}
     </div>
 </div>
 <script src="{{ asset('js/iSlider.min.js') }}"></script>

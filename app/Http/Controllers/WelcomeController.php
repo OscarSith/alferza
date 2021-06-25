@@ -3,8 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Http\Requests\FormContactPost;
+use App\Http\Requests\FormInviertePost;
 use App\Http\Requests\WorkWithUsPost;
+use App\Mail\SendContact;
 use App\Mail\SendCV;
+use App\Mail\SendInvierte;
 use App\Project;
 use App\SimuladorHipotecario;
 use Illuminate\Http\Request;
@@ -127,6 +131,12 @@ class WelcomeController extends Controller
         return view('invierte');
     }
 
+    public function sendInvierte(FormInviertePost $req)
+    {
+        Mail::to('contacto@alferza.pe')->send(new SendInvierte($req->all()));
+        return redirect()->back()->with('send', true);
+    }
+
     public function blog()
     {
         $blogs = Blog::all(['id', 'title', 'picture', 'url_slug']);
@@ -147,6 +157,12 @@ class WelcomeController extends Controller
     public function contacto()
     {
         return view('contacto');
+    }
+
+    public function sendContact(FormContactPost $req)
+    {
+        Mail::to('contacto@alferza.pe')->send(new SendContact($req->all()));
+        return redirect()->back()->with('send', true);
     }
 
     public function exportarExcel(Request $req)

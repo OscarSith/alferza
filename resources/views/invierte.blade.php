@@ -27,7 +27,9 @@
                 <div class="col-12 col-lg-6 mt-5 mt-xl-0 invierte-ganancias">
                     <h3 class="mb-4">¿Quieres multiplicar tus ganancias?</h3>
                     <p>Te invitamos a ser parte de nuestros asociados, ya sea con CAPITAL, TERRENOS O INMUEBLES. Con 10 años de experiencia, estamos en la constante búsqueda de inversionistas para desarrollar proyectos inmobiliarios. Te ofrecemos incrementar tu patrimonio con una rentabilidad superior a la del mercado financiero. ¡Déjanos tus datos!, tenemos varias alternativas de inversión. </p>
-                    <form action="#" class="mt-4" id="form-invierte" novalidate>
+                    @include('partials.errors_form_messages')
+                    <form action="{{ route('sendInvierte') }}" method="POST" class="mt-4" id="form-invierte" novalidate>
+                        {{ csrf_field() }}
                         <div class="mb-3">
                             <label for="nombre">Nombre</label>
                             <input type="text" id="nombre" name="nombre" class="form-control" required>
@@ -38,7 +40,6 @@
                         <div class="mb-3">
                             <label for="email">Correo electrónico</label>
                             <input type="email" id="email" name="email" class="form-control" required>
-
                         </div>
                         <div class="mb-3">
                             <div class="col-5">

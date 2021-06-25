@@ -18,17 +18,23 @@ Route::get('/proyecto/{project:url_slug}', 'WelcomeController@detailProject')->n
 
 Route::get('trabaja-con-nosotros', 'WelcomeController@workUs')->name('workWithUs');
 Route::post('enviar-cv', 'WelcomeController@sendCV')->name('sendCV');
+
 Route::get('nosotros', 'WelcomeController@aboutUs')->name('about');
 Route::get('nuestros-asesores', 'WelcomeController@consultants')->name('consultants');
 Route::get('proyectos/{status?}', 'WelcomeController@projects')->name('projects');
 Route::get('calculadora', 'WelcomeController@calculator')->name('calculator');
 Route::get('calculadora/descargar', 'WelcomeController@exportarExcel')->name('exportarExcel');
 Route::post('calculadora', 'WelcomeController@calculator')->name('calculatorPost');
+
 Route::get('invierte', 'WelcomeController@invierte')->name('invierte');
+Route::post('enviar-form-invierte', 'WelcomeController@sendInvierte')->name('sendInvierte');
+
 Route::get('blog', 'WelcomeController@blog')->name('blog');
 Route::get('blog/{blog:url_slug}', 'WelcomeController@blogDetail')->name('blogDetail');
+
 Route::get('politicas-de-privacidad', 'WelcomeController@politicas')->name('politicas');
 Route::get('contacto', 'WelcomeController@contacto')->name('contacto');
+Route::post('enviar-contacto', 'WelcomeController@sendContact')->name('sendContact');
 
 Auth::routes();
 

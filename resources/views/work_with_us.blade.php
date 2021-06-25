@@ -71,20 +71,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col col-lg-11 col-xl-8 mx-auto mt-3">
-                        @if ($errors->any())
-                        <div class="alert alert-warning">
-                            <ul>
-                                @foreach ($errors->all() as $message)
-                                <li>{{ $message }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
-                        @if (session('send'))
-                            <div class="alert alert-success">
-                                Su mensaje ha sido enviado
-                            </div>
-                        @endif
+                        @include('partials.errors_form_messages')
                         <form id="form-work-with-us" method="POST" action="{{ route('sendCV') }}" enctype="multipart/form-data" novalidate>
                             {{ csrf_field() }}
                             <div class="row">

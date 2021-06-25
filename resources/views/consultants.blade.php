@@ -9,7 +9,7 @@
             <div class="col-12 col-md-10 col-xl-8 mx-auto">
                 <p class="consultant__lead">Nuestro Equipo de asesores, comparten una pasión por la atención y las ventas. Por ende su compromiso es hacia los clientes y su satisfacción. Generar confianza es uno de nuestros principales pilares por este motivo te presentamos a cada miembro del equipo de Alferza, quienes  te ayudaran a tomar la mejor decisión inmobiliaria.</p>
 
-                <div class="row mt-5 consultant__list">
+                <div class="row mt-5 pb-5 consultant__list justify-content-center">
                     <div class="col-12 col-sm-4 mb-4">
                         <div class="consultant__list-block">
                             <div class="consultant__list-img" style="background-image: url('images/asesores/roy_jaramillo.jpeg')"></div>
@@ -61,6 +61,24 @@
                                 <div class="small">
                                     <i class="far fa-envelope custom-icon custom-icon-sm me-1"></i>ventas3@alferza.pe
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-sm-4 mb-4">
+                        <div class="consultant__list-block">
+                            <div class="consultant__list-img" style="background-image: url('images/asesores/jennifer_silva.jpeg')"></div>
+                            <div class="p-3 p-sm-3 pt-4 consultant__list-profile text-center">
+                                <h4 class="mb-3">
+                                    <span class="d-block">Jennifer</span>
+                                    <small class="fs-6">Silva</small>
+                                </h4>
+                                <div class="small mb-1">
+                                    <i class="fas fa-phone-alt custom-icon custom-icon-sm me-1"></i> 934 819 969
+                                </div>
+                                <p>Conocedora de sector inmobiliario, amplia experiencia en asesoramiento de compras con créditos hipotecarios y financiamientos. Ha recorrido las distintas áreas de la empresa, lo que le permite dar información completa y precisa al interesado.</p>
+                                {{-- <div class="small d-none">
+                                    <i class="far fa-envelope custom-icon custom-icon-sm me-1"></i>ventas3@alferza.pe
+                                </div> --}}
                             </div>
                         </div>
                     </div>
