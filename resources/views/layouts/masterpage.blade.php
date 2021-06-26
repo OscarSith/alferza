@@ -129,7 +129,7 @@
                             <ul class="contact-social"></ul>
                         </address>
                         <div class="libro-reclamaciones mt-4">
-                            <a href="#" class="text-center d-inline-block">
+                            <a href="{{ route('libroReclamaciones') }}" class="text-center d-inline-block">
                                 <i class="fas fa-book-open fa-2x"></i>
                                 <span class="d-block">Libro de <br>reclamaciones</span>
                             </a>

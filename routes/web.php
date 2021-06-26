@@ -36,6 +36,9 @@ Route::get('politicas-de-privacidad', 'WelcomeController@politicas')->name('poli
 Route::get('contacto', 'WelcomeController@contacto')->name('contacto');
 Route::post('enviar-contacto', 'WelcomeController@sendContact')->name('sendContact');
 
+Route::get('libro-de-reclamaciones', 'WelcomeController@libroReclamaciones')->name('libroReclamaciones');
+Route::post('enviar-reclamo', 'WelcomeController@sendLibroReclamaciones')->name('sendLibroReclamaciones');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

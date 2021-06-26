@@ -5,10 +5,12 @@ namespace App\Http\Controllers;
 use App\Blog;
 use App\Http\Requests\FormContactPost;
 use App\Http\Requests\FormInviertePost;
+use App\Http\Requests\FormLibroReclamacionesPost;
 use App\Http\Requests\WorkWithUsPost;
 use App\Mail\SendContact;
 use App\Mail\SendCV;
 use App\Mail\SendInvierte;
+use App\Mail\SendLibroReclamacion;
 use App\Project;
 use App\SimuladorHipotecario;
 use Illuminate\Http\Request;
@@ -173,5 +175,23 @@ class WelcomeController extends Controller
             $req->input('tcea'),
             $req->input('plazo')),
         'simulador.xlsx');
+    }
+
+    public function libroReclamaciones()
+    {
+        $projects = Project::all('id', 'name', 'address');
+        return view('libro-reclamaciones', ['projects' => $projects]);
+    }
+
+    public function sendLibroReclamaciones(FormLibroReclamacionesPost $req)
+    {
+        $emails = ['contacto@alferza.pe'];
+        if ($req->input('notificacion') != '0') {
+            array_push($emails, $req->input('correo'));
+        }
+
+        Mail::to($emails)->send(new SendLibroReclamacion($req->all()));
+
+        return redirect()->back()->with('send', true);
     }
 }

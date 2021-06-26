@@ -365,8 +365,8 @@ main {
         .splide-socios {
             .splide {
                 &__slide {
-                    margin-left: 20px;
-                    margin-right: 20px;
+                    margin-left: 50px;
+                    margin-right: 50px;
                     text-align: center;
 
                     img {
@@ -982,6 +982,15 @@ main {
 .politicas-privacidad {
     p {
         color: $black;
+    }
+}
+
+.libro-reclamaciones {
+    color: $black;
+
+    h5 {
+        color: $green;
+        font-size: 1.16em;
     }
 }
 
