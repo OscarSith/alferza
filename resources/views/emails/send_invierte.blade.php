@@ -6,7 +6,7 @@
 | ------------------------- |-------------------------|
 | <strong>Nombre</strong>   | {{ $data['nombre'] }}   |
 | <strong>Correo</strong>   | {{ $data['email'] }}   |
-| <strong>Teléfono</strong> | {{ $data['telefono'] }} |
+| <strong>Celular</strong> | {{ $data['celular'] }} |
 @endcomponent
 
 @component('mail::panel')

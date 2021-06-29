@@ -32,7 +32,7 @@
                             <div class="row mb-3">
                                 <div class="col-12 col-md-6">
                                     <label for="numero" class="form-label">Numero</label>
-                                    <input type="text" id="numero" name="numero" class="form-control" aria-label="numero" aria-describedby="numero" required>
+                                    <input type="text" id="numero" name="numero" class="form-control" aria-label="numero" aria-describedby="numero" maxlength="9" required>
                                     <div class="invalid-feedback">
                                         Este campo es requerido
                                     </div>
@@ -48,7 +48,7 @@
                             <div class="row mb-3">
                                 <div class="col-12 col-md-6">
                                     <label for="dni" class="form-label">DNI</label>
-                                    <input type="text" id="dni" name="dni" class="form-control" aria-label="dni" aria-describedby="dni" required>
+                                    <input type="text" id="dni" name="dni" class="form-control" maxlength="8" aria-label="dni" aria-describedby="dni" required>
                                     <div class="invalid-feedback">
                                         Este campo es requerido
                                     </div>

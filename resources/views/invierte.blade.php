@@ -5,8 +5,9 @@
 @section('body')
 <div class="invierte">
     <img src="{{ asset('images/banner_proyectos.jpg') }}" alt="Imagen Proyectos Alferza" class="d-block w-100">
+    @include('partials.whatsapp')
     <div class="container">
-        <h2 class="text-center main-title pt-5 mb-5">
+        <h2 class="text-center main-title pt-1 mb-5">
             INVIERTE <span>en el rubro inmobiliario</span>
         </h2>
         <div class="col-xxl-10 mx-auto pb-5">
@@ -43,12 +44,12 @@
                         </div>
                         <div class="mb-3">
                             <div class="col-5">
-                                <label for="telefono">Teléfono</label>
+                                <label for="celular">Celular</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="moneda">
                                         <i class="fas fa-phone"></i>
                                     </span>
-                                    <input type="tel" id="telefono" name="telefono" class="form-control" maxlength="13" required>
+                                    <input type="tel" id="celular" name="celular" class="form-control" maxlength="13" required>
                                     <div class="invalid-feedback">
                                         Este campo es requerido
                                     </div>

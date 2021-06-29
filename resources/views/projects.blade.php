@@ -5,15 +5,16 @@
 @section('body')
 <link rel="stylesheet" href="{{ asset('css/splide-core.min.css') }}">
 <div class="projects">
-    <div class="projects-bg"></div>
+    {{-- <div class="projects-bg"></div> --}}
     <img src="{{ asset('images/banner_proyectos.jpg') }}" alt="Imagen Proyectos Alferza" class="d-block w-100">
+    @include('partials.whatsapp')
     <div class="container-xl">
         <h1 class="text-center main-title">PROYECTOS {{ $status != 'entregado' ? 'EN VENTA' : 'EJECUTADOS'}}</h1>
         {{-- <div class="col-11 col-lg-8 mx-auto">
             <p class="first-lead">Estamos posicionados en la ciudad de Arequipa, desarrollando los mercados del sur peruano, innovando en el producto inmobiliario para los diferentes consumidores y, por sobre todo, estamos incursionando en el uso de tecnología como la Domótica, lo que generará valor diferenciado para nuestros clientes y nos permitirá competir frente a las principales empresas del sector. En la actualidad contamos con 6 proyectos ejecutados y 3 proyectos en fase de diseño, una sólida experiencia en el rubro que nos permite enfocarnos en proyectos masivos.</p>
         </div> --}}
         <section class="home-trayectoria">
-            <div class="d-flex justify-content-end home-links d-none d-lg-flex">
+            <div class="d-flex justify-content-center home-links d-none d-lg-flex">
                 <div class="home-trayectoria__alferza d-none d-xl-block">
                     <strong class="fs-2">ALFERZA</strong>
                 </div>
@@ -33,7 +34,7 @@
                 </div>
                 @endforeach
             </div>
-            <div class="d-flex mt-5 d-none d-lg-flex nuevo">
+            <div class="d-flex justify-content-center mt-5 d-none d-lg-flex nuevo">
                 <div class="d-none d-xl-block nuevo-headers" style="width: 152px">
                     <h5>
                         <span class="fs-2">&nbsp;</span>
@@ -42,16 +43,8 @@
                     {{-- <p class="ms-3">AREA CONSTRUIDA</p>
                     <p class="ms-4">COSTO DEL PROYECTO</p> --}}
                 </div>
-                @php
-                    $total = $projects->count();
-                @endphp
-                @if ($total < 7)
-                    @for ($i = 0; $i < (7 - $total); $i++)
-                        <div class="col {{$i == 0 ? 'd-none d-xxl-block' : ''}}"></div>
-                    @endfor
-                @endif
                 @foreach ($projects as $project)
-                    <div class="col">
+                    <div>
                         <h5 class="mb-1">
                             <span class="fs-2">{{ str_pad($project->quantity, 2, '0', STR_PAD_LEFT) }}</span>
                             <small>{{ $project->build_type }}</small>

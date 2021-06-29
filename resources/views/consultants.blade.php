@@ -3,6 +3,7 @@
 @section('body')
 <div class="consultant">
     <img src="images/banner_asesores.jpg" alt="Imagen Nuestros asesores" class="d-block w-100">
+    @include('partials.whatsapp')
     <div class="container">
         <h1 class="text-center main-title">NUESTROS ASESORES</h1>
         <div class="row">

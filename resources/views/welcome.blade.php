@@ -23,22 +23,17 @@
     </div>
 </div>
 <div class="home">
-    <div class="position-relative home-whatsapp">
-        <div class="position-relative home-whatsapp__fill">
-            <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" target="_blank"><i class="fab fa-whatsapp fa-3x"></i></a>
-        </div>
-        <div class="position-absolute home-whatsapp__contact">¡Contáctanos aquí!</div>
-    </div>
+    @include('partials.whatsapp')
     <div class="container-xxl home-trayectoria">
         <h2 class="text-center">TRAYECTORIA INMOBILIARIA</h2>
         <div class="d-flex justify-content-end home-links d-none d-lg-flex" style="background-image: none">
             @foreach ($projects as $project)
-            <div class="home-links__box {{ $loop->last ? 'active' : '' }}">
+            <div class="home-links__box">
                 <a href="{{ route('detail-project', $project->url_slug) }}" id="project_{{ $project->id }}">
                     <div class="home-links__inner">
                         <img src="images/proyectos/{{ $project->mini_picture }}" class="img-fluid" alt="{{ $project->name }}">
                         <div class="text-center home-links__inner-title">
-                            <h3 class="mb-0" style="background-image: url('images/proyectos/{{ $project->mini_logo_picture }}')"></h3>
+                            <h3 class="mb-0" style="background-image: url('images/proyectos/{{ $project->mini_logo_picture }}'); {{ $loop->last ? 'height: 40px' : ''}}"></h3>
                             <h4 class="mb-0 first-item">
                                 {{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}
                             </h4>

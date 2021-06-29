@@ -153,7 +153,7 @@ main {
         &__alferza {
             align-self: center;
             letter-spacing: 8px;
-            margin-right: auto;
+            margin-right: 25px;
         }
 
         .splide {
@@ -189,7 +189,7 @@ main {
         padding-right: 4em;
         position: relative;
         z-index: 4;
-        border-bottom: solid 3px black;
+        border-bottom: solid 1px black;
         margin-top: 3em;
         padding-top: 5px;
         overflow: hidden;
@@ -198,7 +198,7 @@ main {
 
         &__box {
             width: 120px;
-            height: 356px;
+            height: 358px;
             position: relative;
             overflow: hidden;
             transform: rotate(24deg);
@@ -257,7 +257,7 @@ main {
 
                 h3 {
                     width: 155px;
-                    height: 35px;
+                    height: 62px;
                     margin-right: 11px;
                     background-size: contain;
                     background-repeat: no-repeat;
@@ -392,7 +392,7 @@ main {
     background-color: $white;
 
     .about-content {
-        padding-top: 4em;
+        padding-top: 1em;
         padding-bottom: 3em;
 
         &__first-lead {
@@ -449,9 +449,6 @@ main {
 }
 
 .work-us {
-    > div {
-        margin-top: 5em;
-    }
     .sub-title {
         font: 1.38em montserratbold;
         border-bottom: 1px solid $white2;
@@ -499,7 +496,7 @@ main {
 
 .consultant {
     h1 {
-        margin-top: 6rem;
+        margin-top: 1.5rem;
     }
     &__lead {
         text-align: justify;
@@ -572,7 +569,7 @@ main {
     }
 
     .container-xl {
-        margin-top: 4.8em;
+        margin-top: 2em;
 
         .first-lead {
             text-align: justify;
@@ -592,8 +589,9 @@ main {
                     margin-bottom: .75rem;
                 }
             }
-            .col {
+            >div {
                 font-family: 'montserratmedium';
+                width: 130px;
 
                 h5 {
                     small {
@@ -903,13 +901,13 @@ main {
             }
         }
     }
+}
 
-    .maps {
-        --bs-aspect-ratio: calc(9 / 30 * 100%);
+.maps {
+    --bs-aspect-ratio: calc(7 / 30 * 100%);
 
-        iframe {
-            filter: brightness(100%) contrast(100%) saturate(0%) blur(0) hue-rotate(0deg);
-        }
+    iframe {
+        filter: brightness(100%) contrast(100%) saturate(0%) blur(0) hue-rotate(0deg);
     }
 }
 
@@ -976,6 +974,41 @@ main {
 
     .author {
         color: $gray;
+    }
+}
+
+.contacto {
+    .contacto-info {
+        background-color: $white;
+
+        &__imagen {
+            img {
+                width: 220px;
+            }
+        }
+
+        &__contact {
+            i {
+                color: $blue;
+            }
+            li, a {
+                text-decoration: none;
+                color: $black;
+            }
+        }
+        &__redes {
+            a {
+                background-color: $lightGray;
+                display: inline-block;
+                padding: 4px 7px 2px;
+                color: $white;
+
+                &:hover {
+                    transform: scale(1.1);
+                    background-color: $blue;
+                }
+            }
+        }
     }
 }
 

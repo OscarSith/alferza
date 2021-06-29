@@ -37,27 +37,27 @@
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <div class="col-6">
+                    <div class="col-12 col-md-6 mb-3 mb-md-0">
                         <input type="email" class="form-control" name="correo" placeholder="Correo electrónico" value="{{ old('correo') }}" required>
                         <div class="invalid-feedback">
                             Escriba una dirección de correo
                         </div>
                     </div>
-                    <div class="col-6">
-                        <input type="tel" class="form-control" name="telefono" placeholder="Teléfono" value="{{ old('telefono') }}" required>
+                    <div class="col-12 col-md-6">
+                        <input type="tel" class="form-control" name="telefono" placeholder="Teléfono" value="{{ old('telefono') }}" maxlength="9" required>
                         <div class="invalid-feedback">
                             Este campo es obligatorio
                         </div>
                     </div>
                 </div>
                 <div class="mb-3 row">
-                    <div class="col-6">
+                    <div class="col-12 col-md-6 mb-3 mb-md-0">
                         <input type="text" class="form-control" name="direccion" placeholder="Domicilio" value="{{ old('direccion') }}" required>
                         <div class="invalid-feedback">
                             Este campo es obligatorio
                         </div>
                     </div>
-                    <div class="col-6">
+                    <div class="col-12 col-md-6">
                         <select name="departamento" id="departamento" class="form-select" required>
                             <option value="">Departamento</option>
                             <option value="01,Amazonas">Amazonas</option>
@@ -123,7 +123,7 @@
                         </div>
                     </div>
                     <div class="col-6">
-                        <input type="text" class="form-control" name="numero_documento" value="{{ old('numero_documento') }}" placeholder="Número de documento" required>
+                        <input type="text" class="form-control" name="numero_documento" value="{{ old('numero_documento') }}" placeholder="Número de documento" maxlength="8" required>
                         <div class="invalid-feedback">
                             Este campo es obligatorio
                         </div>

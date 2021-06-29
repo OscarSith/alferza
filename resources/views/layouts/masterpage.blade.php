@@ -171,7 +171,7 @@
                                 </a>
                             </li>
                             <li class="linkedin">
-                                <a href="#" target="_blank">
+                                <a href="https://www.linkedin.com/company/alferza" target="_blank">
                                     <i class="fab fa-linkedin fa-2x"></i>
                                 </a>
                             </li>

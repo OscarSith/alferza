@@ -5,6 +5,7 @@
 @section('body')
 <div class="work-us">
     <img src="images/banner_trabaja_con_nosotros.jpg" alt="Imagen Trabaja con nosotros" class="d-block w-100">
+    @include('partials.whatsapp')
     <div>
         <div class="container">
             <div class="col-lg-7 mx-auto">

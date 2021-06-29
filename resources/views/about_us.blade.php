@@ -5,6 +5,7 @@
 @section('body')
 <div class="about-us">
     <img src="images/banner_nosotros.jpg" class="d-block w-100" alt="Nosotros alferza">
+    @include('partials.whatsapp')
     <div class="container about-content">
         <h1 class="text-center">
             <img src="images/logo-alferza.png" alt="Logo Alferza" class="img-fluid" style="height: 80px">

@@ -26,7 +26,7 @@ class FormInviertePost extends FormRequest
         return [
             'nombre' => 'required',
             'email' => 'required|email',
-            'telefono' => 'required',
+            'celular' => 'required',
             'mensaje' => 'required',
         ];
     }
