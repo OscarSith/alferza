@@ -33,7 +33,7 @@
                     <div class="home-links__inner">
                         <img src="images/proyectos/{{ $project->mini_picture }}" class="img-fluid" alt="{{ $project->name }}">
                         <div class="text-center home-links__inner-title">
-                            <h3 class="mb-0" style="background-image: url('images/proyectos/{{ $project->mini_logo_picture }}'); {{ $loop->last ? 'height: 40px' : ''}}"></h3>
+                            <h3 class="mb-0 {{ $project->url_slug }}" style="background-image: url('images/proyectos/{{ $project->mini_logo_picture }}'); {{ $loop->last ? 'height: 40px' : ''}}"></h3>
                             <h4 class="mb-0 first-item">
                                 {{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}
                             </h4>

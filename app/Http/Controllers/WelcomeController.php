@@ -11,6 +11,7 @@ use App\Mail\SendContact;
 use App\Mail\SendCV;
 use App\Mail\SendInvierte;
 use App\Mail\SendLibroReclamacion;
+use App\Pictures;
 use App\Project;
 use App\SimuladorHipotecario;
 use Illuminate\Http\Request;
@@ -193,5 +194,15 @@ class WelcomeController extends Controller
         Mail::to($emails)->send(new SendLibroReclamacion($req->all()));
 
         return redirect()->back()->with('send', true);
+    }
+
+    public function landing()
+    {
+        $images = Pictures::all(['id', 'picture'])->random(12);
+        $projects = Project::all('id', 'name');
+        return view('landing', [
+            'images' => $images,
+            'projects' => $projects
+        ]);
     }
 }

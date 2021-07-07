@@ -14,7 +14,7 @@
             <p class="first-lead">Estamos posicionados en la ciudad de Arequipa, desarrollando los mercados del sur peruano, innovando en el producto inmobiliario para los diferentes consumidores y, por sobre todo, estamos incursionando en el uso de tecnología como la Domótica, lo que generará valor diferenciado para nuestros clientes y nos permitirá competir frente a las principales empresas del sector. En la actualidad contamos con 6 proyectos ejecutados y 3 proyectos en fase de diseño, una sólida experiencia en el rubro que nos permite enfocarnos en proyectos masivos.</p>
         </div> --}}
         <section class="home-trayectoria">
-            <div class="d-flex justify-content-center home-links d-none d-lg-flex">
+            <div class="d-flex justify-content-center home-links d-none d-lg-flex {{ $projects->count() == 3 ? 'position-isotipo' : '' }}">
                 <div class="home-trayectoria__alferza d-none d-xl-block">
                     <strong class="fs-2">ALFERZA</strong>
                 </div>
@@ -24,7 +24,7 @@
                         <div class="home-links__inner">
                             <img src="{{ asset('images/proyectos/' . $project->mini_picture) }}" class="img-fluid" alt="{{ $project->name }}">
                             <div class="text-center home-links__inner-title">
-                                <h3 class="mb-0" style="background-image: url({{ asset('images/proyectos/' . $project->mini_logo_picture) }})"></h3>
+                                <h3 class="mb-0 {{ $project->url_slug }}" style="background-image: url({{ asset('images/proyectos/' . $project->mini_logo_picture) }})"></h3>
                                 <h4 class="mb-0 first-item">
                                     {{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}
                                 </h4>

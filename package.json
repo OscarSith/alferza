@@ -24,6 +24,7 @@
     },
     "dependencies": {
         "@splidejs/splide": "^2.4.21",
+        "baguettebox.js": "^1.11.1",
         "islider.js": "^2.2.5"
     }
 }

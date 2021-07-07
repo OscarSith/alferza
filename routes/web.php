@@ -38,6 +38,7 @@ Route::post('enviar-contacto', 'WelcomeController@sendContact')->name('sendConta
 
 Route::get('libro-de-reclamaciones', 'WelcomeController@libroReclamaciones')->name('libroReclamaciones');
 Route::post('enviar-reclamo', 'WelcomeController@sendLibroReclamaciones')->name('sendLibroReclamaciones');
+Route::get('landing-page', 'WelcomeController@landing')->name('landing');
 
 Auth::routes();
 
