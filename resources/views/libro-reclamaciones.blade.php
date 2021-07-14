@@ -6,7 +6,8 @@
 <div class="libro-reclamaciones">
     <div class="container">
         <div class="col-lg-8 mx-auto pt-5 pb-5">
-            <h1 class="text-center main-title mb-5">Libro de reclamaciones</h1>
+            <h1 class="text-center main-title">LIBRO DE RECLAMACIONES</h1>
+            <p class="mb-5">Conforme a lo establecido en el Código de Protección y Defensa del Consumidor (Ley N°29571) y el Reglamento del Libro de Reclamaciones, este establecimiento cuenta con un libro de reclamaciones de naturaleza virtual a su disposición, a efectos de que pueda formular su queja o reclamo.</p>
             @include('partials.errors_form_messages')
             <form action="{{ route('sendLibroReclamaciones') }}" method="POST" id="form-libro-reclamaciones" novalidate>
                 {{ csrf_field() }}
@@ -197,23 +198,6 @@
                         Este campo es obligatorio
                     </div>
                 </div>
-
-                <div class="mb-3 sub-title">
-                    <h5 class="mb-0">4. Autorizo notificación del resultado del reclamo al e-mail consignado:</h5>
-                </div>
-                <div class="mb-5">
-                    @php
-                        $notificacion = old('notificacion');
-                    @endphp
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="notificacion" type="radio" id="si" value="1" {{ $notificacion == '1' ? 'checked' : ''}} required>
-                        <label class="form-check-label" for="si">Si</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input class="form-check-input" name="notificacion" type="radio" id="no" value="0" {{ $notificacion == '0' ? 'checked' : ''}} required>
-                        <label class="form-check-label" for="no">No</label>
-                    </div>
-                </div>
                 <div class="mb-5">
                     <p class="mb-5">Todos los campos son obligatorios (*)</p>
                     <div class="form-check form-check-inline">
@@ -225,8 +209,9 @@
                             Este campo es obligatorio
                         </div>
                     </div>
-                    <p class="mt-4 small">*La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo.</p>
-                    <p class="small">*El proveedor deberá dar respuesta al reclamo en un plazo no mayor a treinta (30) días calendario, pudiendo ampliar el plazo hasta por (30) días más, previa comunicación al consumidor.</p>
+                    <p class="small mt-2 mb-3">* Al brindar mi correo electrónico, autorizo a cualquier comunicación respecto al reclamo se realize a través del mismo.</p>
+                    <p class="small mt-2 mb-3">* La formulación del reclamo no impide acudir a otras vías de solución de controversias ni es requisito previo.</p>
+                    <p class="small">* El proveedor deberá dar respuesta al reclamo en un plazo no mayor a treinta (30) días calendario, pudiendo ampliar el plazo hasta por (30) días más, previa comunicación al consumidor.</p>
                 </div>
                 <div class="text-center">
                     <button class="btn btn-secondary alferza-btn" type="submit">Enviar</button>

@@ -46,11 +46,11 @@
                         <img src="{{ asset('images/logo-alferza.png') }}" alt="Logo Alferza" class="img-fluid main-logo">
                     </a>
                     <button class="navbar-toggler pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
-                        Menu <i class="fas fa-bars fa-lg"></i>
+                        Menu <i class="fas fa-bars fa-lg ms-2"></i>
                     </button>
                     <div class="main-navbar">
                         <div class="collapse navbar-collapse" id="nav-menu">
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-end">
+                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-end menu">
                                 <li class="nav-item">
                                     <a class="nav-link" href="/">INICIO</a>
                                 </li>
@@ -60,7 +60,7 @@
                                     </a>
                                     <ul class="collapse navbar-collapse list-unstyled pb-3 sub-nav-menu" id="sub-nav-menu" aria-labelledby="navbarDropdown">
                                         <li>
-                                            <a class="nav-link" href="{{ route('projects', 'entregado') }}">PROYECTOS EJECUTADOS -</a>
+                                            <a class="nav-link" href="{{ route('projects', 'vendidas') }}">PROYECTOS EJECUTADOS -</a>
                                         </li>
                                         <li>
                                             <a class="nav-link" href="{{ route('projects') }}">PROYECTOS EN VENTA -</a>
@@ -120,7 +120,7 @@
                                     <i class="fa fa-home fa-fw"></i> Av. Trinidad Morán 100 (segundo piso), Cayma. Arequipa.<br>
                                 </li>
                                 <li class="mb-3">
-                                    <i class="fas fa-phone-alt fa-fw"></i> 25 3792 - 934 819 969
+                                    <i class="fas fa-phone-alt fa-fw"></i> (054) 253792 - 934 819 969
                                 </li>
                                 <li class="mb-3">
                                     <i class="far fa-envelope fa-fw"></i> <a href="mailto: informes@alferza.pe"> informes@alferza.pe</a>
@@ -191,5 +191,17 @@
         </div>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script>
+        document.querySelector('body').addEventListener('click', function(e) {
+            var currentElement = e.delegateTarget;
+
+            if (!currentElement || (!currentElement.closest('.main-navbar') && !currentElement.classList.contains('navbar-toggler'))) {
+                var toggler = document.querySelector('.navbar-toggler');
+                if (!toggler.classList.contains('collapsed')) {
+                    toggler.click();
+                }
+            }
+        });
+    </script>
 </body>
 </html>

@@ -22,7 +22,11 @@
                                 DEPARTAMENTOS EN LANZAMIENTO
                                 @break
                             @case('ENTREGADO')
-                                VIVIENDAS VENDIDAS Y ENTREGADAS
+                                @if ($project->vendidas)
+                                    VIVIENDAS VENDIDAS Y ENTREGADAS
+                                @else
+                                    DEPARTAMENTOS EN VENTA Y ENTREGA INMEDIATA
+                                @endif
                                 @break
                         @endswitch
                     </h5>
@@ -31,9 +35,9 @@
                         <div class="row">
                             <div class="col-12 col-md-4 bor ms-lg-4">
                                 <div class="position-absolute bg-left"></div>
-                                <div class="pt-3 pb-3 pe-2 pe-md-0 d-flex justify-content-end">
+                                <div class="pt-3 pb-1 pe-2 pe-md-0 d-flex justify-content-end">
                                     <img src="{{ asset('images/proyectos/icono_departamentos.jpg') }}" alt="Icono Proyectos" class="me-3" style="height: 34px">
-                                    <div>
+                                    <div class="apartment-detail">
                                         {!! $project->aparments_detail !!}
                                     </div>
                                 </div>
@@ -213,7 +217,7 @@
                         <div class="detail-project__sponsor pt-5 pb-5">
                             <div class="row">
                                 <div class="col-4 d-flex flex-column justify-content-center">
-                                    <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" target="_blank" class="btn btn-sm alferza-btn">Hablar con un consultor</a>
+                                    <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" target="_blank" class="btn btn-sm alferza-btn">Hablar con un asesor</a>
                                 </div>
                                 <div class="col-4 d-flex align-items-center justify-content-center">
                                     <img src="{{ asset('images/proyectos/logo_alferza_02.png') }}" alt="Vive centrico" class="img-fluid">

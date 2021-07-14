@@ -12,10 +12,7 @@
 </head>
 <body>
     <div class="container-full landing">
-        <section class="form-section">
-            <div class="form-section__backdrop">
-                {{-- @include('partials.whatsapp') --}}
-            </div>
+        <section class="form-section pb-4">
             <div class="col-md-10 col-lg-8 col-xl-6 mx-auto">
                 <div class="form-section__container">
                     <div class="text-center pt-4">

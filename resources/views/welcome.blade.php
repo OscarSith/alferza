@@ -25,7 +25,7 @@
 <div class="home">
     @include('partials.whatsapp')
     <div class="container-xxl home-trayectoria">
-        <h2 class="text-center">TRAYECTORIA INMOBILIARIA</h2>
+        <h2 class="text-center main-title">TRAYECTORIA INMOBILIARIA</h2>
         <div class="d-flex justify-content-end home-links d-none d-lg-flex" style="background-image: none">
             @foreach ($projects as $project)
             <div class="home-links__box">

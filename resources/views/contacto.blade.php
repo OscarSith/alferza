@@ -8,7 +8,7 @@
     @include('partials.whatsapp')
     <div class="container pt-5">
         <div class="col-xxl-10 mx-auto">
-            <h1 class="text-center main-title mb-5">Nuestros asesores se comunicarán contigo de inmediato</h1>
+            <h1 class="text-center main-title mb-5">NUESTROS ASESORES SE <br class="d-none d-md-inline-block">COMUNICARÁN CONTIGO DE INMEDIATO</h1>
             <div class="row">
                 <div class="col-12 col-lg-6">
                     <div class="p-2 p-lg-5 contacto-info">
@@ -60,10 +60,10 @@
                 </div>
                 <div class="col-12 col-lg-6">
                     @include('partials.errors_form_messages')
-                    <form action="{{ route('sendContact') }}" method="POST" id="form-contacto" novalidate>
+                    <form action="{{ route('sendContact') }}" class="alferza-form" method="POST" id="form-contacto" novalidate>
                         {{ csrf_field() }}
                         <div class="mb-3">
-                            <label for="nombre_completo">Nombre Completo</label>
+                            <label class="label" for="nombre_completo">Nombre Completo</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="moneda">
                                     <i class="far fa-address-card"></i>
@@ -75,7 +75,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="correo">Correo Electrónico</label>
+                            <label class="label" for="correo">Correo Electrónico</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="moneda">
                                     <i class="fas fa-envelope"></i>
@@ -88,7 +88,7 @@
                         </div>
                         <div class="row mb-3">
                             <div class="col-lg-7">
-                                <label for="celular">Celular</label>
+                                <label class="label" for="celular">Celular</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="moneda">
                                         <i class="fas fa-phone"></i>
@@ -101,7 +101,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="mensaje">Mensaje</label>
+                            <label class="label" for="mensaje">Mensaje</label>
                             <textarea id="mensaje" name="mensaje" class="form-control" rows="6" required></textarea>
                             <div class="invalid-feedback">
                                 Este campo es requerido

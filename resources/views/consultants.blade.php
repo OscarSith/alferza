@@ -49,7 +49,7 @@
                     </div>
                     <div class="col-12 col-sm-4 mb-4">
                         <div class="consultant__list-block">
-                            <div class="consultant__list-img" style="background-image: url('images/asesores/mauricio_fernandez.jpeg')"></div>
+                            <div class="consultant__list-img" style="background-image: url('images/asesores/mauricio_fernandez.png')"></div>
                             <div class="p-3 p-sm-3 pt-4 consultant__list-profile text-center">
                                 <h4 class="mb-3">
                                     <span class="d-block">Mauricio Daniel</span>
@@ -67,7 +67,7 @@
                     </div>
                     <div class="col-12 col-sm-4 mb-4">
                         <div class="consultant__list-block">
-                            <div class="consultant__list-img" style="background-image: url('images/asesores/jennifer_silva.jpeg')"></div>
+                            <div class="consultant__list-img" style="background-image: url('images/asesores/jennifer_silva.jpg')"></div>
                             <div class="p-3 p-sm-3 pt-4 consultant__list-profile text-center">
                                 <h4 class="mb-3">
                                     <span class="d-block">Jennifer</span>

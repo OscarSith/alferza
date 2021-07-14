@@ -7,8 +7,8 @@
     <img src="{{ asset('images/banner_proyectos.jpg') }}" alt="Imagen Proyectos Alferza" class="d-block w-100">
     @include('partials.whatsapp')
     <div class="container">
-        <h2 class="text-center main-title pt-1 mb-5">
-            INVIERTE <span>en el rubro inmobiliario</span>
+        <h1 class="text-center main-title pt-1 mb-5">
+            INVIERTE EN EL RUBRO <span>INMOBILIARIO</span>
         </h2>
         <div class="col-xxl-10 mx-auto pb-5">
             <div class="row">
@@ -19,32 +19,27 @@
                             <p class="mb-0 p-3 fs-xl-4 fs-5">El mercado inmobiliario peruano mueve actualmente más de 4.5 mil millones de soles al año.</p>
                         </div>
                     </div>
-                    <div class="text-center mt-4 mt-xl-auto mb-3">
-                        <a href="{{ env('URL_BROCHURE') }}" target="_blank" class="btn btn-secondary alferza-btn">
-                            BROCHURE
-                        </a>
-                    </div>
                 </div>
                 <div class="col-12 col-lg-6 mt-5 mt-xl-0 invierte-ganancias">
-                    <h3 class="mb-4">¿Quieres multiplicar tus ganancias?</h3>
+                    <h5 class="mb-4">¿QUIERES MULTIPLICAR TUS GANANCIAS?</h5>
                     <p>Te invitamos a ser parte de nuestros asociados, ya sea con CAPITAL, TERRENOS O INMUEBLES. Con 10 años de experiencia, estamos en la constante búsqueda de inversionistas para desarrollar proyectos inmobiliarios. Te ofrecemos incrementar tu patrimonio con una rentabilidad superior a la del mercado financiero. ¡Déjanos tus datos!, tenemos varias alternativas de inversión. </p>
                     @include('partials.errors_form_messages')
-                    <form action="{{ route('sendInvierte') }}" method="POST" class="mt-4" id="form-invierte" novalidate>
+                    <form action="{{ route('sendInvierte') }}" method="POST" class="mt-4 alferza-form" id="form-invierte" novalidate>
                         {{ csrf_field() }}
                         <div class="mb-3">
-                            <label for="nombre">Nombre</label>
+                            <label class="label" for="nombre">Nombre</label>
                             <input type="text" id="nombre" name="nombre" class="form-control" required>
                             <div class="invalid-feedback">
                                 Este campo es requerido
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="email">Correo electrónico</label>
+                            <label class="label" for="email">Correo electrónico</label>
                             <input type="email" id="email" name="email" class="form-control" required>
                         </div>
                         <div class="mb-3">
                             <div class="col-5">
-                                <label for="celular">Celular</label>
+                                <label for="celular" class="label">Celular</label>
                                 <div class="input-group">
                                     <span class="input-group-text" id="moneda">
                                         <i class="fas fa-phone"></i>
@@ -57,7 +52,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="mensaje">Mensaje</label>
+                            <label class="label" for="mensaje">Mensaje</label>
                             <textarea name="mensaje" id="mensaje" rows="5" class="form-control" required></textarea>
                             <div class="invalid-feedback">
                                 Este campo es requerido

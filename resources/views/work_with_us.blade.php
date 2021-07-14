@@ -9,9 +9,30 @@
     <div>
         <div class="container">
             <div class="col-lg-7 mx-auto">
-                <h2 class="text-center main-title">¡Tú pones el talento, <br>nosotros la oportunidad!</h2>
-                <p>Te invitamos a que te registres para formar parte de nuestro equipo, con nosotros tendrás la oportunidad de realizarte como profesional y lo que es aún más importante como persona.</p>
-                <p>¡Gracias por tu interés!</p>
+                <h2 class="text-center main-title">¡TÚ PONES EL TALENTO, <br> <span>NOSOTROS LA OPORTUNIDAD</span>!</h2>
+                <p>Te invitamos a que te registres para formar parte de nuestro equipo, con nosotros tendrás la oportunidad de realizarte como profesional y lo que es aún más importante como persona.
+                    <br>
+                    ¡Gracias por tu interés!
+                </p>
+            </div>
+            <div class="col-10 mx-auto">
+                <div class="row">
+                    <div class="col-4 mb-3">
+                        <img src="{{ asset('images/imagen_mujer_01.jpeg') }}" alt="Imagen mujer 1" class="img-fluid">
+                    </div>
+                    <div class="col-4 mb-3">
+                        <img src="{{ asset('images/imagen_2_hombres.jpeg') }}" alt="Imagen 2 hombres con traje de obrero completo" class="img-fluid">
+                    </div>
+                    <div class="col-4 mb-3">
+                        <img src="{{ asset('images/imagen_mujer_04.jpeg') }}" alt="Imagenes Mujer 4" class="img-fluid">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <img src="{{ asset('images/imagen_varios.jpeg') }}" alt="Imagenes varios 2" class="img-fluid">
+                    </div>
+                    <div class="col-6 mb-3">
+                        <img src="{{ asset('images/imagen_varios_03.jpeg') }}" alt="Imagen varios 3" class="img-fluid">
+                    </div>
+                </div>
             </div>
         </div>
         {{-- <section class="mt-2 work-us__why">
@@ -73,7 +94,7 @@
                 <div class="row">
                     <div class="col col-lg-11 col-xl-8 mx-auto mt-3">
                         @include('partials.errors_form_messages')
-                        <form id="form-work-with-us" method="POST" action="{{ route('sendCV') }}" enctype="multipart/form-data" novalidate>
+                        <form id="form-work-with-us" class="alferza-form" method="POST" action="{{ route('sendCV') }}" enctype="multipart/form-data" novalidate>
                             {{ csrf_field() }}
                             <div class="row">
                                 <div class="col-md-7">
@@ -129,7 +150,7 @@
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <button class="btn btn-primary alferza-btn">Enviar</button>
+                                        <button class="btn btn-primary alferza-btn">ENVIAR <i class="fas fa-envelope"></i></button>
                                     </div>
                                 </div>
                                 <div class="col-md-5 ps-md-5 text-center text-sm-start d-flex align-items-center">

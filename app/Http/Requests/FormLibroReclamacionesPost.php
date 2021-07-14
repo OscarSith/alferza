@@ -39,7 +39,6 @@ class FormLibroReclamacionesPost extends FormRequest
             'queja_reclamo' => 'required|in:Queja,Reclamo',
             'detalle_reclamo_queja' => 'required',
             'pedido' => 'required',
-            'notificacion' => 'required|boolean',
             'politicas' => 'accepted',
         ];
     }

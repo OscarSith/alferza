@@ -34,7 +34,7 @@ class WelcomeController extends Controller
             'mini_picture',
             'mini_logo_picture',
             'build_status',
-            'build_area',
+            'vendidas',
             'build_price',
             'location',
             'quantity',
@@ -55,10 +55,10 @@ class WelcomeController extends Controller
     {
         $project = null;
 
-        if ($status == 'entregado') {
-            $project = Project::where('build_status', \Str::upper($status));
+        if ($status == 'vendidas') {
+            $project = Project::where('vendidas', 1);
         } else {
-            $project = Project::where('build_status', '<>', 'ENTREGADO');
+            $project = Project::where('vendidas', 0);
         }
         $projects = $project->get([
             'id',
@@ -67,7 +67,7 @@ class WelcomeController extends Controller
             'mini_picture',
             'mini_logo_picture',
             'build_status',
-            'build_area',
+            'vendidas',
             'build_price',
             'location',
             'quantity',
@@ -186,10 +186,7 @@ class WelcomeController extends Controller
 
     public function sendLibroReclamaciones(FormLibroReclamacionesPost $req)
     {
-        $emails = ['contacto@alferza.pe'];
-        if ($req->input('notificacion') != '0') {
-            array_push($emails, $req->input('correo'));
-        }
+        $emails = ['legal@alferza.pe'];
 
         Mail::to($emails)->send(new SendLibroReclamacion($req->all()));
 
@@ -199,7 +196,7 @@ class WelcomeController extends Controller
     public function landing()
     {
         $images = Pictures::all(['id', 'picture'])->random(12);
-        $projects = Project::all('id', 'name');
+        $projects = Project::where('vendidas', '0')->get(['id', 'name']);
         return view('landing', [
             'images' => $images,
             'projects' => $projects

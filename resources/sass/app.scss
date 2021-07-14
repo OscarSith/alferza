@@ -9,8 +9,14 @@
 
 
 body {
-    color: $blue;
-    font-family: "Monserrat Regular", Arial;
+    font-family: montserratregular, Arial;
+    h1, h2, h3, h4, h5, h6 {
+        color: $blue;
+    }
+}
+p, ul, a {
+    font-size: 0.92em;
+    line-height: 1.57em;
 }
 
 .initial-load {
@@ -144,11 +150,6 @@ main {
     &-trayectoria {
         margin-top: -0.5em;
         padding-bottom: 5em;
-
-        h2 {
-            letter-spacing: 8px;
-            font: 1.38em montserratbold;
-        }
 
         &__alferza {
             align-self: center;
@@ -409,10 +410,10 @@ main {
                 font: 0.92em/1.57 "Montserrat Light";
             }
             .second-p {
-                font: 1.1em montserratmedium;
+                font-size: 1.1em;
             }
             .exp {
-                font: 2.3em montserratextralight;
+                font: 1.5em montserratextralight;
             }
             .new-generation {
                 color: $mustard;
@@ -420,6 +421,7 @@ main {
             }
             .proy {
                 font-size: 1.4em;
+                color: $blue;
             }
             .new-generation,
             .proy {
@@ -488,16 +490,18 @@ main {
             }
         }
     }
-    &__info {
-        .label {
-            color: $mustard2;
-        }
-        .form-check-label {
-            color: $darkGray;
-            font-size: 13px;
-        }
+}
+
+.alferza-form {
+    .label {
+        color: $mustard2;
+    }
+    .form-check-label {
+        color: $darkGray;
+        font-size: 13px;
     }
 }
+
 
 .consultant {
     h1 {
@@ -708,6 +712,12 @@ main {
             font: 14px/20px montserratmedium;
             position: relative;
 
+            .apartment-detail {
+                p {
+                    margin-bottom: 0;
+                }
+            }
+
             .bor {
                 border-right: 4px solid $white;
             }
@@ -914,10 +924,6 @@ main {
 
 .maps {
     --bs-aspect-ratio: calc(7 / 30 * 100%);
-
-    iframe {
-        filter: brightness(100%) contrast(100%) saturate(0%) blur(0) hue-rotate(0deg);
-    }
 }
 
 .calculator {
@@ -956,16 +962,18 @@ main {
     }
 }
 
-.calculator, .invierte {
-    h2 {
-        span {
-            font-family: "Montserrat Light";
-            font-weight: 100;
+.blog {
+    .card {
+        a {
+            overflow: hidden;
+
+            &:hover img {
+                transform: scale(1.2);
+                transition: all .5s ease;
+                filter: brightness(100%) contrast(100%) saturate(0%) blur(0) hue-rotate(0deg);
+            }
         }
     }
-}
-
-.blog {
     .card-body {
         a {
             text-decoration: none;
@@ -1043,7 +1051,7 @@ main {
     color: $white;
     border-color: transparent;
     font: 1.1em montserratmedium;
-    border-radius: 0;
+    border-radius: 2px;
     white-space: nowrap;
 
     &.type-1:hover {
@@ -1058,13 +1066,18 @@ main {
 .main-title {
     font: 1.5em montserratbold;
     margin-bottom: 2.3em;
-    letter-spacing: 4px;
+    letter-spacing: 3px;
+
+    span {
+        font-family: "Montserrat Light";
+        font-weight: 100;
+    }
 }
 
 #footer-widgets {
     background: url(../img/footer-bg.jpeg) no-repeat center center / cover;
     color: #999;
-    font: 14px 'Montserrat Light';
+    font-size: 14px;
 
     i {
         color: $white;
@@ -1113,8 +1126,7 @@ main {
 
             a {
                 display: inline-block;
-                min-width: 48px;
-                padding: 6px 12px;
+                padding: 6px 8px;
                 color: $white;
 
                 &:hover {
@@ -1178,15 +1190,6 @@ a {
     .form-section {
         padding-top: 32em;
 
-        &__backdrop {
-            position: absolute;
-            width: 100%;
-            height: 532px;
-            top: 40em;
-            background-color: #000514;
-            z-index: 1;
-        }
-
         &__container {
             background-color: $white;
             border-radius: 10px;
@@ -1205,7 +1208,10 @@ a {
         &-title {
             padding: 20px;
             background-color: #000514;
-            color: $white;
+
+            h2 {
+                color: $white;
+            }
         }
 
         &-item {
@@ -1267,12 +1273,6 @@ a {
 @media screen and (max-width: 1080px) {
     .landing {
         background-size: contain;
-
-        .form-section {
-            &__backdrop {
-                height: 532px;
-            }
-        }
     }
 }
 
@@ -1315,11 +1315,6 @@ a {
     .landing {
         .form-section {
             padding-top: 21em;
-
-            &__backdrop {
-                height: 516px;
-                top: 30em;
-            }
         }
     }
 }
@@ -1440,10 +1435,6 @@ a {
 
             img {
                 height: 70px;
-            }
-
-            &__backdrop {
-                display: none;
             }
         }
     }
