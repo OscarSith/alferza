@@ -3,10 +3,11 @@
 @section('title', 'Inicio')
 
 @section('body')
-<div class="politicas-privacidad pt-5">
+<div class="politicas-privacidad">
+    <img src="{{ asset('images/banner_politica_privacidad.jpg') }}" alt="Banner politica de privacidad" class="d-block w-100">
     <div class="container">
         <div class="col-lg-9 mx-auto">
-            <h1 class="text-center main-title mb-5">POLÍTICA DE PRIVACIDAD</h1>
+            <h1 class="text-center main-title mb-5 pt-5">POLÍTICA DE PRIVACIDAD</h1>
             <div style="text-align: justify;" class="pb-5">
                 <h5 class="fw-bold mt-4">Sección 1: ¿QUÉ HACEMOS CON SU INFORMACIÓN?</h5>
                 <p>Recopilamos la información personal que nos proporciona, como su nombre, teléfono, dirección y dirección de correo electrónico. Cuando navega por nuestra página,<br>también recibimos automáticamente la dirección de protocolo de Internet (IP) de su computadora para proporcionarnos información que nos ayude a conocer su navegador y su sistema operativo.

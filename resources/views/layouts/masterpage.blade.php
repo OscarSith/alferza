@@ -4,15 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+    <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
     <title>@yield('title') - Alferza</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    @php
+        $currentUrl = url()->current()
+    @endphp
+    <link rel="canonical" href="{{ $currentUrl }}">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="@yield('title') - Alferza">
+    <meta property="og:description" content="Somos una empresa arequipeña de los sectores construcción e inmobiliario, nos caracterizamos por la innovación en el planteamiento de nuestros proyectos.">
+    <meta property="og:site_name" content="Alferza">
+    <meta property="og:url" content="{{ $currentUrl }}">
+    <meta property="og:image" content="{{ asset('images/logo_first_load.png') }}">
+
+    <link rel="shortlink" href="https://alferza.pe/">
+
+    <script>
+    // if (document.location.protocol != "https:") {
+    //     document.location = document.URL.replace(/^http:/i, "https:");
+    // }
+    </script>
+
+    {{-- Innecesario, el googletagmanager ya configurado te trae el google analytics
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', ' AU-194165289-1', 'auto');
+        ga('set', 'forceSSL', true);
+        ga('send', 'pageview');
+    </script> --}}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2J96DQW4NR"></script>
+    <script>window.dataLayer = window.dataLayer || [];
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-2J96DQW4NR');</script>
 </head>
 <body class="overflow-hidden">
     <div class="initial-load">
         <div class="d-flex justify-content-center align-items-center h-100">
-            <img src="{{ asset('images/logo_first_load.png')}}" alt="Logo Alferza" class="img-fluid">
+            <img src="{{ asset('images/logo_first_load.png') }}" alt="Logo Alferza" class="img-fluid">
         </div>
     </div>
     <script>
@@ -45,7 +85,7 @@
                     <a class="navbar-brand" href="/">
                         <img src="{{ asset('images/logo-alferza.png') }}" alt="Logo Alferza" class="img-fluid main-logo">
                     </a>
-                    <button class="navbar-toggler pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler collapsed pe-0" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
                         Menu <i class="fas fa-bars fa-lg ms-2"></i>
                     </button>
                     <div class="main-navbar">

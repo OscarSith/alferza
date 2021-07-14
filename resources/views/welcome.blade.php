@@ -1,6 +1,6 @@
 @extends('layouts.masterpage')
 
-@section('title', 'Inicio')
+@section('title', 'Alferza Desarrolladora Inmobiliaria')
 
 @section('body')
 <link rel="stylesheet" href="css/splide-core.min.css">

@@ -3,8 +3,9 @@
 @section('title', 'blog')
 
 @section('body')
-<div class="blog pt-5">
-    <div class="container">
+<div class="blog">
+    <img src="{{ asset('images/banner_blog.jpg') }}" alt="Imagen Página Blog" class="d-block w-100">
+    <div class="container pt-5">
         <div class="row">
             <div class="col-lg-10 mx-auto mb-5">
                 <h1 class="text-center main-title mb-5">ALFERZA BLOG</h1>
