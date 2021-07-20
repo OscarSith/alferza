@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="{{ asset('css/iSlider.min.css') }}">
 <div class="detail-project {{ Str::lower($project->build_status) }}">
     <img src="{{ asset('images/proyectos/' . $project->main_picture) }}" alt="Banner {{ $project->name }}" class="d-block w-100">
+    @include('partials.whatsapp')
     <div class="container">
         <div class="col-12 col-xl-10 col-xxl-9 mx-auto">
             <div class="row">

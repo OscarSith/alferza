@@ -6,7 +6,7 @@
 <div class="invierte">
     <img src="{{ asset('images/banner_proyectos.jpg') }}" alt="Imagen Proyectos Alferza" class="d-block w-100">
     @include('partials.whatsapp')
-    <div class="container">
+    <div class="container" id="form-invierte">
         <h1 class="text-center main-title pt-1 mb-5">
             INVIERTE EN EL RUBRO <span>INMOBILIARIO</span>
         </h2>
@@ -28,14 +28,14 @@
                         {{ csrf_field() }}
                         <div class="mb-3">
                             <label class="label" for="nombre">Nombre</label>
-                            <input type="text" id="nombre" name="nombre" class="form-control" required>
+                            <input type="text" id="nombre" name="nombre" class="form-control" value="{{ old('nombre') }}" required>
                             <div class="invalid-feedback">
                                 Este campo es requerido
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label class="label" for="email">Correo electrónico</label>
-                            <input type="email" id="email" name="email" class="form-control" required>
+                            <label class="label" for="correo">Correo electrónico</label>
+                            <input type="email" id="correo" name="correo" class="form-control" value="{{ old('correo') }}" required>
                         </div>
                         <div class="mb-3">
                             <div class="col-5">
@@ -44,7 +44,7 @@
                                     <span class="input-group-text" id="moneda">
                                         <i class="fas fa-phone"></i>
                                     </span>
-                                    <input type="tel" id="celular" name="celular" class="form-control" maxlength="13" required>
+                                    <input type="tel" id="celular" name="celular" class="form-control" maxlength="13" value="{{ old('celular') }}" required>
                                     <div class="invalid-feedback">
                                         Este campo es requerido
                                     </div>
@@ -53,7 +53,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="label" for="mensaje">Mensaje</label>
-                            <textarea name="mensaje" id="mensaje" rows="5" class="form-control" required></textarea>
+                            <textarea name="mensaje" id="mensaje" rows="5" class="form-control" required>{{ old('mensaje') }}</textarea>
                             <div class="invalid-feedback">
                                 Este campo es requerido
                             </div>

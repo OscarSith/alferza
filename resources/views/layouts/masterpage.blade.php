@@ -24,8 +24,6 @@
     <meta property="og:url" content="{{ $currentUrl }}">
     <meta property="og:image" content="{{ asset('images/logo_first_load.png') }}">
 
-    <link rel="shortlink" href="https://alferza.pe/">
-
     <script>
     // if (document.location.protocol != "https:") {
     //     document.location = document.URL.replace(/^http:/i, "https:");

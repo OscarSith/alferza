@@ -22,7 +22,10 @@
                         </div>
                     </div>
                     <div class="elementor-widget-container">
-                        <form method="post">
+                        <div class="px-3">
+                            @include('partials.errors_form_messages')
+                        </div>
+                        <form method="post" action="{{ route('landingForm') }}">
                             {{ csrf_field() }}
                             <div class="p-3">
                                 <div class="mb-3">
@@ -35,24 +38,24 @@
                                     </select>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="form-field-name">Nombre completo</label>
-                                    <input type="text" name="name" id="form-field-name" class="form-control" required>
+                                    <label for="nombre">Nombre completo</label>
+                                    <input type="text" name="nombre_completo" id="nombre" class="form-control" required>
                                 </div>
                                 <div class="mb-3">
                                     <div class="row">
                                         <div class="col-md-6 mb-3 mb-md-0">
-                                            <label for="form-field-field_1">Correo electrónico</label>
-                                            <input type="email" name="field_1" id="form-field-field_1" class="form-control" required>
+                                            <label for="correo">Correo electrónico</label>
+                                            <input type="email" name="correo" id="correo" class="form-control" required>
                                         </div>
                                         <div class="col-md-6">
-                                            <label for="form-field-field_3">Teléfono / Celular</label>
-                                            <input type="tel" name="telefono" id="form-field-field_3" class="form-control" required pattern="[0-9()#&amp;+*-=.]+">
+                                            <label for="celular">Teléfono / Celular</label>
+                                            <input type="tel" name="celular" id="form-field-field_3" class="form-control" required pattern="[0-9()#&amp;+*-=.]+">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="form-field-field_2">Consulta</label>
-                                    <textarea class="form-control" name="form_fields[field_2]" id="form-field-field_2" rows="3"></textarea>
+                                    <label for="mensaje">Consulta</label>
+                                    <textarea class="form-control" name="mensaje" id="mensaje" rows="3"></textarea>
                                 </div>
                                 <div class="mb-3 text-center">
                                     <button type="submit" class="btn btn-secondary alferza-btn">

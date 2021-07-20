@@ -5,6 +5,7 @@
 @section('body')
 <div class="blog">
     <img src="{{ asset('images/banner_blog.jpg') }}" alt="Imagen Página Blog" class="d-block w-100">
+    @include('partials.whatsapp')
     <div class="container pt-5">
         <div class="row">
             <div class="col-lg-10 mx-auto mb-5">

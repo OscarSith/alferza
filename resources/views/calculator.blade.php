@@ -5,6 +5,7 @@
 @section('body')
 <div class="calculator">
     <img src="{{ asset('images/banner_simulador_credito.jpg') }}" alt="Banner simulador de credito hipoteario" class="d-block w-100">
+    @include('partials.whatsapp')
     <div class="container-md">
         <h1 class="text-center main-title mb-4 pt-5">CALCULA TU CRÉDITO <span>HIPOTECARIO</span></h1>
         <div class="col-xl-7 mx-auto">
@@ -163,8 +164,7 @@
                     <button class="btn btn-secondary btn-sm alferza-btn mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#collapseForm" aria-expanded="true" aria-controls="collapseForm">
                         <i class="fas fa-reply"></i> Hacer otro calculo
                     </button>
-                    <a href="#" class="btn btn-primary alferza-btn btn-sm"><i class="fas fa-download"></i> Descargar</a>
-                    {{-- {{ route('exportarExcel') }}?valor={{$valor}}&cuota_inicial={{$cuotaInicial}}&tcea={{$tcea}}&plazo={{$anos}} --}}
+                    <a href="{{ route('exportarExcel') }}?valor={{$valor}}&cuota_inicial={{$cuotaInicial}}&tcea={{$tcea}}&plazo={{$anos}}" class="btn btn-primary alferza-btn btn-sm"><i class="fas fa-download"></i> Descargar</a>
                 </div>
             </div>
             <div class="table-responsive">

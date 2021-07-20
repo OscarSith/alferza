@@ -6,7 +6,7 @@
 <div class="contacto">
     <img src="images/contacto-silder.jpg" alt="Imagen Trabaja con nosotros" class="d-block w-100">
     @include('partials.whatsapp')
-    <div class="container pt-5">
+    <div class="container pt-5" id="contact">
         <div class="col-xxl-10 mx-auto">
             <h1 class="text-center main-title mb-5">NUESTROS ASESORES SE <br class="d-none d-md-inline-block">COMUNICARÁN CONTIGO DE INMEDIATO</h1>
             <div class="row">
@@ -68,7 +68,7 @@
                                 <span class="input-group-text" id="moneda">
                                     <i class="far fa-address-card"></i>
                                 </span>
-                                <input type="text" id="nombre_completo" name="nombre_completo" class="form-control" required>
+                                <input type="text" id="nombre_completo" name="nombre_completo" class="form-control" value="{{ old('nombre_completo') }}" required>
                                 <div class="invalid-feedback">
                                     Este campo es requerido
                                 </div>
@@ -80,7 +80,7 @@
                                 <span class="input-group-text" id="moneda">
                                     <i class="fas fa-envelope"></i>
                                 </span>
-                                <input type="email" id="correo" name="correo" class="form-control" required>
+                                <input type="email" id="correo" name="correo" class="form-control" value="{{ old('correo') }}" required>
                                 <div class="invalid-feedback">
                                     Este campo es requerido
                                 </div>
@@ -93,7 +93,7 @@
                                     <span class="input-group-text" id="moneda">
                                         <i class="fas fa-phone"></i>
                                     </span>
-                                    <input type="tel" id="celular" name="celular" class="form-control" maxlength="13" required>
+                                    <input type="tel" id="celular" name="celular" class="form-control" maxlength="13" value="{{ old('celular') }}" required>
                                     <div class="invalid-feedback">
                                         Este campo es requerido
                                     </div>
@@ -102,7 +102,7 @@
                         </div>
                         <div class="mb-3">
                             <label class="label" for="mensaje">Mensaje</label>
-                            <textarea id="mensaje" name="mensaje" class="form-control" rows="6" required></textarea>
+                            <textarea id="mensaje" name="mensaje" class="form-control" rows="6" required>{{ old('mensaje') }}</textarea>
                             <div class="invalid-feedback">
                                 Este campo es requerido
                             </div>

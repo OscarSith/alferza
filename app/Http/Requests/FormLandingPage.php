@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class FormInviertePost extends FormRequest
+class FormLandingPage extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,7 +24,8 @@ class FormInviertePost extends FormRequest
     public function rules()
     {
         return [
-            'nombre' => 'required',
+            'proyecto' => 'required|numeric',
+            'nombre_completo' => 'required',
             'correo' => 'required|email',
             'celular' => 'required|numeric|digits_between:7,15',
             'mensaje' => 'required',

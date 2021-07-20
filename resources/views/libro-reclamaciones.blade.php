@@ -5,6 +5,7 @@
 @section('body')
 <div class="libro-reclamaciones">
     <img src="{{ asset('images/banner_libro_reclamaciones.jpg') }}" alt="Banner Libros de reclamacion virtual" class="d-block w-100">
+    @include('partials.whatsapp')
     <div class="container">
         <div class="col-lg-8 mx-auto pt-5 pb-5">
             <h1 class="text-center main-title">LIBRO DE RECLAMACIONES</h1>

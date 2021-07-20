@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Blog;
 use App\Http\Requests\FormContactPost;
 use App\Http\Requests\FormInviertePost;
+use App\Http\Requests\FormLandingPage;
 use App\Http\Requests\FormLibroReclamacionesPost;
 use App\Http\Requests\WorkWithUsPost;
 use App\Mail\SendContact;
@@ -15,6 +16,7 @@ use App\Pictures;
 use App\Project;
 use App\SimuladorHipotecario;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -93,7 +95,7 @@ class WelcomeController extends Controller
 
     public function sendCV(WorkWithUsPost $req)
     {
-        Mail::to('contacto@alferza.pe')->send(new SendCV($req->all()));
+        Mail::to('recursoshumanos@alferza.pe')->send(new SendCV($req->all()));
         return redirect()->back()->with('send', true);
     }
 
@@ -136,8 +138,25 @@ class WelcomeController extends Controller
 
     public function sendInvierte(FormInviertePost $req)
     {
-        Mail::to('contacto@alferza.pe')->send(new SendInvierte($req->all()));
-        return redirect()->back()->with('send', true);
+        $data = [
+            "fname" => $req->input('nombre'),
+            "email" => $req->input('correo'),
+            "phone" => $req->input('celular'),
+            "extra_fields" => [
+                "mensaje" => $req->input('mensaje'),
+                "pagina" => 'Invierte',
+            ]
+        ];
+        $redirect = redirect()->back()->withFragment('form-invierte');
+
+        $response = $this->createEsperantClientAPI($data);
+
+        if ($response->status() === 200) {
+            return $redirect->with('send', true);
+        }
+
+        return $redirect->withInput();
+        // Mail::to('contacto@alferza.pe')->send(new SendInvierte($req->all()));
     }
 
     public function blog()
@@ -164,8 +183,27 @@ class WelcomeController extends Controller
 
     public function sendContact(FormContactPost $req)
     {
-        Mail::to('contacto@alferza.pe')->send(new SendContact($req->all()));
-        return redirect()->back()->with('send', true);
+        $data = [
+            "fname" => $req->input('nombre_completo'),
+            // "lname" => "Bernaola",
+            "email" => $req->input('correo'),
+            "phone" => $req->input('celular'),
+            "extra_fields" => [
+                "mensaje" => $req->input('mensaje'),
+                "pagina" => 'Contacto',
+            ]
+        ];
+        $redirect = redirect()->back()->withFragment('contact');
+
+        $response = $this->createEsperantClientAPI($data);
+
+        if ($response->status() === 200) {
+            return $redirect->with('send', true);
+        }
+
+        return $redirect->withInput();
+
+        // Mail::to('contacto@alferza.pe')->send(new SendContact($req->all()));
     }
 
     public function exportarExcel(Request $req)
@@ -201,5 +239,42 @@ class WelcomeController extends Controller
             'images' => $images,
             'projects' => $projects
         ]);
+    }
+
+    public function sendLandingForm(FormLandingPage $req)
+    {
+        $proyecto = Project::find($req->input('proyecto'));
+        $redirect = redirect()->back();
+
+        if ($proyecto != null) {
+            $data = [
+                "fname" => $req->input('nombre_completo'),
+                "email" => $req->input('correo'),
+                "phone" => $req->input('celular'),
+                "extra_fields" => [
+                    "consulta" => $req->input('mensaje'),
+                    "pagina" => 'Landing Page',
+                    "proyecto" => $proyecto->name,
+                ]
+            ];
+            $response = $this->createEsperantClientAPI($data);
+
+            if ($response->status() === 200) {
+                return $redirect->with('send', true);
+            }
+        }
+
+        return $redirect->withInput();
+    }
+
+    private function createEsperantClientAPI($data)
+    {
+        return Http::withHeaders([
+            'Authorization' => env('ESPERANT_TOKEN')
+        ])->post(env('ESPERANT_URL_API') . '/v3/clients', array_merge($data, [
+            "input_channel_id" => 4,
+            "source_id" => 4,
+            "interest_type_id" => 5,
+        ]));
     }
 }
