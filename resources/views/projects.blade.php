@@ -9,7 +9,7 @@
     <img src="{{ asset('images/banner_proyectos.jpg') }}" alt="Imagen Proyectos Alferza" class="d-block w-100">
     @include('partials.whatsapp')
     <div class="container-xl">
-        <h1 class="text-center main-title">PROYECTOS {{ $status != 'entregado' ? 'EN VENTA' : 'EJECUTADOS'}}</h1>
+        <h1 class="text-center main-title">PROYECTOS {{ $status != 'vendidas' ? 'EN VENTA' : 'EJECUTADOS'}}</h1>
         {{-- <div class="col-11 col-lg-8 mx-auto">
             <p class="first-lead">Estamos posicionados en la ciudad de Arequipa, desarrollando los mercados del sur peruano, innovando en el producto inmobiliario para los diferentes consumidores y, por sobre todo, estamos incursionando en el uso de tecnología como la Domótica, lo que generará valor diferenciado para nuestros clientes y nos permitirá competir frente a las principales empresas del sector. En la actualidad contamos con 6 proyectos ejecutados y 3 proyectos en fase de diseño, una sólida experiencia en el rubro que nos permite enfocarnos en proyectos masivos.</p>
         </div> --}}
@@ -20,7 +20,9 @@
                 </div>
                 @foreach ($projects as $project)
                 <div class="home-links__box">
+                    @if ($project->url_slug != '')
                     <a href="{{ route('detail-project', $project->url_slug) }}" id="project_{{ $project->id }}">
+                    @endif
                         <div class="home-links__inner">
                             <img src="{{ asset('images/proyectos/' . $project->mini_picture) }}" class="img-fluid" alt="{{ $project->name }}">
                             <div class="text-center home-links__inner-title">
@@ -30,7 +32,9 @@
                                 </h4>
                             </div>
                         </div>
+                    @if ($project->url_slug != '')
                     </a>
+                    @endif
                 </div>
                 @endforeach
             </div>
@@ -60,12 +64,18 @@
                 <div class="splide__track">
                     <ul class="splide__list">
                         @foreach ($projects as $project)
-                            <li class="splide__slide">
-                                <img src="{{ asset('images/proyectos/' . $project->mini_picture) }}" class="img-fluid" alt="{{ $project->name }}">
-                                <div class="text-center home-links__inner-title d-block">
-                                    <h3 class="mb-0 w-75 mx-auto pt-3" style="background-image: url({{ asset('images/proyectos/' . $project->mini_logo_picture) }}')"></h3>
-                                    <h4 class="mb-0 position-static">{{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}</h4>
-                                </div>
+                            <li class="splide__slide rounded">
+                                @if ($project->url_slug != '')
+                                <a href="{{ route('detail-project', $project->url_slug) }}">
+                                @endif
+                                    <img src="{{ asset('images/proyectos/' . $project->mini_picture) }}" class="img-fluid" alt="{{ $project->name }}">
+                                    <div class="text-center home-links__inner-title d-block">
+                                        <h3 class="mb-0 w-75 mx-auto pt-3" style="background-image: url('{{ asset('images/proyectos/' . $project->mini_logo_picture) }}')"></h3>
+                                        <h4 class="mb-0 position-static">{{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}</h4>
+                                    </div>
+                                @if ($project->url_slug != '')
+                                </a>
+                                @endif
                             </li>
                         @endforeach
                     </ul>

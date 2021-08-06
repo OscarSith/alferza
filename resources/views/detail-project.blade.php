@@ -20,6 +20,7 @@
                                 DEPARTAMENTOS EN VENTA Y EN ETAPA DE CONSTRUCCIÓN
                                 @break
                             @case('PREVENTA')
+                            @case('LANZAMIENTO')
                                 DEPARTAMENTOS EN LANZAMIENTO
                                 @break
                             @case('ENTREGADO')
@@ -198,17 +199,18 @@
                         </div>
                     @break
                     @case('PREVENTA')
+                    @case('LANZAMIENTO')
                         <div class="detail-project__sponsor pt-5 pb-5">
                             <div class="row">
-                                <div class="col-4 d-flex flex-column justify-content-center">
+                                <div class="col-md-4 d-flex flex-column justify-content-center order-md-1 mt-3 mb-3 mb-md-0 mt-md-0">
                                     @if ($project->brochure)
                                         <a href="{{ asset('images/proyectos/brochures/' . $project->brochure) }}" target="_blank" class="btn btn-sm alferza-btn type-1">Descargar brochure</a>
                                     @endif
                                 </div>
-                                <div class="col-4 d-flex align-items-center justify-content-center">
+                                <div class="col-md-4 d-flex align-items-center justify-content-center order-first order-md-2">
                                     <img src="{{ asset('images/proyectos/ubicacion_que_mereces.png') }}" alt="Vive centrico" class="img-fluid" style="height: 56px">
                                 </div>
-                                <div class="col-4 d-flex flex-column justify-content-center">
+                                <div class="col-md-4 d-flex flex-column justify-content-center order-md-3">
                                     <a href="{{ route('contacto') }}" class="btn btn-sm alferza-btn type-1">Pedir cotización</a>
                                 </div>
                             </div>
@@ -217,13 +219,13 @@
                     @case('ENTREGADO')
                         <div class="detail-project__sponsor pt-5 pb-5">
                             <div class="row">
-                                <div class="col-4 d-flex flex-column justify-content-center">
+                                <div class="col-md-4 d-flex flex-column justify-content-center order-md-1 mt-3 mb-3 mb-md-0 mt-md-0">
                                     <a href="https://wa.me/{{ env('WHATSAPP_NUMBER') }}" target="_blank" class="btn btn-sm alferza-btn">Hablar con un asesor</a>
                                 </div>
-                                <div class="col-4 d-flex align-items-center justify-content-center">
+                                <div class="col-md-4 d-flex align-items-center justify-content-center order-first order-md-2">
                                     <img src="{{ asset('images/proyectos/logo_alferza_02.png') }}" alt="Vive centrico" class="img-fluid">
                                 </div>
-                                <div class="col-4 d-flex flex-column justify-content-center">
+                                <div class="col-md-4 d-flex flex-column justify-content-center order-md-3">
                                     <a href="{{ route('projects') }}" class="btn btn-sm alferza-btn">Ver nuevos proyectos</a>
                                 </div>
                             </div>

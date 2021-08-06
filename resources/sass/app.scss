@@ -14,7 +14,7 @@ body {
         color: $blue;
     }
 }
-p, ul, a {
+p {
     font-size: 0.92em;
     line-height: 1.57em;
 }
@@ -99,6 +99,11 @@ header {
             }
         }
     }
+    .carousel-item {
+        img {
+            width: 100%;
+        }
+    }
 }
 
 main {
@@ -152,8 +157,14 @@ main {
                 margin: 10px 20px;
                 border: 1px solid $darkGray;
                 text-align: center;
-                display: flex;
-                flex-direction: column;
+
+                a {
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    text-decoration: none;
+                    box-shadow: 3px 3px 5px $gray;
+                }
 
                 .home-links__inner-title {
                     margin-top: auto;
@@ -253,6 +264,7 @@ main {
                     background-size: contain;
                     background-repeat: no-repeat;
                     background-position: 50% 50%;
+                    margin-top: 5px;
 
                     &.emmel, &.emmel-ii {
                         height: 72px;
@@ -852,7 +864,7 @@ main {
         }
     }
 
-    &.preventa {
+    &.preventa, &.lanzamiento {
         .detail-project__description {
             h5 {
                 background-color: $blue2;
@@ -954,6 +966,9 @@ main {
 
 .blog {
     .card {
+        &-main-img {
+            height: 400px;
+        }
         a {
             overflow: hidden;
 
@@ -962,6 +977,11 @@ main {
                 transition: all .5s ease;
                 filter: brightness(100%) contrast(100%) saturate(0%) blur(0) hue-rotate(0deg);
             }
+        }
+        &-title {
+            height: 48px;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
     .card-body {
@@ -1309,29 +1329,50 @@ a {
     }
 }
 
+@media (min-width: 768px) and (max-width: 991px) {
+    .blog {
+        .card-main-img {
+            height: 256px;
+        }
+        .card-title {
+            height: 58px;
+            font-size: 1.1em;
+        }
+    }
+}
+
 @media screen and (max-width: 767px) {
     .navbar-toggler {
         margin-left: auto;
+        font-size: 1em;
     }
 
     .bot-xs {
         border-top: 4px solid $white;
     }
 
-    .detail-project__description .bg-left {
+    .detail-project__description .table-description .bg-left {
         display: block;
-        height: 120px;
+        height: 90px;
     }
 
     .detail-project__gallery .benefits-block span {
         font-size: 11px;
+    }
+
+    .main-title {
+        font-size: 1.25em;
+    }
+
+    .maps {
+        --bs-aspect-ratio: calc(22 / 30 * 100%);
     }
 }
 
 @media screen and (max-width: 575px) {
     header {
         .main-logo {
-            height: 58px;
+            height: 56px;
         }
         .img-portada-2 {
             width: auto;
@@ -1357,9 +1398,14 @@ a {
         }
     }
 
-    .home-trayectoria .splide__slide {
-        margin-left: 10px;
-        margin-left: 10px;
+    #carousel-home {
+        .carousel-item {
+            img {
+                position: relative;
+                width: 650px;
+                right: 200px;
+            }
+        }
     }
 
     .home {
@@ -1372,6 +1418,18 @@ a {
                 }
             }
         }
+
+        &-trayectoria {
+            .splide__slide {
+                margin-left: 10px;
+                margin-left: 10px;
+            }
+            .splide__pagination__page {
+                width: 15px;
+                height: 15px;
+            }
+        }
+
     }
 
     .about-content__first-lead {
@@ -1426,6 +1484,12 @@ a {
             img {
                 height: 70px;
             }
+        }
+    }
+
+    .blog {
+        .card-main-img {
+            height: auto;
         }
     }
 }

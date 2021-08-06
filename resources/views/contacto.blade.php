@@ -10,7 +10,7 @@
         <div class="col-xxl-10 mx-auto">
             <h1 class="text-center main-title mb-5">NUESTROS ASESORES SE <br class="d-none d-md-inline-block">COMUNICARÁN CONTIGO DE INMEDIATO</h1>
             <div class="row">
-                <div class="col-12 col-lg-6">
+                <div class="col-lg-6">
                     <div class="p-2 p-lg-5 contacto-info">
                         <div class="contacto-info__imagen pb-4 text-center">
                             <img src="{{ asset('images/logo_first_load.png')}}" alt="Logo Alferza" class="img-fluid">
@@ -58,10 +58,19 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-12 col-lg-6">
+                <div class="col-lg-6 mt-5 mt-lg-0">
                     @include('partials.errors_form_messages')
                     <form action="{{ route('sendContact') }}" class="alferza-form" method="POST" id="form-contacto" novalidate>
                         {{ csrf_field() }}
+                        <div class="mb-3">
+                            <label class="label" for="form-field-project">Proyecto</label>
+                            <select name="proyecto" id="form-field-project" class="form-select" required>
+                                <option value="">Seleccione</option>
+                                @foreach ($projects as $project)
+                                    <option value="{{ $project->id }}">{{ $project->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
                         <div class="mb-3">
                             <label class="label" for="nombre_completo">Nombre Completo</label>
                             <div class="input-group">

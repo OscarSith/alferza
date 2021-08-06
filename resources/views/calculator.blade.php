@@ -17,15 +17,15 @@
                                 {{ csrf_field() }}
                                 @method('post')
                                 <div class="row mb-3">
-                                    <div class="col-12 col-md-6">
-                                        <label for="nombre" class="form-label label">Nombre</label>
+                                    <div class="col-12 col-md-6 mb-3 mb-md-0">
+                                        <label for="nombre" class="label">Nombre</label>
                                         <input type="text" id="nombre" name="nombre" class="form-control" aria-label="nombre" aria-describedby="nombre" required>
                                         <div class="invalid-feedback">
                                             Este campo es requerido
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
-                                        <label for="apellido" class="form-label label">Apellido</label>
+                                        <label for="apellido" class="label">Apellido</label>
                                         <input type="text" id="apellido" name="apellido" class="form-control" aria-label="apellido" aria-describedby="apellido" required>
                                         <div class="invalid-feedback">
                                             Este campo es requerido
@@ -33,15 +33,15 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <div class="col-12 col-md-6">
-                                        <label for="numero" class="form-label label">Numero</label>
+                                    <div class="col-12 col-md-6 mb-3 mb-md-0">
+                                        <label for="numero" class="label">Numero</label>
                                         <input type="text" id="numero" name="numero" class="form-control" aria-label="numero" aria-describedby="numero" maxlength="9" required>
                                         <div class="invalid-feedback">
                                             Este campo es requerido
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
-                                        <label for="correo" class="form-label label">Correo</label>
+                                        <label for="correo" class="label">Correo</label>
                                         <input type="email" id="correo" name="correo" class="form-control" aria-label="correo" aria-describedby="correo" required>
                                         <div class="invalid-feedback">
                                             Este campo es requerido
@@ -49,15 +49,15 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <div class="col-12 col-md-6">
-                                        <label for="dni" class="form-label label">DNI</label>
+                                    <div class="col-12 col-md-6 mb-3 mb-md-0">
+                                        <label for="dni" class="label">DNI</label>
                                         <input type="text" id="dni" name="dni" class="form-control" maxlength="8" aria-label="dni" aria-describedby="dni" required>
                                         <div class="invalid-feedback">
                                             Este campo es requerido
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
-                                        <label for="fecha_nacimiento" class="form-label label">Fecha Nacimiento</label>
+                                        <label for="fecha_nacimiento" class="label">Fecha Nacimiento</label>
                                         <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" class="form-control" aria-label="fecha_nacimiento" aria-describedby="fecha_nacimiento" required>
                                         <div class="invalid-feedback">
                                             Este campo es requerido
@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col-12 col-md-6">
-                                        <label for="valor" class="form-label label">Valor inmueble</label>
+                                        <label for="valor" class="label">Valor inmueble</label>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="moneda">S/.</span>
                                             <input type="text" id="valor" name="valor" class="form-control" aria-label="valor inmueble" aria-describedby="moneda" required>
@@ -76,7 +76,7 @@
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6">
-                                        <label for="cuota_inicial" class="form-label label">Cuota inicial</label>
+                                        <label for="cuota_inicial" class="label">Cuota inicial</label>
                                         <div class="input-group mb-3">
                                             <span class="input-group-text" id="moneda2">S/.</span>
                                             <input type="text" id="cuota_inicial" name="cuota_inicial" class="form-control" aria-label="valor inmueble" aria-describedby="moneda2" required>
@@ -88,7 +88,10 @@
                                 </div>
                                 <div class="row mb-3">
                                     <div class="col">
-                                        <label for="tcea" class="form-label label">Tasa efectiva anual</label>
+                                        <label for="tcea" class="label">
+                                            <span class="d-none d-md-inline">Tasa efectiva anual</span>
+                                            <span class="d-inline d-md-none">TEA</span>
+                                        </label>
                                         <div class="input-group mb-3">
                                             <input type="text" id="tcea" name="tcea" class="form-control" aria-label="valor inmueble" aria-describedby="moneda" required>
                                             <span class="input-group-text" id="moneda">%</span>
@@ -98,7 +101,7 @@
                                         </div>
                                     </div>
                                     <div class="col">
-                                        <label for="plazo" class="form-label label">Plazo (años)</label>
+                                        <label for="plazo" class="label">Plazo (años)</label>
                                         <select class="form-select" name="plazo" id="plazo" required>
                                             <option value="" selected>Escoger</option>
                                             <option value="5">5</option>
@@ -128,7 +131,7 @@
                                     </div>
                                 </div>
                                 <div class="row mb-3">
-                                    <div class="col-xl-8 lh-1">
+                                    <div class="col-xl-8 lh-1 mb-3 mb-md-0">
                                         <small class="calculator-short-info">El calculo de este crédito hipotecario es referencial y sujeto a condiciones de la entidad bancaria del cliente</small>
                                     </div>
                                     <div class="col-xl-4 text-center">

@@ -5,20 +5,20 @@
 @section('body')
 <link rel="stylesheet" href="css/splide-core.min.css">
 <div id="carousel-home" class="carousel slide carousel-fade" data-bs-ride="carousel">
-    <div class="carousel-indicators justify-content-start flex-column">
+    <div class="carousel-indicators justify-content-start flex-column d-none d-md-flex">
         <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="0" class="active rounded-circle" aria-current="true" aria-label="Banner 3"></button>
         <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="1" class="rounded-circle" aria-label="Banner 4"></button>
         <button type="button" data-bs-target="#carousel-home" data-bs-slide-to="2" class="rounded-circle" aria-label="Banner 5"></button>
     </div>
     <div class="carousel-inner">
         <div class="carousel-item active" data-bs-interval="3000">
-            <img src="images/home_banner-03.jpg" class="d-block w-100" alt="Banner alferza 3">
+            <img src="images/home_banner-03.jpg" class="d-block" alt="Banner alferza 3">
         </div>
         <div class="carousel-item" data-bs-interval="3000">
-            <img src="images/home_banner-04.jpg" class="d-block w-100" alt="banner alferza 4">
+            <img src="images/home_banner-04.jpg" class="d-block" alt="banner alferza 4">
         </div>
         <div class="carousel-item" data-bs-interval="3000">
-            <img src="images/home_banner-05.jpg" class="d-block w-100" alt="banner alferza 5">
+            <img src="images/home_banner-05.jpg" class="d-block" alt="banner alferza 5">
         </div>
     </div>
 </div>
@@ -29,17 +29,21 @@
         <div class="d-flex justify-content-end home-links d-none d-lg-flex" style="background-image: none">
             @foreach ($projects as $project)
             <div class="home-links__box">
+                @if ($project->url_slug != '')
                 <a href="{{ route('detail-project', $project->url_slug) }}" id="project_{{ $project->id }}">
+                @endif
                     <div class="home-links__inner">
                         <img src="images/proyectos/{{ $project->mini_picture }}" class="img-fluid" alt="{{ $project->name }}">
                         <div class="text-center home-links__inner-title">
-                            <h3 class="mb-0 {{ $project->url_slug }}" style="background-image: url('images/proyectos/{{ $project->mini_logo_picture }}'); {{ $loop->last ? 'height: 40px' : ''}}"></h3>
+                            <h3 class="mb-0 {{ $project->url_slug }}" style="background-image: url('images/proyectos/{{ $project->mini_logo_picture }}'); {{ $project->name == 'Castilla' ? 'height: 40px' : ''}}"></h3>
                             <h4 class="mb-0 first-item">
                                 {{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}
                             </h4>
                         </div>
                     </div>
+                @if ($project->url_slug != '')
                 </a>
+                @endif
             </div>
             @endforeach
         </div>
@@ -47,12 +51,18 @@
             <div class="splide__track">
                 <ul class="splide__list">
                     @foreach ($projects as $project)
-                        <li class="splide__slide">
-                            <img src="images/proyectos/{{ $project->mini_picture }}" class="img-fluid" alt="{{ $project->name }}">
-                            <div class="text-center home-links__inner-title d-block">
-                                <h3 class="mb-0 w-75 mx-auto pt-3" style="background-image: url('images/proyectos/{{ $project->mini_logo_picture }}')"></h3>
-                                <h4 class="mb-0 position-static">{{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}</h4>
-                            </div>
+                        <li class="splide__slide rounded">
+                            @if ($project->url_slug != '')
+                            <a href="{{ route('detail-project', $project->url_slug) }}">
+                            @endif
+                                <img src="images/proyectos/{{ $project->mini_picture }}" class="img-fluid" alt="{{ $project->name }}">
+                                <div class="text-center home-links__inner-title d-block">
+                                    <h3 class="mb-0 w-75 mx-auto pt-3" style="background-image: url('images/proyectos/{{ $project->mini_logo_picture }}')"></h3>
+                                    <h4 class="mb-0 position-static">{{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}</h4>
+                                </div>
+                            @if ($project->url_slug != '')
+                            </a>
+                            @endif
                         </li>
                     @endforeach
                 </ul>

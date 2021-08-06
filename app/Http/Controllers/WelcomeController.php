@@ -8,15 +8,15 @@ use App\Http\Requests\FormInviertePost;
 use App\Http\Requests\FormLandingPage;
 use App\Http\Requests\FormLibroReclamacionesPost;
 use App\Http\Requests\WorkWithUsPost;
-use App\Mail\SendContact;
 use App\Mail\SendCV;
-use App\Mail\SendInvierte;
 use App\Mail\SendLibroReclamacion;
 use App\Pictures;
 use App\Project;
 use App\SimuladorHipotecario;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -142,10 +142,8 @@ class WelcomeController extends Controller
             "fname" => $req->input('nombre'),
             "email" => $req->input('correo'),
             "phone" => $req->input('celular'),
-            "extra_fields" => [
-                "mensaje" => $req->input('mensaje'),
-                "pagina" => 'Invierte',
-            ]
+            "utm_source" => 'Invierte',
+            "observation" => $req->input('mensaje'),
         ];
         $redirect = redirect()->back()->withFragment('form-invierte');
 
@@ -161,7 +159,7 @@ class WelcomeController extends Controller
 
     public function blog()
     {
-        $blogs = Blog::all(['id', 'title', 'picture', 'url_slug']);
+        $blogs = Blog::latest()->paginate(10, ['id', 'title', 'picture', 'url_slug']);
 
         return view('blog', ['blogs' => $blogs]);
     }
@@ -178,20 +176,20 @@ class WelcomeController extends Controller
 
     public function contacto()
     {
-        return view('contacto');
+        $projects = Project::where('vendidas', '0')->get(['id', 'name']);
+        return view('contacto', ['projects' => $projects]);
     }
 
     public function sendContact(FormContactPost $req)
     {
+        $proyecto = Project::find($req->input('proyecto'));
         $data = [
             "fname" => $req->input('nombre_completo'),
-            // "lname" => "Bernaola",
             "email" => $req->input('correo'),
             "phone" => $req->input('celular'),
-            "extra_fields" => [
-                "mensaje" => $req->input('mensaje'),
-                "pagina" => 'Contacto',
-            ]
+            "utm_source" => 'Contacto',
+            "observation" => $req->input('mensaje'),
+            "project_id" => $proyecto->sperant_project_id
         ];
         $redirect = redirect()->back()->withFragment('contact');
 
@@ -251,14 +249,12 @@ class WelcomeController extends Controller
                 "fname" => $req->input('nombre_completo'),
                 "email" => $req->input('correo'),
                 "phone" => $req->input('celular'),
-                "extra_fields" => [
-                    "consulta" => $req->input('mensaje'),
-                    "pagina" => 'Landing Page',
-                    "proyecto" => $proyecto->name,
-                ]
+                "utm_source" => 'Landing Page',
+                "observation" => $req->input('mensaje'),
+                "project_id" => $proyecto->sperant_project_id
             ];
-            $response = $this->createEsperantClientAPI($data);
 
+            $response = $this->createEsperantClientAPI($data);
             if ($response->status() === 200) {
                 return $redirect->with('send', true);
             }
@@ -269,12 +265,27 @@ class WelcomeController extends Controller
 
     private function createEsperantClientAPI($data)
     {
-        return Http::withHeaders([
+        $response = Http::withHeaders([
             'Authorization' => env('ESPERANT_TOKEN')
         ])->post(env('ESPERANT_URL_API') . '/v3/clients', array_merge($data, [
-            "input_channel_id" => 4,
-            "source_id" => 4,
-            "interest_type_id" => 5,
+            "input_channel_id" => env('ESPERANT_INPUT_CHANNEL'),
+            "source_id" => env('ESPERANT_SOURCE_ID'),
+            "interest_type_id" => env('ESPERANT_INTEREST_TYPE'),
         ]));
+
+        if ($response->status() === 200) {
+            $sperantData = $response->json();
+            $userData = [
+                'name' => $sperantData['data']['attributes']['fname'],
+                'email' => $sperantData['data']['attributes']['email'],
+                'sperant_data' => json_encode($response->json()),
+                'sperant_project_id' => isset($data['project_id']) ? $data['project_id'] : null
+            ];
+            User::create($userData);
+        } else {
+            Log::error($response->json());
+        }
+
+        return $response;
     }
 }

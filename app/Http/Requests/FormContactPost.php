@@ -24,6 +24,7 @@ class FormContactPost extends FormRequest
     public function rules()
     {
         return [
+            'proyecto' => 'required',
             'nombre_completo' => 'required',
             'correo' => 'required|email',
             'celular' => 'required',

@@ -8,6 +8,9 @@
         <div class="row">
             <div class="col-lg-9 mx-auto pb-5">
                 <h1>{{ $blog->title }}</h1>
+                @if ($blog->picture != null && $blog->show_main_picture)
+                    <img src="{{ asset('images/blog/' . $blog->picture) }}" class="img-fluid mb-3" alt="{{ $blog->title }}">
+                @endif
                 @if ($blog->sub_title != null)
                     <p>{{ $blog->sub_title }}</p>
                 @endif
