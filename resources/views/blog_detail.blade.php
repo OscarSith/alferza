@@ -3,6 +3,26 @@
 @section('title', $blog->title)
 
 @section('body')
+<style>
+    .ql-size-small {
+        font-size: 0.75em;
+    }
+    .ql-size-large {
+        font-size: 1.5em;
+    }
+    .ql-size-huge {
+        font-size: 2.5em;
+    }
+    .ql-align-center {
+        text-align: center;
+    }
+    .ql-align-justify {
+        text-align: justify;
+    }
+    .ql-align-right {
+        text-align: right;
+    }
+</style>
 <div class="blog-detail pt-5">
     <div class="container">
         <div class="row">
@@ -14,7 +34,9 @@
                 @if ($blog->sub_title != null)
                     <p>{{ $blog->sub_title }}</p>
                 @endif
-                {!! $blog->info !!}
+                <div class="ql-container ql-snow">
+                    {!! $blog->info !!}
+                </div>
                 @if ($blog->author != null)
                     <div class="mt-3 mb-5 author">
                         <em class="d-block small">{{ $blog->created_at->format('d/m/Y') }} - Alferza Desarrolladora Inmobiliaria</em>

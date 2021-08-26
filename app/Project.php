@@ -7,7 +7,29 @@ use \Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Project extends Model
 {
-    //
+    protected $fillable = [
+        'name',
+        'url_slug',
+        'main_picture',
+        'logo_picture',
+        'mini_picture',
+        'description',
+        'address',
+        'build_status',
+        'start_price',
+        'quantity',
+        'build_type',
+        'typologies',
+        'rooms',
+        'baths',
+        'brochure',
+        'apartments_detail',
+        'location',
+        'google_map',
+        'sperant_project_id',
+        'vendidas',
+        'status',
+    ];
 
     /**
      * Get all of the flats for the Project

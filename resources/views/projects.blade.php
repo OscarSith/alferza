@@ -26,7 +26,7 @@
                         <div class="home-links__inner">
                             <img src="{{ asset('images/proyectos/' . $project->mini_picture) }}" class="img-fluid" alt="{{ $project->name }}">
                             <div class="text-center home-links__inner-title">
-                                <h3 class="mb-0 {{ $project->url_slug }}" style="background-image: url({{ asset('images/proyectos/' . $project->mini_logo_picture) }})"></h3>
+                                <h3 class="mb-0 {{ $project->url_slug }}" style="background-image: url({{ asset('images/proyectos/' . $project->logo_picture) }})"></h3>
                                 <h4 class="mb-0 first-item">
                                     {{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}
                                 </h4>
@@ -70,7 +70,7 @@
                                 @endif
                                     <img src="{{ asset('images/proyectos/' . $project->mini_picture) }}" class="img-fluid" alt="{{ $project->name }}">
                                     <div class="text-center home-links__inner-title d-block">
-                                        <h3 class="mb-0 w-75 mx-auto pt-3" style="background-image: url('{{ asset('images/proyectos/' . $project->mini_logo_picture) }}')"></h3>
+                                        <h3 class="mb-0 w-75 mx-auto pt-3" style="background-image: url('{{ asset('images/proyectos/' . $project->logo_picture) }}')"></h3>
                                         <h4 class="mb-0 position-static">{{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}</h4>
                                     </div>
                                 @if ($project->url_slug != '')
@@ -98,6 +98,16 @@
             <hr>
             <div class="container">
                 <div class="col-12 col-xl-10 col-xxl-9 mx-auto pt-5 testimonios-list">
+                    <div class="row mb-3 testimonios-item">
+                        <div class="col-12 col-md-4 mb-3 mb-md-0 position-relative">
+                            <h5>SHIRLEY MARICARMEN LAURA VERA</h5>
+                            <span>Propietaria Emmel II</span>
+                            <div class="d-none d-lg-block testimonios-item__separator"></div>
+                        </div>
+                        <div class="col-12 col-md-8">
+                            <p class="mb-0">"Muchas gracias por hacer nuestro sueño realidad."</p>
+                        </div>
+                    </div>
                     <div class="row mb-3 testimonios-item">
                         <div class="col-12 col-md-4 mb-3 mb-md-0 position-relative">
                             <h5>SR. FRANCO JIMENEZ</h5>

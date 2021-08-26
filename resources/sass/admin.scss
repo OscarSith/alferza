@@ -1,0 +1,13 @@
+@import "variables";
+
+body {
+    background-color: $white3;
+}
+
+.normal-height {
+    min-height: 250px;
+}
+
+.medium-height {
+    min-height: 150px;
+}

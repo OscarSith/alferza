@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Blog;
+use App\Consultant;
 use App\Http\Requests\FormContactPost;
 use App\Http\Requests\FormInviertePost;
 use App\Http\Requests\FormLandingPage;
@@ -12,7 +13,10 @@ use App\Mail\SendCV;
 use App\Mail\SendLibroReclamacion;
 use App\Pictures;
 use App\Project;
+use App\Repositories\ConsultantRepo;
+use App\Repositories\TestimonyRepo;
 use App\SimuladorHipotecario;
+use App\Testimonio;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
@@ -29,12 +33,12 @@ class WelcomeController extends Controller
     }
 
     public function index() {
-        $projects = Project::all([
+        $projects = Project::where('status', '1')->get([
             'id',
             'name',
             'url_slug',
             'mini_picture',
-            'mini_logo_picture',
+            'logo_picture',
             'build_status',
             'vendidas',
             'build_price',
@@ -43,8 +47,11 @@ class WelcomeController extends Controller
             'build_type'
         ]);
 
+        $testimonies = (new TestimonyRepo(new Testimonio()))->listAll();
+
         return view('welcome', [
-            'projects' => $projects
+            'projects' => $projects,
+            'testimonies' => $testimonies
         ]);
     }
 
@@ -62,12 +69,12 @@ class WelcomeController extends Controller
         } else {
             $project = Project::where('vendidas', 0);
         }
-        $projects = $project->get([
+        $projects = $project->where('status', '1')->get([
             'id',
             'name',
             'url_slug',
             'mini_picture',
-            'mini_logo_picture',
+            'logo_picture',
             'build_status',
             'vendidas',
             'build_price',
@@ -101,7 +108,16 @@ class WelcomeController extends Controller
 
     public function consultants()
     {
-        return view('consultants');
+        return view('consultants', [
+            'consultants' => (new ConsultantRepo(new Consultant()))->listAll([
+                'name',
+                'lastname',
+                'email',
+                'cellphone',
+                'bio',
+                'picture',
+            ])
+        ]);
     }
 
     public function calculator(Request $req)

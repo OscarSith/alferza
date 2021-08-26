@@ -3,18 +3,42 @@
 namespace App\Http\Controllers;
 
 use App\Benefit;
+use App\Http\Requests\BenefitRequest;
+use App\Project;
+use App\Repositories\BenefitsRepo;
+use App\Repositories\ProjectRepo;
 use Illuminate\Http\Request;
 
 class BenefitController extends Controller
 {
+    private $benefitsRepo;
+
+    public function __construct(BenefitsRepo $repo)
+    {
+        $this->benefitsRepo = $repo;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(int $projectID)
     {
-        //
+        $benefits = $this->benefitsRepo->listByProjectId($projectID, [
+            'id',
+            'name',
+            'icon',
+            'icon2',
+            'icon_rotate',
+        ]);
+        $projects = (new ProjectRepo(new Project()))->listAll(['id', 'name']);
+
+        return view('admin.benefits', [
+            'benefits' => $benefits,
+            'projects' => $projects,
+            'current_project_id' => $projectID
+        ]);
     }
 
     /**
@@ -33,9 +57,11 @@ class BenefitController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(BenefitRequest $request)
     {
-        //
+        $this->benefitsRepo->store($request->all());
+
+        return redirect()->back()->with('info', 'Beneficio agregado');
     }
 
     /**
@@ -78,8 +104,12 @@ class BenefitController extends Controller
      * @param  \App\Benefit  $benefit
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Benefit $benefit)
+    public function destroy(int $projectID, Benefit $benefit)
     {
-        //
+        $beneficioName = $benefit->name;
+
+        $this->benefitsRepo->deleteFile($benefit);
+
+        return redirect()->back()->with('info', 'Beneficio ' . $beneficioName . ' eliminado');
     }
 }

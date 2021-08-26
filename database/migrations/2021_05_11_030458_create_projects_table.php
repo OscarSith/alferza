@@ -20,7 +20,6 @@ class CreateProjectsTable extends Migration
             $table->string('main_picture');
             $table->string('logo_picture');
             $table->string('mini_picture');
-            $table->string('mini_logo_picture');
             $table->text('description');
             $table->decimal('start_price', 10, 2);
             $table->integer('meters');

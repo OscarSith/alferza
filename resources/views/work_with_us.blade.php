@@ -17,20 +17,20 @@
             </div>
             <div class="col-md-10 mx-auto">
                 <div class="row">
-                    <div class="col-md-4 mb-3">
-                        <img src="{{ asset('images/imagen_mujer_01.jpeg') }}" alt="Imagen mujer 1" class="img-fluid">
+                    <div class="col-md-6 mb-3">
+                        <img src="{{ asset('images/trabaja_2_Ximena.jpg') }}" alt="Imagen mujer 1" class="img-fluid">
                     </div>
-                    <div class="col-md-4 mb-3">
-                        <img src="{{ asset('images/imagen_2_hombres.jpeg') }}" alt="Imagen 2 hombres con traje de obrero completo" class="img-fluid">
+                    <div class="col-md-6 mb-3">
+                        <img src="{{ asset('images/imagen_varios.jpeg') }}" alt="Imagen 2 hombres con traje de obrero completo" class="img-fluid">
                     </div>
-                    <div class="col-md-4 mb-3">
+                    {{-- <div class="col-md-4 mb-3">
                         <img src="{{ asset('images/imagen_mujer_04.jpeg') }}" alt="Imagenes Mujer 4" class="img-fluid">
+                    </div> --}}
+                    <div class="col-md-6 mb-3">
+                        <img src="{{ asset('images/trabaja_1.jpg') }}" alt="Imagenes varios 2" class="img-fluid">
                     </div>
                     <div class="col-md-6 mb-3">
-                        <img src="{{ asset('images/imagen_varios.jpeg') }}" alt="Imagenes varios 2" class="img-fluid">
-                    </div>
-                    <div class="col-md-6 mb-3">
-                        <img src="{{ asset('images/imagen_varios_03.jpeg') }}" alt="Imagen varios 3" class="img-fluid">
+                        <img src="{{ asset('images/trabaja_3_Oswaldo 3.jpg') }}" alt="Imagen varios 3" class="img-fluid">
                     </div>
                 </div>
             </div>

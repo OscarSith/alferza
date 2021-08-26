@@ -35,7 +35,7 @@
                     <div class="home-links__inner">
                         <img src="images/proyectos/{{ $project->mini_picture }}" class="img-fluid" alt="{{ $project->name }}">
                         <div class="text-center home-links__inner-title">
-                            <h3 class="mb-0 {{ $project->url_slug }}" style="background-image: url('images/proyectos/{{ $project->mini_logo_picture }}'); {{ $project->name == 'Castilla' ? 'height: 40px' : ''}}"></h3>
+                            <h3 class="mb-0 {{ $project->url_slug }}" style="background-image: url('images/proyectos/{{ $project->logo_picture }}'); {{ $project->name == 'Castilla' ? 'height: 40px' : ''}}"></h3>
                             <h4 class="mb-0 first-item">
                                 {{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}
                             </h4>
@@ -57,7 +57,7 @@
                             @endif
                                 <img src="images/proyectos/{{ $project->mini_picture }}" class="img-fluid" alt="{{ $project->name }}">
                                 <div class="text-center home-links__inner-title d-block">
-                                    <h3 class="mb-0 w-75 mx-auto pt-3" style="background-image: url('images/proyectos/{{ $project->mini_logo_picture }}')"></h3>
+                                    <h3 class="mb-0 w-75 mx-auto pt-3" style="background-image: url('images/proyectos/{{ $project->logo_picture }}')"></h3>
                                     <h4 class="mb-0 position-static">{{ $project->build_status === 'CONSTRUCCION' ? 'EN DESARROLLO' : $project->build_status }}</h4>
                                 </div>
                             @if ($project->url_slug != '')
@@ -83,84 +83,32 @@
                         <div class="row splide splide-testimonios mt-5 mb-5">
                             <div class="splide__track">
                                 <ul class="splide__list">
+                                    @foreach ($testimonies as $testimony)
                                     <li class="splide__slide">
                                         <div class="testimonial">
                                             <div class="position-relative mb-4">
                                                 <div class="testimonial__content">
-                                                    <p class="text-center mb-0">Este saludo es para agradecerles por la venta de los departamentos en Emmel I y Emmel II, por la promesa de venta, precio justo, superficie perfecta, ubicación, comuna y tipo de propiedad. Yo radico muchos años en el extranjero y con el apoyo de uds. de ofrecerme buen servicio y cumplimiento logré mi objetivo. Cordialmente, Héctor del Carpio.</p>
+                                                    <p class="text-center mb-0">{{ $testimony->testimony }}</p>
                                                 </div>
                                                 <i></i>
                                             </div>
                                             <div class="testimonial__footer d-flex">
                                                 <div class="testimonial__footer-image me-4">
-                                                    <img src="{{ asset('images/testimonios/Captura_testimonio_01.jpeg') }}" alt="Testimonio 1" class="img-fluid rounded-pill">
+                                                    <img src="{{ asset('images/testimonios/' . $testimony->avatar) }}" alt="Testimonio {{ $loop->index }}" class="img-fluid rounded-pill">
                                                 </div>
                                                 <div class="testimonial__footer-cite align-self-center">
-                                                    <h6 class="fw-bold mb-1">Héctor del carpio</h6>
-                                                    <p class="mb-0 small">Propietario | Residencial Emmel y Emmel II</p>
+                                                    <h6 class="fw-bold mb-1">{{ $testimony->name }}</h6>
+                                                    <p class="mb-0 small">Propietario | {{ $testimony->aparment_name }}</p>
                                                     <ul class="list-unstyled d-flex">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
+                                                        @for ($i = 0; $i < $testimony->stars; $i++)
+                                                            <li><i class="fas fa-star"></i></li>
+                                                        @endfor
                                                     </ul>
                                                 </div>
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="splide__slide">
-                                        <div class="testimonial">
-                                            <div class="position-relative mb-4">
-                                                <div class="testimonial__content">
-                                                    <p class="text-center mb-0">El departamento es muy bonito, cuenta con mucha iluminación natural y una vista espectacular, además de tener muy buena ubicación.</p>
-                                                </div>
-                                                <i></i>
-                                            </div>
-                                            <div class="testimonial__footer d-flex">
-                                                <div class="testimonial__footer-image me-4">
-                                                    <img src="{{ asset('images/testimonios/avatar_mujer.png') }}" alt="Testimonio 1" class="img-fluid rounded-pill">
-                                                </div>
-                                                <div class="testimonial__footer-cite align-self-center">
-                                                    <h6 class="fw-bold mb-1">Saturnina Quispe</h6>
-                                                    <p class="mb-0 small">Propietaria | Residencial Emmel II</p>
-                                                    <ul class="list-unstyled d-flex">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="splide__slide">
-                                        <div class="testimonial">
-                                            <div class="position-relative mb-4">
-                                                <div class="testimonial__content">
-                                                    <p class="text-center mb-0">Me gusta mucho el diseño de la casa, los acabados son elegantes y de primera calidad. Alferza tiene un equipo de trabajo muy proactivo y capacitado.</p>
-                                                </div>
-                                                <i></i>
-                                            </div>
-                                            <div class="testimonial__footer d-flex">
-                                                <div class="testimonial__footer-image me-4">
-                                                    <img src="{{ asset('images/testimonios/avatar_hombre.png') }}" alt="Testimonio 1" class="img-fluid rounded-pill">
-                                                </div>
-                                                <div class="testimonial__footer-cite align-self-center">
-                                                    <h6 class="fw-bold mb-1">Franco Jiménez</h6>
-                                                    <p class="mb-0 small">Propietario | Residencial Aurora</p>
-                                                    <ul class="list-unstyled d-flex">
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                        <li><i class="fas fa-star"></i></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -178,7 +126,7 @@
                         <img src="{{ asset('images/socios/aceros-arequipa-logo.png') }}" alt="Aceros Arequipa logo" class="img-fluid">
                     </li>
                     <li class="splide__slide">
-                        <img src="{{ asset('images/socios/decor-center-logo.png') }}" alt="Decor center logo" class="img-fluid">
+                        <img src="{{ asset('images/socios/bticino.png') }}" alt="Bticino logo" class="img-fluid">
                     </li>
                     <li class="splide__slide">
                         <img src="{{ asset('images/socios/schindler-logo.png') }}" alt="Schindler logo" class="img-fluid">

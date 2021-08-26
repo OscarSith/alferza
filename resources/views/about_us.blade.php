@@ -11,7 +11,7 @@
             <img src="images/logo-alferza.png" alt="Logo Alferza" class="img-fluid" style="height: 80px">
         </h1>
         <div class="col-xl-9 mx-auto about-content__first-lead">
-            <div class="row">
+            <section class="row">
                 <div class="col-12 col-md-7">
                     <p class="pe-0 pe-md-3 pe-xl-5 first-p">Somos una empresa arequipeña de los sectores construcción e inmobiliario, nos caracterizamos por la innovación en el planteamiento de nuestros proyectos. En menos de una década nos hemos posicionado en la ciudad de Arequipa con Proyectos de calidad y de fácil acceso para la población. Somos una empresa con el dinamismo y agilidad para adaptarse a las necesidades del cliente y las características del mercado.</p>
                 </div>
@@ -22,9 +22,9 @@
                     <p class="first-p mt-3">Fundada por Luis Delgado A., se da inicio a nuestra trayectoria en el negocio inmobiliario de la ciudad de Arequipa. Empezamos con edificios multifamiliares de 9 unidades, y año tras año hemos ido creciendo y ejecutando proyectos cada vez más grandes.</p>
                 </div>
                 <div class="col-12 col-md-10 col-xl-8 mx-auto text-center mt-5 mb-5">
-                    <p class="mb-1 exp">Con 10 años de experiencia especializada,</p>
+                    <p class="mb-1 exp">Con 10 años de experiencia,</p>
                     <p class="mb-1 new-generation">SOMOS UNA INMOBILIARIA DE NUEVA GENERACIÓN,</p>
-                    <p class="proy">especialidad en proyectos multifamiliares</p>
+                    <p class="proy">especializada en proyectos multifamiliares</p>
                 </div>
                 <div class="col-12 col-md-7">
                     <h6>MISIÓN</h6>
@@ -34,34 +34,42 @@
                     <h6 class="text-md-end">VISIÓN</h6>
                     <p class="second-p">Consolidarnos como una empresa con altos estándares de calidad arquitectónica, promoviendo el crecimiento y desarrollo de Arequipa.</p>
                 </div>
-            </div>
-            <section class="row justify-content-around mt-5 politica-integrada">
-                <hr>
-                <div class="col-12">
-                    <div class="col-12 mb-5 mt-4">
-                        <h2 class="text-center fw-bold">STAFF</h2>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-7 mb-3">
-                            <img src="{{ asset('images/imagen_mujeres.jpeg') }}" alt="Imagen varios" class="img-fluid">
-                        </div>
-                        <div class="col-md-5 mb-3">
-                            <img src="{{ asset('images/imagen_mujer_02.jpeg') }}" alt="Imagen mujer 2" class="img-fluid">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <img src="{{ asset('images/imagen_varios_02.jpeg') }}" alt="Imagen varios 2" class="img-fluid">
-                        </div>
-                        <div class="col-md-6 mb-3">
-                            <img src="{{ asset('images/imagen_mujer_3.jpeg') }}" alt="Imagen mujer 3" class="img-fluid">
-                        </div>
-                    </div>
-                </div>
-                <div class="col-12 mt-5 text-center">
-                    <a href="{{ env('URL_BROCHURE') }}" target="_blank" class="btn btn-secondary alferza-btn">
-                        BROCHURE
-                    </a>
-                </div>
             </section>
+            <hr class="mb-5 mt-5">
+            <div class="accordion accordion-flush" id="accordionPoliticaIntegrada">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="btn-secondary alferza-btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                        <span class="mostrar">Mostrar</span> <span class="ocultar">Ocultar</span> política integrada
+                    </button>
+                  </h2>
+                  <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionPoliticaIntegrada">
+                    <div class="accordion-body">
+                        <section class="row justify-content-around mt-3 politica-integrada">
+                            <div class="col-12">
+                                <h2 class="text-center fw-bold mb-5">Política Integrada</h2>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h6>ALFERZA</h6>
+                                <p class="pe-3 pe-xl-5 first-p">
+                                    Empresa que desarrolla proyectos inmobiliarios brindando trabajos de diseño de proyectos, construcción de edificaciones en general, gestión inmobiliaria y venta de proyectos, asume la responsabilidad en desarrollar sus actividades de acuerdo a su sistema integrado de gestión, compuesto por los sistemas de gestión de la calidad, medio ambiente, seguridad y salud en el trabajo basados en normas ISO, con el fin de lograr la plena satisfacción de nuestras partes interesadas.
+                                </p>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <h6 class="text-md-end">NOS COMPROMETEMOS A:</h6>
+                                <ul class="list-unstyled second-p fs-6">
+                                    <li class="mb-2 small">– Satisfacer las necesidades y expectativas de nuestros clientes cumpliendo sus requisitos y otros no especificados, pero necesarios para su ejecución.</li>
+                                    <li class="mb-2 small">– Cumplir con la normativa legal vigente relacionada con los esquemas de calidad, medio ambiente, seguridad y salud en el trabajo, y aquellas que la empresa vea por conveniente.</li>
+                                    <li class="mb-2 small">– Mantener y promover la mejora continua de nuestro sistema integrado de gestión. Proporcionar las condiciones de trabajo seguras y saludables para la prevención de lesiones y deterioro de la salud, así como, eliminar los peligros, reducir los riesgos y aprovechar las oportunidades.</li>
+                                    <li class="mb-2 small">– Promover la consulta y participación de los trabajadores con respecto al sistema integrado de gestión, así como, la de sus representantes.</li>
+                                    <li class="mb-2 small">– Proteger el medio ambiente y prevenir la contaminación ambiental.</li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                  </div>
+                </div>
+            </div>
             <hr class="mb-5 mt-5">
             <section class="row justify-content-around mt-5 staff">
                 <div class="col-lg-5">
@@ -105,6 +113,33 @@
                         </span>
                         <span class="fs-4 fw-light">46,618.00</span>
                     </span>
+                </div>
+            </section>
+            <hr class="mb-5 mt-5">
+            <section class="row justify-content-around mt-5 politica-integrada">
+                <div class="col-12">
+                    <div class="col-12 mb-5 mt-4">
+                        <h2 class="text-center fw-bold">STAFF</h2>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-7 mb-3">
+                            <img src="{{ asset('images/nosotros_1.jpg') }}" alt="Imagen varios" class="img-fluid">
+                        </div>
+                        <div class="col-md-5 mb-3">
+                            <img src="{{ asset('images/imagen_mujer_3.jpeg') }}" alt="Imagen mujer 2" class="img-fluid">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <img src="{{ asset('images/imagen_mujer_02.jpeg') }}" alt="Imagen varios 2" class="img-fluid">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <img src="{{ asset('images/nosotros_2.jpg') }}" alt="Imagen mujer 3" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 mt-5 text-center">
+                    <a href="{{ env('URL_BROCHURE') }}" target="_blank" class="btn btn-secondary alferza-btn">
+                        BROCHURE
+                    </a>
                 </div>
             </section>
         </div>

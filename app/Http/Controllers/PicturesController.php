@@ -3,18 +3,35 @@
 namespace App\Http\Controllers;
 
 use App\Pictures;
+use App\Project;
+use App\Repositories\PicturesRepo;
+use App\Repositories\ProjectRepo;
 use Illuminate\Http\Request;
 
 class PicturesController extends Controller
 {
+    private $picturesRepo;
+
+    public function __construct(PicturesRepo $repo)
+    {
+        $this->picturesRepo = $repo;
+    }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $pictures = $this->picturesRepo->listByProjectId($id, ['id', 'picture']);
+        $projects = (new ProjectRepo(new Project()))->listAll(['id', 'name']);
+
+        return view('admin.pictures', [
+            'pictures' => $pictures,
+            'projects' => $projects,
+            'current_project_id' => $id
+        ]);
     }
 
     /**
@@ -35,7 +52,8 @@ class PicturesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->picturesRepo->store($request->input('project_id'), $request->file('picture'));
+        return redirect()->back()->with('info', 'Imagen agregada exitosamente');
     }
 
     /**
@@ -80,6 +98,7 @@ class PicturesController extends Controller
      */
     public function destroy(Pictures $pictures)
     {
-        //
+        $this->picturesRepo->deleteFile($pictures);
+        return redirect()->back()->with('info', 'Imagen eliminada');
     }
 }

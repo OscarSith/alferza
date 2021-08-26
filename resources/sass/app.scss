@@ -455,6 +455,26 @@ main {
             }
         }
     }
+
+    #accordionPoliticaIntegrada {
+        button{
+            &.collapsed {
+                .ocultar {
+                    display: none;
+                }
+                .mostrar {
+                    display: inline-block;
+                }
+            }
+
+            .ocultar {
+                display: inline-block;
+            }
+            .mostrar {
+                display: none;
+            }
+        }
+    }
 }
 
 .work-us {
@@ -559,8 +579,8 @@ main {
             p {
                 color: #555;
                 text-align: justify;
-                font-size: 0.8em;
-                line-height: 1.4em;
+                font-size: 0.78em;
+                line-height: 1.3em;
             }
         }
     }
@@ -1060,7 +1080,7 @@ main {
     background-color: $blue2;
     color: $white;
     border-color: transparent;
-    font: 1.1em montserratmedium;
+    font: 1.1rem montserratmedium;
     border-radius: 2px;
     white-space: nowrap;
 
@@ -1492,4 +1512,8 @@ a {
             height: auto;
         }
     }
+}
+
+.ql-editor p, .ql-editor ol, .ql-editor ul, .ql-editor pre, .ql-editor blockquote, .ql-editor h1, .ql-editor h2, .ql-editor h3, .ql-editor h4, .ql-editor h5, .ql-editor h6 {
+    margin-bottom: 1rem;
 }

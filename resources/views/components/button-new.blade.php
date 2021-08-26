@@ -1,0 +1,1 @@
+<a href="{{ $url }}" {{ $attributes->merge(['class' => 'btn btn-primary']) }} {{ $url == '#' ? 'data-bs-toggle=modal data-bs-target=#staticBackdrop' : '' }}>{{ $text }} <i class="fas fa-plus"></i></a>

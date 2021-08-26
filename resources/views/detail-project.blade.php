@@ -40,7 +40,7 @@
                                 <div class="pt-3 pb-1 pe-2 pe-md-0 d-flex justify-content-end">
                                     <img src="{{ asset('images/proyectos/icono_departamentos.jpg') }}" alt="Icono Proyectos" class="me-3" style="height: 34px">
                                     <div class="apartment-detail">
-                                        {!! $project->aparments_detail !!}
+                                        {!! $project->apartments_detail !!}
                                     </div>
                                 </div>
                             </div>
@@ -192,7 +192,7 @@
                                 </div>
                                 <div class="col-12 col-md-4 d-flex flex-column justify-content-around justify-content-lg-around pt-4 ps-4">
                                     {{-- <button type="button" class="btn btn-sm alferza-btn type-2">Ver avanze de obra</button> --}}
-                                    <a href="{{ asset('images/proyectos/brochures/' . $project->brochure) }}" target="_blank" class="btn btn-sm alferza-btn type-2 mt-4 mb-4 mt-md-0 mb-md-0">Descargar brochure</a>
+                                    <a href="{{ asset('brochures/' . $project->brochure) }}" target="_blank" class="btn btn-sm alferza-btn type-2 mt-4 mb-4 mt-md-0 mb-md-0">Descargar brochure</a>
                                     <a href="{{ route('contacto') }}" class="btn btn-sm alferza-btn type-2">Pedir cotización</a>
                                 </div>
                             </div>
@@ -204,7 +204,7 @@
                             <div class="row">
                                 <div class="col-md-4 d-flex flex-column justify-content-center order-md-1 mt-3 mb-3 mb-md-0 mt-md-0">
                                     @if ($project->brochure)
-                                        <a href="{{ asset('images/proyectos/brochures/' . $project->brochure) }}" target="_blank" class="btn btn-sm alferza-btn type-1">Descargar brochure</a>
+                                        <a href="{{ asset('brochures/' . $project->brochure) }}" target="_blank" class="btn btn-sm alferza-btn type-1">Descargar brochure</a>
                                     @endif
                                 </div>
                                 <div class="col-md-4 d-flex align-items-center justify-content-center order-first order-md-2">
