@@ -15,12 +15,12 @@ class PicturesRepo extends Pictures
 
     public function listByProjectId(int $id, $fields)
     {
-        return $this->picture->where('project_id', $id)->get($fields);
+        return $this->picture->where('project_id', $id)->latest()->get($fields);
     }
 
     public function store($projectId, $file)
     {
-        $pictureName = '_' . $file->getClientOriginalName();
+        $pictureName = \Str::slug($file->getClientOriginalName());
         $file->move($this->url_relative_gallery, $pictureName);
 
         $picture = new Pictures([

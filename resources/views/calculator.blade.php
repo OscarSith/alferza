@@ -4,10 +4,10 @@
 
 @section('body')
 <div class="calculator">
-    <img src="{{ asset('images/banner_simulador_credito.jpg') }}" alt="Banner simulador de credito hipoteario" class="d-block w-100">
+    <img src="{{ asset('images/' . $page->banner) }}" alt="Banner Principal simulador de credito hipoteario" class="d-block w-100">
     @include('partials.whatsapp')
     <div class="container-md">
-        <h1 class="text-center main-title mb-4 pt-5">CALCULA TU CRÉDITO <span>HIPOTECARIO</span></h1>
+        <h1 class="text-center main-title mb-4 pt-5">{{ $page->title }} <span>{{ $page->title_2 }}</span></h1>
         <div class="col-xl-7 mx-auto">
             <div class="accordion pb-5" id="accordionForm">
                 <div class="accordion-item">

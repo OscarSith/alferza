@@ -4,12 +4,12 @@
 
 @section('body')
 <div class="blog">
-    <img src="{{ asset('images/banner_blog.jpg') }}" alt="Imagen Página Blog" class="d-block w-100">
+    <img src="{{ asset('images/' . $page->banner) }}" alt="Banner Principal Blog" class="d-block w-100">
     @include('partials.whatsapp')
     <div class="container pt-5">
         <div class="row">
             <div class="col-xl-10 mx-auto mb-5">
-                <h1 class="text-center main-title mb-5">ALFERZA BLOG</h1>
+                <h1 class="text-center main-title mb-5">{{ $page->title }} <span>{{ $page->title_2 }}</span></h1>
                 <div class="row">
                     @foreach ($blogs as $blog)
                         <div class="col-md-6 mb-4">

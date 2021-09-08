@@ -14,6 +14,7 @@ use App\Mail\SendLibroReclamacion;
 use App\Pictures;
 use App\Project;
 use App\Repositories\ConsultantRepo;
+use App\Repositories\PageRepo;
 use App\Repositories\TestimonyRepo;
 use App\SimuladorHipotecario;
 use App\Testimonio;
@@ -26,10 +27,11 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class WelcomeController extends Controller
 {
-    // private $projects = [];
+    private $pageRepo;
 
-    public function __construct()
+    public function __construct(PageRepo $repo)
     {
+        $this->pageRepo = $repo;
     }
 
     public function index() {
@@ -57,7 +59,8 @@ class WelcomeController extends Controller
 
     public function aboutUs()
     {
-        return view('about_us');
+        $page = $this->pageRepo->getByPage('NOSOTROS');
+        return view('about_us', ['page' => $page]);
     }
 
     public function projects($status = '')
@@ -97,7 +100,8 @@ class WelcomeController extends Controller
 
     public function workUs()
     {
-        return view('work_with_us');
+        $page = $this->pageRepo->getByPage('TRABAJA CON NOSOTROS');
+        return view('work_with_us', ['page' => $page]);
     }
 
     public function sendCV(WorkWithUsPost $req)
@@ -108,6 +112,7 @@ class WelcomeController extends Controller
 
     public function consultants()
     {
+        $page = $this->pageRepo->getByPage('ASESORES');
         return view('consultants', [
             'consultants' => (new ConsultantRepo(new Consultant()))->listAll([
                 'name',
@@ -116,7 +121,8 @@ class WelcomeController extends Controller
                 'cellphone',
                 'bio',
                 'picture',
-            ])
+            ]),
+            'page' => $page
         ]);
     }
 
@@ -144,12 +150,15 @@ class WelcomeController extends Controller
             $m = ($deuda * $interes * pow(1 + $interes, $anos * 12)) / (pow(1 + $interes, $anos * 12) - 1);
         }
 
-        return view('calculator', compact('valor', 'cuotaInicial', 'deuda', 'anos', 'interes', 'tcea', 'm'));
+        $page = $this->pageRepo->getByPage('CALCULADORA');
+
+        return view('calculator', compact('valor', 'cuotaInicial', 'deuda', 'anos', 'interes', 'tcea', 'm', 'page'));
     }
 
     public function invierte()
     {
-        return view('invierte');
+        $page = $this->pageRepo->getByPage('INVIERTE');
+        return view('invierte', ['page' => $page]);
     }
 
     public function sendInvierte(FormInviertePost $req)
@@ -176,8 +185,9 @@ class WelcomeController extends Controller
     public function blog()
     {
         $blogs = Blog::latest()->paginate(10, ['id', 'title', 'picture', 'url_slug']);
+        $page = $this->pageRepo->getByPage('BLOG');
 
-        return view('blog', ['blogs' => $blogs]);
+        return view('blog', ['blogs' => $blogs, 'page' => $page]);
     }
 
     public function blogDetail(Blog $blog)
@@ -193,7 +203,8 @@ class WelcomeController extends Controller
     public function contacto()
     {
         $projects = Project::where('vendidas', '0')->get(['id', 'name']);
-        return view('contacto', ['projects' => $projects]);
+        $page = $this->pageRepo->getByPage('CONTACTO');
+        return view('contacto', ['projects' => $projects, 'page' => $page]);
     }
 
     public function sendContact(FormContactPost $req)

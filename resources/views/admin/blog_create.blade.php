@@ -35,7 +35,7 @@
                             <label for="picture" class="form-label">Imagen principal</label>
                             <input class="form-control" type="file" id="picture" name="picture">
                         </div>
-                        <button type="submit" id="prueba" class="btn btn-primary">Crear</button>
+                        <button type="submit" id="prueba" class="btn btn-primary">Crear mas</button>
                     </form>
                 </div>
             </div>
@@ -46,37 +46,13 @@
 
 @section('script')
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="{{ asset('js/quill.imageUploader.min.js') }}"></script>
 <script>
-    var toolbarOptions = [
-        [{ 'size': ['small', false, 'large', 'huge'] }],  // custom dropdown
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-
-        ['bold', 'italic', 'underline', 'strike'],        // toggled buttons
-        ['blockquote', 'link'],
-        [{ 'align': [] }],
-
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-        [{ 'script': 'sub'}, { 'script': 'super' }],      // superscript/subscript
-        [{ 'indent': '-1'}, { 'indent': '+1' }],          // outdent/indent
-
-        [{ 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-
-        ['clean']                                         // remove formatting button
-    ];
-
-    var quill = new Quill('#editor', {
-        modules: {
-            toolbar: toolbarOptions
-        },
-        theme: 'snow'
-    });
-
+    const urlUpload = "{{ route('uploadImage') }}";
+    const urlDeleteUpload = "{{ route('deleteUploadImage') }}";
+</script>
+<script src="{{ asset('js/admin.js') }}"></script>
+<script>
     quill.setContents({!! old('info_quill', '[]') !!}, 'user');
-
-    var form = document.getElementById('formBlog');
-    form.onsubmit = function(e) {
-        document.getElementById('info').value = quill.root.innerHTML;
-        document.getElementById('info_quill').value = JSON.stringify(quill.getContents());
-    }
-  </script>
+</script>
 @endsection

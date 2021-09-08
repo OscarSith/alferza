@@ -4,25 +4,25 @@
 
 @section('body')
 <div class="invierte">
-    <img src="{{ asset('images/banner_proyectos.jpg') }}" alt="Imagen Proyectos Alferza" class="d-block w-100">
+    <img src="{{ asset('images/' . $page->banner) }}" alt="Banner Principal Invierte" class="d-block w-100">
     @include('partials.whatsapp')
     <div class="container" id="form-invierte">
         <h1 class="text-center main-title pt-1 mb-5">
-            INVIERTE EN EL RUBRO <span>INMOBILIARIO</span>
+            {{ $page->title }} <span>{{ $page->title_2 }}</span>
         </h2>
         <div class="col-xxl-10 mx-auto pb-5">
             <div class="row">
                 <div class="col-12 col-lg-6 d-flex flex-column">
                     <div class="position-relative">
-                        <img src="{{ asset('images/invierte.jpeg') }}" alt="Invierte" class="img-fluid">
+                        <img src="{{ asset('images/' . $page->picture) }}" alt="Invierte" class="img-fluid">
                         <div class="position-absolute invierte-caption rounded">
-                            <p class="mb-0 p-3 fs-xl-4 fs-5">El mercado inmobiliario peruano mueve actualmente más de 4.5 mil millones de soles al año.</p>
+                            <p class="mb-0 p-3 fs-xl-4 fs-5">{!! nl2br($page->small_text) !!}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-6 mt-5 mt-xl-0 invierte-ganancias">
                     <h5 class="mb-4">¿QUIERES MULTIPLICAR TUS GANANCIAS?</h5>
-                    <p>Te invitamos a ser parte de nuestros asociados, ya sea con CAPITAL, TERRENOS O INMUEBLES. Con 10 años de experiencia, estamos en la constante búsqueda de inversionistas para desarrollar proyectos inmobiliarios. Te ofrecemos incrementar tu patrimonio con una rentabilidad superior a la del mercado financiero. ¡Déjanos tus datos!, tenemos varias alternativas de inversión. </p>
+                    <p>{!! nl2br($page->main_text) !!}</p>
                     @include('partials.errors_form_messages')
                     <form action="{{ route('sendInvierte') }}" method="POST" class="mt-4 alferza-form" id="form-invierte" novalidate>
                         {{ csrf_field() }}

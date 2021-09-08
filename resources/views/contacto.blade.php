@@ -4,11 +4,11 @@
 
 @section('body')
 <div class="contacto">
-    <img src="images/contacto-silder.jpg" alt="Imagen Trabaja con nosotros" class="d-block w-100">
+    <img src="{{ asset('images/' . $page->banner) }}" alt="Banner Principal Contacto" class="d-block w-100">
     @include('partials.whatsapp')
     <div class="container pt-5" id="contact">
         <div class="col-xxl-10 mx-auto">
-            <h1 class="text-center main-title mb-5">NUESTROS ASESORES SE <br class="d-none d-md-inline-block">COMUNICARÁN CONTIGO DE INMEDIATO</h1>
+            <h1 class="text-center main-title mb-5">{{ $page->title }} <br class="d-none d-md-inline-block"><span>{{ $page->title_2 }}</span></h1>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="p-2 p-lg-5 contacto-info">

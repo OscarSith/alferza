@@ -1,6 +1,6 @@
 @extends('layouts.masterpage')
 
-@section('title', 'Inicio')
+@section('title', 'Libro de reclamaciones')
 
 @section('body')
 <div class="politicas-privacidad">

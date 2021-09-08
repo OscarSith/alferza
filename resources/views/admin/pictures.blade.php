@@ -61,8 +61,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <input type="file" class="form-control" id="picture" name="picture">
-                <div class="form-text small">Recomendado 580 x 480 pixeles</div>
+                <div class="alert alert-warning">Para una buena performance de las imagenes, estas no deben pesar mas de 600kb</div>
+                <input type="file" class="form-control" id="picture" name="picture" required>
+                <div class="form-text small">* Recomendado 900 x 780 pixeles</div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>

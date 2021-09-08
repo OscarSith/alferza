@@ -4,16 +4,13 @@
 
 @section('body')
 <div class="work-us">
-    <img src="images/banner_trabaja_con_nosotros.jpg" alt="Imagen Trabaja con nosotros" class="d-block w-100">
+    <img src="images/{{ $page->banner }}" alt="Imagen Trabaja con nosotros" class="d-block w-100">
     @include('partials.whatsapp')
     <div>
         <div class="container">
             <div class="col-lg-7 mx-auto">
-                <h2 class="text-center main-title">¡TÚ PONES EL TALENTO, <br> <span>NOSOTROS LA OPORTUNIDAD</span>!</h2>
-                <p>Te invitamos a que te registres para formar parte de nuestro equipo, con nosotros tendrás la oportunidad de realizarte como profesional y lo que es aún más importante como persona.
-                    <br>
-                    ¡Gracias por tu interés!
-                </p>
+                <h2 class="text-center main-title">{{ $page->title }} <br> <span>{{ $page->title_2 }}</span></h2>
+                <p>{!! nl2br($page->main_text) !!}</p>
             </div>
             <div class="col-md-10 mx-auto">
                 <div class="row">

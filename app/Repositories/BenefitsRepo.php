@@ -2,12 +2,10 @@
 namespace App\Repositories;
 
 use App\Benefit;
-use Illuminate\Support\Facades\File;
 
 class BenefitsRepo extends Benefit
 {
     private $benefit;
-    private $url_relative_gallery = 'images/proyectos/planos/';
 
     public function __construct(Benefit $benefit) {
         $this->benefit = $benefit;

@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Page;
+use App\Repositories\PageRepo;
+use Illuminate\Http\Request;
+
 // use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -20,8 +24,13 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.home');
+        $pageRepo = new PageRepo(new Page());
+        $pages = $pageRepo->getAll(['id', 'page']);
+        $pageSelected = $request->input('page', 'NOSOTROS');
+        $page = $pageRepo->getByPage($pageSelected);
+
+        return view('admin.home', ['pages' => $pages, 'page' => $page, 'pageSelected' => $pageSelected]);
     }
 }

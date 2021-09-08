@@ -54,18 +54,41 @@ class BlogController extends Controller
         $blog->fill($data);
         $blog->save();
 
-        return redirect()->route('home');
+        return redirect()->route('blogsIndex');
     }
 
     /**
-     * Display the specified resource.
+     * Upload an image.
      *
-     * @param  int  $id
+     * @param  Response  $req
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function uploadImage(Request $req)
     {
-        //
+        $image = $req->file("image");
+        $imageName = \Str::random(15) . '.' . $image->getClientOriginalExtension();
+
+        $image->move('images/blog/', $imageName);
+
+        session()->regenerate();
+        return response()->json(["data" => [
+                "url" => asset('images/blog/' . $imageName)
+            ]
+        ]);
+    }
+
+    /**
+     * Delete a upload image
+     *
+     * @param  Response  $req
+     * @return \Illuminate\Http\Response
+     */
+    public function deleteUploadImage(Request $req)
+    {
+        $image = $req->input("image");
+        File::delete(public_path('images/blog/') . $image);
+
+        return response()->json(["data" => ["url" => $image]]);
     }
 
     /**

@@ -11,3 +11,10 @@ body {
 .medium-height {
     min-height: 150px;
 }
+.text-justify {
+    text-align: justify;
+}
+form .form-label {
+    color: $mustard2;
+    font-weight: bold;
+}

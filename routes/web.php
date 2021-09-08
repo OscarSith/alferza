@@ -46,12 +46,16 @@ Auth::routes();
 Route::middleware('auth')->prefix('admin')->group(function($route) {
     $route->get('/', 'HomeController@index')->name('home');
 
+    $route->put('page/{page}/update', 'PageController@update')->name('pageUpdate');
+
     // Blogs
     $route->get('blogs', 'BlogController@index')->name('blogsIndex');
     $route->get('blog', 'BlogController@create')->name('blogCreate');
     $route->get('{blog}/blog', 'BlogController@edit')->name('blogEdit');
     $route->put('blog/{id}/update', 'BlogController@update')->name('blogUpdate');
     $route->post('blog', 'BlogController@store')->name('blogStore');
+    $route->post('blog/upload/picture', 'BlogController@uploadImage')->name('uploadImage');
+    $route->post('blog/upload/picture/delete', 'BlogController@deleteUploadImage')->name('deleteUploadImage');
 
     // Testimonios
     $route->get('testimonios', 'TestimonioController@index')->name('testimonioIndex');
