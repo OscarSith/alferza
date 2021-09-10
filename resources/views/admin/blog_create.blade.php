@@ -35,7 +35,7 @@
                             <label for="picture" class="form-label">Imagen principal</label>
                             <input class="form-control" type="file" id="picture" name="picture">
                         </div>
-                        <button type="submit" id="prueba" class="btn btn-primary">Crear mas</button>
+                        <button type="submit" id="prueba" class="btn btn-primary">Agregar</button>
                     </form>
                 </div>
             </div>

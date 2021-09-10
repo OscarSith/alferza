@@ -16,8 +16,15 @@ class BenefitsRepo extends Benefit
         return $this->benefit->where('project_id', $id)->get($fields);
     }
 
-    public function store($data)
+    public function store($data, $picture)
     {
+        if ($picture) {
+            $pictureName = $picture->getClientOriginalName();
+            $picture->move('images/proyectos/', $pictureName);
+
+            $data['picture'] = $pictureName;
+        }
+
         $benefit = new Benefit($data);
 
         return $benefit->save();

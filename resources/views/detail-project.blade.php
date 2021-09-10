@@ -92,19 +92,23 @@
                     <div class="d-flex justify-content-between align-items-center benefits flex-wrap">
                         @foreach ($project->benefits as $benefit)
                             <div class="benefits-block mb-4 mb-md-0">
-                                @if ($benefit->icon2 != null)
-                                <span class="fa-stack">
-                                    <i class="{{ $benefit->icon }} fa-stack-2x"></i>
-                                    <i class="{{ $benefit->icon2 }} fa-stack-1x {{ $benefit->icon_rotate }}"
-                                        @if (Str::lower($benefit->name) === 'ascensores' || Str::lower($benefit->name) === 'zona de lavado de mascotas')
-                                            style='margin-top: 6px'
-                                        @endif
-                                        ></i>
-                                </span>
+                                @if ($benefit->picture)
+                                    <img src="{{ asset('images/proyectos/' . $benefit->picture) }}" alt="Icono {{ $benefit->name }}" class="img-fluid" style="max-height: 90px">
                                 @else
-                                    <i class="{{ $benefit->icon }} fa-2x fa-fw"></i>
+                                    @if ($benefit->icon2 != null)
+                                    <span class="fa-stack">
+                                        <i class="{{ $benefit->icon }} fa-stack-2x"></i>
+                                        <i class="{{ $benefit->icon2 }} fa-stack-1x {{ $benefit->icon_rotate }}"
+                                            @if (Str::lower($benefit->name) === 'ascensores' || Str::lower($benefit->name) === 'zona de lavado de mascotas')
+                                                style='margin-top: 6px'
+                                            @endif
+                                            ></i>
+                                    </span>
+                                    @else
+                                        <i class="{{ $benefit->icon }} fa-2x fa-fw"></i>
+                                    @endif
+                                    <span class="d-block mt-auto benefits-title">{{ $benefit->name }}</span>
                                 @endif
-                                <span class="d-block mt-auto benefits-title">{{ $benefit->name }}</span>
                             </div>
                         @endforeach
                         {{-- <div class="benefits-block mb-4 mb-md-0">

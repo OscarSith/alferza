@@ -12,5 +12,6 @@ class Benefit extends Model
         'icon2',
         'icon_rotate',
         'project_id',
+        'picture',
     ];
 }

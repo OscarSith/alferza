@@ -25,7 +25,6 @@ class BenefitRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'icon' => 'required',
         ];
     }
 }

@@ -6,7 +6,11 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Detalle del blog') }}</div>
+                <div class="card-header">
+                    <a href="{{ route('blogsIndex') }}" class="btn btn-sm btn-secondary">
+                        <i class="fas fa-level-up-alt fa-rotate-270 fa-lg fa-fw"></i> Volver al listado
+                    </a>
+                </div>
 
                 <div class="card-body">
                     @include('partials.single_messages')

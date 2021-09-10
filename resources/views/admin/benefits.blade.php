@@ -30,17 +30,21 @@
                         <div class="col-md-3 mb-3">
                             <div class="card">
                                 <div class="text-center pt-3">
-                                    @if ($benefit->icon2 != null)
-                                    <span class="fa-stack" style="font-size: 2rem">
-                                        <i class="{{ $benefit->icon }} fa-stack-2x"></i>
-                                        <i class="{{ $benefit->icon2 }} fa-stack-1x {{ $benefit->icon_rotate }}"
-                                            @if (Str::lower($benefit->name) === 'ascensores' || Str::lower($benefit->name) === 'zona de lavado de mascotas')
-                                            style='margin-top: 8px'
-                                        @endif
-                                        ></i>
-                                    </span>
+                                    @if ($benefit->picture)
+                                        <img src="{{ asset('images/proyectos/' . $benefit->picture) }}" alt="{{ $benefit->name }}" class="img-fluid">
                                     @else
-                                        <i class="{{ $benefit->icon }} fa-4x"></i>
+                                        @if ($benefit->icon2 != null)
+                                        <span class="fa-stack" style="font-size: 2rem">
+                                            <i class="{{ $benefit->icon }} fa-stack-2x"></i>
+                                            <i class="{{ $benefit->icon2 }} fa-stack-1x {{ $benefit->icon_rotate }}"
+                                                @if (Str::lower($benefit->name) === 'ascensores' || Str::lower($benefit->name) === 'zona de lavado de mascotas')
+                                                style='margin-top: 8px'
+                                            @endif
+                                            ></i>
+                                        </span>
+                                        @else
+                                            <i class="{{ $benefit->icon }} fa-4x"></i>
+                                        @endif
                                     @endif
                                 </div>
                                 <div class="card-body">
@@ -75,17 +79,27 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
                 <div class="modal-body">
-                    <p>Lista de iconos <a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free" target="_blank">fontawesome.io</a>, copiar solo la clase css que genera el icono, ejem: fab fa-apple</p>
-                    <div class="row">
-                        <div class="col">
+                    <div class="mb-3">
+                        <input type="file" name="picture" id="picture" class="form-control">
+                    </div>
+                    <p>Ó <a href="#" id="btn-link-add-icons">agregar iconos</a></p>
+                    <div class="row d-none" id="content-icons">
+                        <p>Lista de iconos <a href="https://fontawesome.com/v5.15/icons?d=gallery&p=2&m=free" target="_blank">fontawesome.io</a>, copiar solo la clase css que genera el icono, ejem: fab fa-apple</p>
+                        <div class="col-md-7">
                             <div class="mb-3">
-                                <label for="icon" class="label-form">Icono</label>
-                                <input type="text" class="form-control" id="icon" name="icon" placeholder="fab fa-apple">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label for="icon" class="label-form">Icono</label>
+                                        <input type="text" class="form-control" id="icon" name="icon" placeholder="fab fa-apple">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label for="icon2" class="label-form">Icono2</label>
+                                        <input type="text" class="form-control" id="icon2" name="icon2">
+                                    </div>
+                                </div>
                             </div>
                             <div class="mb-3">
-                                <label for="icon2" class="label-form">Icono2</label>
-                                <input type="text" class="form-control" id="icon2" name="icon2">
-                                <div class="form-text">* Agregando otro icono se comporta como en <a href="https://fontawesome.com/v5.15/how-to-use/on-the-web/styling/stacking-icons" target="_blank">este ejemplo</a>.</div>
+                                <div class="form-text">* Agregando "<strong>icono2</strong>" se comporta como en <a href="https://fontawesome.com/v5.15/how-to-use/on-the-web/styling/stacking-icons" target="_blank">este ejemplo</a>.</div>
                             </div>
                             <div class="mb-3">
                                 <label for="icon_rotate" class="label-form">Otros</label>
@@ -131,10 +145,16 @@
         formIndex.submit();
     }
 
+    let btn_open_content_icon = document.getElementById('btn-link-add-icons');
+    let icon_content = document.getElementById('content-icons');
     let icon_preview = document.getElementById('icon-preview');
     let icon1 = document.getElementById('icon');
     let icon2 = document.getElementById('icon2');
     let otros = document.getElementById('icon_rotate');
+
+    btn_open_content_icon.addEventListener('click', e => {
+        icon_content.classList.toggle('d-none');
+    });
 
     icon1.addEventListener('keyup', (e) => {
         icon_preview.innerHTML = `<i class="${e.target.value} fa-5x"></i>`;

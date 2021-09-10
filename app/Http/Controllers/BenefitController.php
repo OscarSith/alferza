@@ -31,6 +31,7 @@ class BenefitController extends Controller
             'icon',
             'icon2',
             'icon_rotate',
+            'picture',
         ]);
         $projects = (new ProjectRepo(new Project()))->listAll(['id', 'name']);
 
@@ -59,7 +60,7 @@ class BenefitController extends Controller
      */
     public function store(BenefitRequest $request)
     {
-        $this->benefitsRepo->store($request->all());
+        $this->benefitsRepo->store($request->all(), $request->file('picture'));
 
         return redirect()->back()->with('info', 'Beneficio agregado');
     }
